@@ -1,0 +1,354 @@
+{
+ "mode": "grow-roster",
+ "label": "openpoke-names",
+ "started_at": "2026-10-27T17:47:41.758140+00:00",
+ "duration_s": 2352.3,
+ "git": {
+  "rev": "98949d7",
+  "server_dirty": true
+ },
+ "models": {
+  "interaction_agent_model": "anthropic/claude-haiku-5.5",
+  "execution_agent_model": "anthropic/claude-haiku-5.5",
+  "execution_agent_search_model": "anthropic/claude-haiku-5.5",
+  "email_classifier_model": "anthropic/claude-haiku-5.5",
+  "summarizer_model": "anthropic/claude-haiku-5.5"
+ },
+ "args": {
+  "mode": "grow-roster",
+  "limit": 0,
+  "label": "openpoke-names"
+ },
+ "results": {
+  "names": {
+   "topics": 500,
+   "agents_created": 483,
+   "created_new": 483,
+   "reused_existing_at_creation": 14,
+   "no_agent": 3,
+   "reused_same_person": 12,
+   "reused_unrelated": 2,
+   "identical_to_generator": 75,
+   "mentions_person": {
+    "generator": 0.946,
+    "openpoke": 0.965
+   },
+   "mentions_company": {
+    "generator": 1.0,
+    "openpoke": 1.0
+   },
+   "mean_words": {
+    "generator": 4.3,
+    "openpoke": 5.2
+   },
+   "near_duplicate_pairs": {
+    "generator": 297,
+    "openpoke": 32
+   },
+   "near_duplicate_examples": [
+    [
+     "Reyes Moving Fleet Schedule Update",
+     "Tran Moving Fleet Schedule Update"
+    ],
+    [
+     "Tran Auto Body Fleet Schedule Update",
+     "Kim Auto Body Fleet Schedule Update"
+    ],
+    [
+     "Adriana Ellis Auto Claim 2025",
+     "Adriana Boateng Auto Claim 2025"
+    ],
+    [
+     "Mila Costa Home Renewal 2025",
+     "Graham Costa Home Renewal 2025"
+    ],
+    [
+     "Mila Costa Home Renewal 2025",
+     "Lucas Costa Home Renewal 2025"
+    ],
+    [
+     "Reyes Hardware Payroll Audit",
+     "Morin Hardware Payroll Audit"
+    ],
+    [
+     "Graham Costa Home Renewal 2025",
+     "Lucas Costa Home Renewal 2025"
+    ],
+    [
+     "Naveen Ivanova Home Renewal 2025",
+     "Naveen Rahman Home Renewal 2025"
+    ],
+    [
+     "Aisha Yamamoto Tenant Policy Quote",
+     "Aisha Hughes Tenant Policy Quote"
+    ],
+    [
+     "Yara Dimitrov Umbrella Policy Review",
+     "Yara Tremblay Umbrella Policy Review"
+    ],
+    [
+     "Carmen Garcia Architecture Fleet Schedule Update",
+     "Carmen Lefebvre Architecture Fleet Schedule Update"
+    ],
+    [
+     "Amir Zhang Umbrella Policy Review",
+     "Amir Osei Umbrella Policy Review"
+    ],
+    [
+     "Andre Fontaine Umbrella Policy Review",
+     "Deepa Fontaine Umbrella Policy Review"
+    ],
+    [
+     "Ana Bergeron Home Renewal 2025",
+     "Ana Novak Home Renewal 2025"
+    ],
+    [
+     "Emeka Vargas Umbrella Policy Review",
+     "Jin Vargas Umbrella Policy Review"
+    ]
+   ],
+   "case_or_punctuation_collisions": [],
+   "reused_examples": [
+    {
+     "request": "Can you put together my Weekly Inbox Digest so I can see what needs attention from the past week?",
+     "went_to": "Daily 8am Email Summary",
+     "generator_name": "Weekly Inbox Digest",
+     "same_person": false
+    },
+    {
+     "request": "Kenji Nakamura is hosting us at his Muskoka cottage the weekend of the 14th. Can you check drive times and put together a grocery list?",
+     "went_to": "Kenji Nakamura Cottage Weekend Packing and Forecast",
+     "generator_name": "Muskoka Cottage Weekend",
+     "same_person": true
+    },
+    {
+     "request": "I need help picking Mom's birthday gift with Jess Rivera before the 18th. Can you compare a few options?",
+     "went_to": "Mom Birthday Gift Ideas",
+     "generator_name": "Mom's Birthday Gift (August)",
+     "same_person": true
+    },
+    {
+     "request": "Can you map out Thanksgiving plans with Luis Rivera, including the drive from Toronto to his place in Hamilton?",
+     "went_to": "Thanksgiving Hosting vs Travel Options",
+     "generator_name": "Thanksgiving Plans",
+     "same_person": true
+    },
+    {
+     "request": "Can you check the Aurora Air booking for my Vancouver flight and make sure the confirmation details are saved to my calendar?",
+     "went_to": "Vancouver Conference Registration",
+     "generator_name": "Vancouver Trip",
+     "same_person": false
+    },
+    {
+     "request": "Jess Rivera's move is coming up and I'm on the hook for Saturday. Can you line up dollies and a few helpers?",
+     "went_to": "Jess Rivera Moving Day Truck and Crew",
+     "generator_name": "Help Jess Move (September)",
+     "same_person": true
+    },
+    {
+     "request": "After that three-day callback complaint, can you draft a split for the inbox between me and Kevin? Keep it simple so we can talk it through on Thursday.",
+     "went_to": "Kevin Client Inbox Split Proposal",
+     "generator_name": "Inbox Split with Kevin (September)",
+     "same_person": true
+    },
+    {
+     "request": "Can you find a squash court for Thursday evening and book it for me and Tomas Novak?",
+     "went_to": "Tomas Novak Squash Court Booking",
+     "generator_name": "Squash with Tomas",
+     "same_person": true
+    },
+    {
+     "request": "Alice wants the 'renewal strategy' field filled in on every renewal at 60 days out starting next month. Could you set that up and handle the entries going forward?",
+     "went_to": "Alice Renewal Strategy Field",
+     "generator_name": "CRM Renewal Fields (September)",
+     "same_person": true
+    },
+    {
+     "request": "Bob Martin's board game night is Saturday. Can you pick a few games and confirm the headcount?",
+     "went_to": "Game Night Suggestions",
+     "generator_name": "Board Game Night",
+     "same_person": true
+    },
+    {
+     "request": "Hey, HR signed off on my time off from the 22nd of December through January 2nd. Could you update the team calendar and flag any client coverage gaps?",
+     "went_to": "Northbay HR Holiday Calendar Block",
+     "generator_name": "Holiday Vacation (October)",
+     "same_person": true
+    },
+    {
+     "request": "Alice, the annual E&O attestation is due on the 15th. Can you take it on and complete the form in the shared drive?",
+     "went_to": "E&O Attestation Due 15th",
+     "generator_name": "E&O Attestation",
+     "same_person": true
+    },
+    {
+     "request": "Tomas Novak and I want Raptors tickets. Can you check prices for two seats in the lower bowl this Sunday?",
+     "went_to": "Raptors Tickets Tomas Novak",
+     "generator_name": "Raptors Tickets",
+     "same_person": true
+    },
+    {
+     "request": "Mei Tanaka confirmed the carrier recovered the Delgado auto deductible through subrogation. Can you draft the client update and confirm the reimbursement amount?",
+     "went_to": "Delgado Subrogation Deductible Reimbursement",
+     "generator_name": "Delgado Subrogation",
+     "same_person": true
+    }
+   ],
+   "no_agent_examples": [
+    {
+     "request": "Can you take care of Anjali Saleh's address update? She moved and we need her policy records changed to the new address.",
+     "reply": [
+      "Sure. What's Anjali's new address? And if you have the policy number, send that too so I can get the right record."
+     ]
+    },
+    {
+     "request": "Could you handle the address update for Chloe Bergeron? She's moved and needs her policies corrected.",
+     "reply": []
+    },
+    {
+     "request": "Rob, can you send me your new business and retention numbers for October by Friday? Rough is fine, I just need something to build the production report from.",
+     "reply": [
+      "I'm not Rob, so I don't have his October numbers. Did this one go to me by mistake? If you want, I can search your inbox for any October business or retention figures Rob already sent, or draft a note to him asking for them by Friday."
+     ]
+    }
+   ],
+   "sample": [
+    {
+     "generator": "Billing issue - Abena Adeyemi",
+     "openpoke": "Abena Adeyemi NSF Payment Follow-up"
+    },
+    {
+     "generator": "Naveen Rahman Home Renewal 2025",
+     "openpoke": "Naveen Rahman Home Renewal 2025"
+    },
+    {
+     "generator": "Inbox Split with Kevin (September)",
+     "openpoke": "Kevin Client Inbox Split Proposal"
+    },
+    {
+     "generator": "Chowdhury Bakery Fleet Schedule Update",
+     "openpoke": "Felix Chowdhury Bakery Fleet Schedule Update"
+    },
+    {
+     "generator": "Certificate for Maya Cardenas",
+     "openpoke": "Cardenas Bakery COI Regional Municipality of York"
+    },
+    {
+     "generator": "Billing issue - Rachel Vargas",
+     "openpoke": "Rachel Vargas NSF Payment Inquiry"
+    },
+    {
+     "generator": "COI Castillo Auto Body Inc.",
+     "openpoke": "Castillo Auto Body Bayview COI Request"
+    },
+    {
+     "generator": "Fontaine Brewing Co. Renewal BOP-621778",
+     "openpoke": "Yara Fontaine Northern Shield BOP Renewal"
+    },
+    {
+     "generator": "Felix Haddad Policy Renewal",
+     "openpoke": "Haddad Fitness Studio Pinnacle Renewal"
+    },
+    {
+     "generator": "Thanksgiving Plans",
+     "openpoke": "Thanksgiving Hosting vs Travel Options"
+    },
+    {
+     "generator": "Lionel Kim Address Change",
+     "openpoke": "Lionel Kim Address Change"
+    },
+    {
+     "generator": "Deepa Fontaine Umbrella Policy Review",
+     "openpoke": "Deepa Fontaine Umbrella Policy Review"
+    },
+    {
+     "generator": "Laila Haddad Umbrella Policy Review",
+     "openpoke": "Laila Haddad Umbrella Coverage Comparison"
+    },
+    {
+     "generator": "Carmen Evans Condo Insurance",
+     "openpoke": "Carmen Evans Condo Insurance Setup"
+    },
+    {
+     "generator": "Nora Singh Billing Check",
+     "openpoke": "Nora Singh NSF Payment Inquiry"
+    },
+    {
+     "generator": "Passport Renewal",
+     "openpoke": "Passport Renewal Requirements"
+    },
+    {
+     "generator": "Mona address change",
+     "openpoke": "Mona Ivanova Address Update"
+    },
+    {
+     "generator": "Mila Costa Home Renewal 2025",
+     "openpoke": "Mila Costa Home Renewal 2025"
+    },
+    {
+     "generator": "Tomas quote",
+     "openpoke": "Tomas Kowalski Tenant Policy Quote"
+    },
+    {
+     "generator": "Amir Zhang Umbrella Policy Review",
+     "openpoke": "Amir Zhang Umbrella Policy Review"
+    },
+    {
+     "generator": "Dubois Catering Payroll Audit",
+     "openpoke": "Ravi Dubois Catering Payroll Audit"
+    },
+    {
+     "generator": "Diego Zhang Condo Insurance",
+     "openpoke": "Diego Zhang Condo Insurance Comparison"
+    },
+    {
+     "generator": "Cardenas Fitness Studio Fleet Schedule Update",
+     "openpoke": "Cardenas Fitness Studio Fleet Schedule Update"
+    },
+    {
+     "generator": "Victor Morin Collision Claim",
+     "openpoke": "Victor Morin Collision Claim CLM-2652972"
+    },
+    {
+     "generator": "Chowdhury Fitness Studio Fleet Schedule Update",
+     "openpoke": "Chowdhury Fitness Studio Fleet Schedule Update"
+    },
+    {
+     "generator": "Sofia Tremblay Auto Claim (2025)",
+     "openpoke": "Sofia Tremblay Auto Claim 2025"
+    },
+    {
+     "generator": "Maya Chowdhury Condo Insurance",
+     "openpoke": "Maya Chowdhury Downtown Condo Quote"
+    },
+    {
+     "generator": "Arjun Travel Insurance",
+     "openpoke": "Arjun Romano Travel Insurance Lisbon"
+    },
+    {
+     "generator": "Ivan Cardenas Billing Check",
+     "openpoke": "Ivan Cardenas Payment Plan"
+    },
+    {
+     "generator": "Evans Roofing Cyber Coverage Quote",
+     "openpoke": "Evans Roofing Cyber Quote"
+    }
+   ]
+  },
+  "llm": {
+   "calls": 1043,
+   "cost_usd": 1.3784,
+   "by_caller": {
+    "interaction": {
+     "calls": 1043,
+     "errors": 0,
+     "prompt_tokens": 12266008,
+     "completion_tokens": 303551,
+     "cost_usd": 1.3784,
+     "latency_p50_s": 1.797,
+     "latency_p95_s": 4.04
+    }
+   }
+  }
+ }
+}

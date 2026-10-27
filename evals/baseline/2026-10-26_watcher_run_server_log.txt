@@ -1,0 +1,427 @@
+
+2026-10-26 11:44:32 - openpoke.server - INFO - Important email watcher completed initial warmup
+2026-10-26 11:45:34 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 11:46:34 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 11:47:35 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 11:48:36 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 11:49:39 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 11:50:41 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 11:51:42 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 11:52:43 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 11:53:44 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 11:54:47 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 11:55:48 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 11:56:49 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 11:57:50 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 11:58:50 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 11:59:52 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 12:00:56 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 12:01:57 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 12:02:58 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 12:03:59 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 12:05:04 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 12:06:09 - openpoke.server - INFO - Processing execution agent results
+2026-10-26 12:06:11 - openpoke.server - INFO - Tool 'send_message_to_user' completed
+2026-10-26 12:06:13 - openpoke.server - INFO - Processing execution agent results
+2026-10-26 12:06:17 - openpoke.server - INFO - Processing execution agent results
+2026-10-26 12:06:22 - openpoke.server - INFO - Processing execution agent results
+2026-10-26 12:06:24 - openpoke.server - INFO - Tool 'send_message_to_user' completed
+2026-10-26 12:06:28 - openpoke.server - INFO - Processing execution agent results
+2026-10-26 12:06:32 - openpoke.server - INFO - Tool 'send_message_to_user' completed
+2026-10-26 12:06:32 - openpoke.server - INFO - Created agent: Priya Sharma Auto Policy
+2026-10-26 12:06:32 - openpoke.server - INFO - Tool 'send_message_to_agent' completed
+2026-10-26 12:06:32 - openpoke.server - INFO - [Priya Sharma Auto Policy] Execution started
+2026-10-26 12:06:32 - openpoke.server - INFO - [Priya Sharma Auto Policy] Requesting plan (iteration 1)
+2026-10-26 12:06:32 - openpoke.server - INFO - [Priya Sharma Auto Policy] Calling LLM with model: anthropic/claude-haiku-5.5, tools: 13
+2026-10-26 12:06:33 - openpoke.server - INFO - [Priya Sharma Auto Policy] Executing tool: task_email_search
+2026-10-26 12:06:33 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'Priya Sharma auto insurance policy declarations monthly premium'
+2026-10-26 12:06:35 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'from:"Priya Sharma" (auto OR insurance OR policy OR declarations OR premium)'
+2026-10-26 12:06:36 - openpoke.server - INFO - [SEARCH_RESULT] Query 'from:"Priya Sharma" (auto OR insurance OR policy OR declarations OR premium)' → 2 emails found
+2026-10-26 12:06:36 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"Priya Sharma" "declarations"premium auto insurance'
+2026-10-26 12:06:37 - openpoke.server - INFO - [SEARCH_RESULT] Query '"Priya Sharma" "declarations" premium auto insurance' → 0 emails found
+2026-10-26 12:06:37 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'auto insurance policy declarations monthly premium has:attachment'
+2026-10-26 12:06:38 - openpoke.server - INFO - [SEARCH_RESULT] Query 'auto insurance policy declarations monthly premium has:attachment' → 0 emails found
+2026-10-26 12:06:38 - openpoke.server - INFO - Processing execution agent results
+2026-10-26 12:06:40 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 2 emails
+2026-10-26 12:06:40 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 2 emails
+2026-10-26 12:06:40 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 3 queries executed, 2 emails selected
+2026-10-26 12:06:40 - openpoke.server - INFO - [EMAIL_SEARCH] Found 2 emails
+2026-10-26 12:06:40 - openpoke.server - INFO - [Priya Sharma Auto Policy] Tool task_email_search completed successfully
+2026-10-26 12:06:40 - openpoke.server - INFO - [Priya Sharma Auto Policy] Executing tool: task_email_search
+2026-10-26 12:06:40 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: '"Adding a new car to my policy" Priya Sharma VIN 2HKRS4H70RH000123'
+2026-10-26 12:06:43 - openpoke.server - INFO - Created agent: Marco Rossi Billing Check
+2026-10-26 12:06:43 - openpoke.server - INFO - Tool 'send_message_to_agent' completed
+2026-10-26 12:06:43 - openpoke.server - INFO - Tool 'send_message_to_user' completed
+2026-10-26 12:06:43 - openpoke.server - INFO - [Marco Rossi Billing Check] Execution started
+2026-10-26 12:06:43 - openpoke.server - INFO - [Marco Rossi Billing Check] Requesting plan (iteration 1)
+2026-10-26 12:06:43 - openpoke.server - INFO - [Marco Rossi Billing Check] Calling LLM with model: anthropic/claude-haiku-5.5, tools: 13
+2026-10-26 12:06:44 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"Adding a new car to my policy"'
+2026-10-26 12:06:45 - openpoke.server - INFO - [SEARCH_RESULT] Query '"Adding a new car to my policy"' → 2 emailsfound
+2026-10-26 12:06:45 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"Priya Sharma" 2HKRS4H70RH000123'
+2026-10-26 12:06:46 - openpoke.server - INFO - [SEARCH_RESULT] Query '"Priya Sharma" 2HKRS4H70RH000123' → 1 emails found
+2026-10-26 12:06:46 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '2HKRS4H70RH000123'
+2026-10-26 12:06:48 - openpoke.server - INFO - [SEARCH_RESULT] Query '2HKRS4H70RH000123' → 1 emails found
+2026-10-26 12:06:48 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'from:"Priya Sharma" "adding anew car"'
+2026-10-26 12:06:49 - openpoke.server - INFO - [SEARCH_RESULT] Query 'from:"Priya Sharma" "adding a new car"' → 2emails found
+2026-10-26 12:06:49 - openpoke.server - INFO - [Marco Rossi Billing Check] Executing tool: task_email_search
+2026-10-26 12:06:49 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'Marco Rossi home insurance payment records October 2026: $214.50 withdrawals dated October 1 and October 3, 2026. Find policy number, payment method, whether each was processed, reason (scheduled premium, duplicate, failed/reversed), and any refund issued. Related sender: sender@example.com. Read-only lookup.'
+2026-10-26 12:06:49 - openpoke.server - INFO - Tool 'wait' completed
+2026-10-26 12:06:50 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 2 emails
+2026-10-26 12:06:50 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 2 emails
+2026-10-26 12:06:50 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 4 queries executed, 2 emails selected
+2026-10-26 12:06:50 - openpoke.server - INFO - [EMAIL_SEARCH] Found 2 emails
+2026-10-26 12:06:50 - openpoke.server - INFO - [Priya Sharma Auto Policy] Tool task_email_search completed successfully
+2026-10-26 12:06:50 - openpoke.server - INFO - [Priya Sharma Auto Policy] Requesting plan (iteration 2)
+2026-10-26 12:06:50 - openpoke.server - INFO - [Priya Sharma Auto Policy] Calling LLM with model: anthropic/claude-haiku-5.5, tools: 13
+2026-10-26 12:06:50 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(from:sender@example.com OR "Marco Rossi" OR "home insurance" OR "214.50") after:2026/09/30 before:2026/11/01'
+2026-10-26 12:06:52 - openpoke.server - INFO - [SEARCH_RESULT] Query '(from:sender@example.com OR "Marco Rossi" OR "home insurance" OR "214.50") after:2026/09/30 before:2026/11/01' → 17 emails found
+2026-10-26 12:06:52 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"214.50" after:2026/09/30 before:2026/10/10'
+2026-10-26 12:06:53 - openpoke.server - INFO - [SEARCH_RESULT] Query '"214.50" after:2026/09/30 before:2026/10/10' → 0 emails found
+2026-10-26 12:06:53 - openpoke.server - INFO - Processing execution agent results
+2026-10-26 12:06:53 - openpoke.server - INFO - [Priya Sharma Auto Policy] Executing tool: task_email_search
+2026-10-26 12:06:53 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'auto insurance policy renewaldeclarations page premium billing Priya Sharma'
+2026-10-26 12:06:56 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 2 emails
+2026-10-26 12:06:56 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 2 emails
+2026-10-26 12:06:56 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 2 queries executed, 2 emails selected
+2026-10-26 12:06:56 - openpoke.server - INFO - [EMAIL_SEARCH] Found 2 emails
+2026-10-26 12:06:56 - openpoke.server - INFO - [Marco Rossi Billing Check] Tool task_email_search completed successfully
+2026-10-26 12:06:56 - openpoke.server - INFO - [Marco Rossi Billing Check] Requesting plan (iteration 2)
+2026-10-26 12:06:56 - openpoke.server - INFO - [Marco Rossi Billing Check] Calling LLM with model: anthropic/claude-haiku-5.5, tools: 13
+2026-10-26 12:06:56 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'auto insurance policy renewaldeclarations premium billing Priya Sharma'
+2026-10-26 12:06:56 - openpoke.server - INFO - [SEARCH_RESULT] Query 'auto insurance policy renewal declarations premium billing Priya Sharma' → 0 emails found
+2026-10-26 12:06:56 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(insurance OR policy) (renewal OR declarations OR "dec page" OR premium OR billing) "Priya Sharma"'
+2026-10-26 12:06:57 - openpoke.server - INFO - [SEARCH_RESULT] Query '(insurance OR policy) (renewal OR declarations OR "dec page" OR premium OR billing) "Priya Sharma"' → 0 emails found
+2026-10-26 12:06:57 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'auto insurance renewal declarations page premium billing has:attachment'
+2026-10-26 12:06:58 - openpoke.server - INFO - [SEARCH_RESULT] Query 'auto insurance renewal declarations page premium billing has:attachment' → 0 emails found
+2026-10-26 12:06:58 - openpoke.server - INFO - Reused agent: Marco Rossi Billing Check
+2026-10-26 12:06:58 - openpoke.server - INFO - Tool 'send_message_to_agent' completed
+2026-10-26 12:06:58 - openpoke.server - INFO - Reused agent: Priya Sharma Auto Policy
+2026-10-26 12:06:58 - openpoke.server - INFO - Tool 'send_message_to_agent' completed
+2026-10-26 12:06:58 - openpoke.server - INFO - [Marco Rossi Billing Check] Execution started
+2026-10-26 12:06:58 - openpoke.server - INFO - [Marco Rossi Billing Check] Requesting plan (iteration 1)
+2026-10-26 12:06:58 - openpoke.server - INFO - [Marco Rossi Billing Check] Calling LLM with model: anthropic/claude-haiku-5.5, tools: 13
+2026-10-26 12:06:58 - openpoke.server - INFO - [Priya Sharma Auto Policy] Execution started
+2026-10-26 12:06:58 - openpoke.server - INFO - [Priya Sharma Auto Policy] Requesting plan (iteration 1)
+2026-10-26 12:06:58 - openpoke.server - INFO - [Priya Sharma Auto Policy] Calling LLM with model: anthropic/claude-haiku-5.5, tools: 13
+2026-10-26 12:06:58 - openpoke.server - INFO - [Marco Rossi Billing Check] Executing tool: task_email_search
+2026-10-26 12:06:58 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'home insurance premium payment confirmation or notice October 2026, $214.50, policy number, withdrawal, refund, duplicate charge, Rossi'
+2026-10-26 12:06:59 - openpoke.server - INFO - Tool 'send_message_to_user' completed
+2026-10-26 12:07:00 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"Priya Sharma"'
+2026-10-26 12:07:01 - openpoke.server - INFO - [SEARCH_RESULT] Query '"Priya Sharma"' → 2 emails found
+2026-10-26 12:07:01 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'auto insurance renewal'
+2026-10-26 12:07:02 - openpoke.server - INFO - [SEARCH_RESULT] Query 'auto insurance renewal' → 0 emails found
+2026-10-26 12:07:02 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'declarations page premium'
+2026-10-26 12:07:03 - openpoke.server - INFO - [SEARCH_RESULT] Query 'declarations page premium' → 0 emails found
+2026-10-26 12:07:03 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'insurance policy renewal billing'
+2026-10-26 12:07:04 - openpoke.server - INFO - [SEARCH_RESULT] Query 'insurance policy renewal billing' → 0 emails found
+2026-10-26 12:07:04 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(insurance OR premium OR policy) after:2026/10/01 before:2026/11/01'
+2026-10-26 12:07:05 - openpoke.server - INFO - [SEARCH_RESULT] Query '(insurance OR premium OR policy) after:2026/10/01 before:2026/11/01' → 8 emails found
+2026-10-26 12:07:05 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"214.50" OR "$214.50"'
+2026-10-26 12:07:06 - openpoke.server - INFO - [SEARCH_RESULT] Query '"214.50" OR "$214.50"' → 1 emails found
+2026-10-26 12:07:06 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(home insurance OR homeowners) (premium OR payment OR refund OR "duplicate charge" OR withdrawal) after:2026/10/01'
+2026-10-26 12:07:07 - openpoke.server - INFO - [SEARCH_RESULT] Query '(home insurance OR homeowners) (premium OR payment OR refund OR "duplicate charge" OR withdrawal) after:2026/10/01' → 1 emails found
+2026-10-26 12:07:07 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'Rossi (insurance OR premium OR policy OR payment) after:2026/09/15'
+2026-10-26 12:07:08 - openpoke.server - INFO - [SEARCH_RESULT] Query 'Rossi (insurance OR premium OR policy OR payment) after:2026/09/15' → 1 emails found
+2026-10-26 12:07:08 - openpoke.server - INFO - [Priya Sharma Auto Policy] Executing tool: task_email_search
+2026-10-26 12:07:08 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'auto insurance policy declarations page, premium, monthly payment, coverage limits, deductibles for Priya Sharma (sender@example.com) or policy renewal, billing statement'
+2026-10-26 12:07:08 - openpoke.server - INFO - [Marco Rossi Billing Check] Executing tool: task_email_search
+2026-10-26 12:07:08 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'Find all emails about Marco Rossi's October 2026 home insurance payments, including the two $214.50 withdrawals on October 1 and October 3, 2026, any $2,400 refund request, policy number, payment method, processing status, and any refund already issued. Include the full text of the emails from sender@example.com.'
+2026-10-26 12:07:10 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 1 emails
+2026-10-26 12:07:10 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 1 emails
+2026-10-26 12:07:10 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 4 queries executed, 1 emails selected
+2026-10-26 12:07:10 - openpoke.server - INFO - [EMAIL_SEARCH] Found 1 emails
+2026-10-26 12:07:10 - openpoke.server - INFO - [Marco Rossi Billing Check] Tool task_email_search completed successfully
+2026-10-26 12:07:10 - openpoke.server - INFO - [Marco Rossi Billing Check] Requesting plan (iteration 3)
+2026-10-26 12:07:10 - openpoke.server - INFO - [Marco Rossi Billing Check] Calling LLM with model: anthropic/claude-haiku-5.5, tools: 13
+2026-10-26 12:07:10 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 2 emails
+2026-10-26 12:07:10 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 2 emails
+2026-10-26 12:07:10 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 7 queries executed, 2 emails selected
+2026-10-26 12:07:10 - openpoke.server - INFO - [EMAIL_SEARCH] Found 2 emails
+2026-10-26 12:07:10 - openpoke.server - INFO - [Priya Sharma Auto Policy] Tool task_email_search completed successfully
+2026-10-26 12:07:10 - openpoke.server - INFO - [Priya Sharma Auto Policy] Executing tool: task_email_search
+2026-10-26 12:07:10 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'auto insurance monthly payment premium invoice policy number from insurance carrier'
+2026-10-26 12:07:10 - openpoke.server - INFO - Processing execution agent results
+2026-10-26 12:07:10 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'Marco Rossi home insurance after:2026/10/01 before:2026/11/01'
+2026-10-26 12:07:11 - openpoke.server - INFO - [SEARCH_RESULT] Query 'Marco Rossi home insurance after:2026/10/01before:2026/11/01' → 1 emails found
+2026-10-26 12:07:11 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"214.50" after:2026/09/30 before:2026/10/27'
+2026-10-26 12:07:12 - openpoke.server - INFO - [SEARCH_RESULT] Query '"214.50" after:2026/09/30 before:2026/10/27' → 1 emails found
+2026-10-26 12:07:12 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'from:sender@example.com after:2026/09/30 before:2026/10/27'
+2026-10-26 12:07:14 - openpoke.server - INFO - [SEARCH_RESULT] Query 'from:sender@example.com after:2026/09/30 before:2026/10/27' → 18 emails found
+2026-10-26 12:07:14 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"2,400" refund home insuranceRossi after:2026/09/30'
+2026-10-26 12:07:15 - openpoke.server - INFO - [SEARCH_RESULT] Query '"2,400" refund home insurance Rossi after:2026/09/30' → 0 emails found
+2026-10-26 12:07:15 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(auto OR car) insurance (premium OR payment OR invoice) (monthly OR policy)'
+2026-10-26 12:07:15 - openpoke.server - INFO - [SEARCH_RESULT] Query '(auto OR car) insurance (premium OR paymentOR invoice) (monthly OR policy)' → 0 emails found
+2026-10-26 12:07:15 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"auto insurance" subject:(payment OR premium OR invoice OR bill OR statement)'
+2026-10-26 12:07:16 - openpoke.server - INFO - [SEARCH_RESULT] Query '"auto insurance" subject:(payment OR premium OR invoice OR bill OR statement)' → 0 emails found
+2026-10-26 12:07:16 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"policy number" (premium OR payment due OR invoice) has:attachment OR "monthly payment"'
+2026-10-26 12:07:17 - openpoke.server - INFO - [SEARCH_RESULT] Query '"policy number" (premium OR payment due OR invoice) has:attachment OR "monthly payment"' → 0 emails found
+2026-10-26 12:07:17 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(from:sender@example.com OR to:sender@example.com OR "Priya Sharma") (insurance OR policy OR declarations OR premium OR deductible OR coverage)'
+2026-10-26 12:07:19 - openpoke.server - INFO - [SEARCH_RESULT] Query '(from:sender@example.com OR to:sender@example.com OR "Priya Sharma") (insurance OR policy OR declarations OR premium OR deductible OR coverage)' → 8 emails found
+2026-10-26 12:07:19 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(auto insurance OR car insurance) (declarations OR "declarations page" OR premium OR "monthly payment" OR deductible OR "coverage limits" OR renewal OR "billing statement")'
+2026-10-26 12:07:19 - openpoke.server - INFO - [SEARCH_RESULT] Query '(auto insurance OR car insurance) (declarations OR "declarations page" OR premium OR "monthly payment" OR deductible OR "coverage limits" OR renewal OR "billing statement")' → 0 emails found
+2026-10-26 12:07:19 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(subject:renewal OR subject:"billing statement" OR subject:"policy renewal" OR subject:declarations) (insurance OR policy OR auto)'
+2026-10-26 12:07:21 - openpoke.server - INFO - [SEARCH_RESULT] Query '(subject:renewal OR subject:"billing statement" OR subject:"policy renewal" OR subject:declarations) (insurance OR policy OR auto)' → 1 emails found
+2026-10-26 12:07:21 - openpoke.server - INFO - Tool 'send_message_to_user' completed
+2026-10-26 12:07:21 - openpoke.server - INFO - Created agent: Linda Gauthier Water Claim
+2026-10-26 12:07:21 - openpoke.server - INFO - Tool 'send_message_to_agent' completed
+2026-10-26 12:07:21 - openpoke.server - INFO - [Marco Rossi Billing Check] Execution finished: SUCCESS
+2026-10-26 12:07:21 - openpoke.server - INFO - Agent 'Marco Rossi Billing Check' completed: SUCCESS
+2026-10-26 12:07:21 - openpoke.server - INFO - [Linda Gauthier Water Claim] Execution started
+2026-10-26 12:07:21 - openpoke.server - INFO - [Linda Gauthier Water Claim] Requesting plan (iteration 1)
+2026-10-26 12:07:21 - openpoke.server - INFO - [Linda Gauthier Water Claim] Calling LLM with model: anthropic/claude-haiku-5.5, tools: 13
+2026-10-26 12:07:23 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'insurance premium'
+2026-10-26 12:07:24 - openpoke.server - INFO - [SEARCH_RESULT] Query 'insurance premium' → 1 emails found
+2026-10-26 12:07:24 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'insurance policy payment'
+2026-10-26 12:07:24 - openpoke.server - INFO - [SEARCH_RESULT] Query 'insurance policy payment' → 0 emails found
+2026-10-26 12:07:24 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"policy number" invoice'
+2026-10-26 12:07:26 - openpoke.server - INFO - [SEARCH_RESULT] Query '"policy number" invoice' → 0 emails found
+2026-10-26 12:07:26 - openpoke.server - INFO - [Linda Gauthier Water Claim] Executing tool: task_email_search
+2026-10-26 12:07:26 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'Emails from Linda Gauthier with subject "Water in my basement" about a burst pipe, water damage, or basement flooding'
+2026-10-26 12:07:26 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 2 emails
+2026-10-26 12:07:26 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 2 emails
+2026-10-26 12:07:26 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 3 queries executed, 2 emails selected
+2026-10-26 12:07:26 - openpoke.server - INFO - [EMAIL_SEARCH] Found 2 emails
+2026-10-26 12:07:26 - openpoke.server - INFO - [Priya Sharma Auto Policy] Tool task_email_search completed successfully
+2026-10-26 12:07:26 - openpoke.server - INFO - [Priya Sharma Auto Policy] Executing tool: task_email_search
+2026-10-26 12:07:26 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'Adding a new car to my policythread from sender@example.com full message body, vehicle details, current vehicles on policy'
+2026-10-26 12:07:26 - openpoke.server - INFO - Processing execution agent results
+2026-10-26 12:07:26 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 2 emails
+2026-10-26 12:07:26 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 2 emails
+2026-10-26 12:07:26 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 4 queries executed, 2 emails selected
+2026-10-26 12:07:26 - openpoke.server - INFO - [EMAIL_SEARCH] Found 2 emails
+2026-10-26 12:07:26 - openpoke.server - INFO - [Marco Rossi Billing Check] Tool task_email_search completed successfully
+2026-10-26 12:07:26 - openpoke.server - INFO - [Marco Rossi Billing Check] Executing tool: task_email_search
+2026-10-26 12:07:26 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'Find emails from or to sender@example.com or mentioning Marco Rossi's account, policy, insurance, billing, or identity verification, tocheck whether the sender matches the account holder on file.'
+2026-10-26 12:07:27 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'from:sender@example.com "Adding a new car to my policy"'
+2026-10-26 12:07:29 - openpoke.server - INFO - [SEARCH_RESULT] Query 'from:sender@example.com "Adding a new car to my policy"' → 2 emails found
+2026-10-26 12:07:29 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'from:sender@example.com subject:policy'
+2026-10-26 12:07:30 - openpoke.server - INFO - [SEARCH_RESULT] Query 'from:sender@example.com subject:policy' → 3 emails found
+2026-10-26 12:07:30 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'from:sender@example.com OR to:sender@example.com'
+2026-10-26 12:07:31 - openpoke.server - INFO - [SEARCH_RESULT] Query 'from:sender@example.com OR to:sender@example.com' → 18 emails found
+2026-10-26 12:07:31 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"Marco Rossi" (account OR policy OR insurance OR billing OR "identity verification")'
+2026-10-26 12:07:32 - openpoke.server - INFO - [SEARCH_RESULT] Query '"Marco Rossi" (account OR policy OR insurance OR billing OR "identity verification")' → 1 emails found
+2026-10-26 12:07:32 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'from:"Linda Gauthier" subject:"Water in my basement"'
+2026-10-26 12:07:33 - openpoke.server - INFO - [SEARCH_RESULT] Query 'from:"Linda Gauthier" subject:"Water in my basement"' → 2 emails found
+2026-10-26 12:07:33 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'from:"Linda Gauthier" (burst pipe OR "water damage" OR basement flooding OR flooded basement)'
+2026-10-26 12:07:34 - openpoke.server - INFO - [SEARCH_RESULT] Query 'from:"Linda Gauthier" (burst pipe OR "waterdamage" OR basement flooding OR flooded basement)' → 0 emails found
+2026-10-26 12:07:34 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'auto insurance'
+2026-10-26 12:07:35 - openpoke.server - INFO - [SEARCH_RESULT] Query 'auto insurance' → 1 emails found
+2026-10-26 12:07:35 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(insurance OR insurer) (bill OR "payment due" OR "amount due" OR autopay OR "policy #")'
+2026-10-26 12:07:36 - openpoke.server - INFO - [SEARCH_RESULT] Query '(insurance OR insurer) (bill OR "payment due" OR "amount due" OR autopay OR "policy #")' → 0 emails found
+2026-10-26 12:07:36 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"auto policy" OR "car policy"OR "vehicle insurance" OR "declarations page"'
+2026-10-26 12:07:37 - openpoke.server - INFO - [SEARCH_RESULT] Query '"auto policy" OR "car policy" OR "vehicle insurance" OR "declarations page"' → 1 emails found
+2026-10-26 12:07:37 - openpoke.server - INFO - Reused agent: Linda Gauthier Water Claim
+2026-10-26 12:07:37 - openpoke.server - INFO - Tool 'send_message_to_agent' completed
+2026-10-26 12:07:37 - openpoke.server - INFO - Tool 'send_message_to_user' completed
+2026-10-26 12:07:37 - openpoke.server - INFO - [Linda Gauthier Water Claim] Execution started
+2026-10-26 12:07:37 - openpoke.server - INFO - [Linda Gauthier Water Claim] Requesting plan (iteration 1)
+2026-10-26 12:07:37 - openpoke.server - INFO - [Linda Gauthier Water Claim] Calling LLM with model: anthropic/claude-haiku-5.5, tools: 13
+2026-10-26 12:07:38 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 2 emails
+2026-10-26 12:07:38 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 2 emails
+2026-10-26 12:07:38 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 2 queries executed, 2 emails selected
+2026-10-26 12:07:38 - openpoke.server - INFO - [EMAIL_SEARCH] Found 2 emails
+2026-10-26 12:07:38 - openpoke.server - INFO - [Linda Gauthier Water Claim] Tool task_email_search completed successfully
+2026-10-26 12:07:38 - openpoke.server - INFO - [Linda Gauthier Water Claim] Executing tool: task_email_search
+2026-10-26 12:07:38 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'Home insurance policy documents, declarations page, policy number, water damage or sudden discharge coverage, deductible, for Linda Gauthier'
+2026-10-26 12:07:39 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 0 emails
+2026-10-26 12:07:39 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 0 emails
+2026-10-26 12:07:39 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 9 queries executed, 0 emails selected
+2026-10-26 12:07:39 - openpoke.server - INFO - [EMAIL_SEARCH] Found 0 emails
+2026-10-26 12:07:39 - openpoke.server - INFO - [Priya Sharma Auto Policy] Tool task_email_search completed successfully
+2026-10-26 12:07:39 - openpoke.server - INFO - [Priya Sharma Auto Policy] Requesting plan (iteration 3)
+2026-10-26 12:07:39 - openpoke.server - INFO - [Priya Sharma Auto Policy] Calling LLM with model: anthropic/claude-haiku-5.5, tools: 13
+2026-10-26 12:07:39 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(subject:"Adding a new car tomy policy") OR (to:sender@example.com subject:policy) OR (vehicle policy VIN from:sender@example.com)'
+2026-10-26 12:07:40 - openpoke.server - INFO - [SEARCH_RESULT] Query '(subject:"Adding a new car to my policy") OR (to:sender@example.com subject:policy) OR (vehicle policy VIN from:sender@example.com)' → 2 emails found
+2026-10-26 12:07:40 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"Linda Gauthier" (insurance OR policy OR declarations OR "home insurance")'
+2026-10-26 12:07:40 - openpoke.server - INFO - [SEARCH_RESULT] Query '"Linda Gauthier" (insurance OR policy OR declarations OR "home insurance")' → 0 emails found
+2026-10-26 12:07:40 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(declarations OR "declarations page" OR "policy number" OR deductible) (homeowners OR "home insurance" OR dwelling) Gauthier'
+2026-10-26 12:07:41 - openpoke.server - INFO - [SEARCH_RESULT] Query '(declarations OR "declarations page" OR "policy number" OR deductible) (homeowners OR "home insurance" OR dwelling) Gauthier' → 0 emails found
+2026-10-26 12:07:41 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(water damage OR "sudden discharge" OR "sudden and accidental discharge") (policy OR coverage) Gauthier'
+2026-10-26 12:07:42 - openpoke.server - INFO - [SEARCH_RESULT] Query '(water damage OR "sudden discharge" OR "sudden and accidental discharge") (policy OR coverage) Gauthier' → 0 emails found
+2026-10-26 12:07:42 - openpoke.server - INFO - [Linda Gauthier Water Claim] Executing tool: gmail_search_people
+2026-10-26 12:07:43 - openpoke.server - INFO - [Linda Gauthier Water Claim] Tool gmail_search_people completed successfully
+2026-10-26 12:07:43 - openpoke.server - INFO - [Linda Gauthier Water Claim] Executing tool: gmail_search_people
+2026-10-26 12:07:43 - openpoke.server - INFO - [Linda Gauthier Water Claim] Tool gmail_search_people completed successfully
+2026-10-26 12:07:43 - openpoke.server - INFO - [Linda Gauthier Water Claim] Executing tool: task_email_search
+2026-10-26 12:07:43 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'Emails from or to Linda Gauthier or sender sender@example.com about water in basement / pipe burst water damage claim, including the latest reply from Linda'
+2026-10-26 12:07:43 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 18 emails
+2026-10-26 12:07:43 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 18 emails
+2026-10-26 12:07:43 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 2 queries executed, 18 emails selected
+2026-10-26 12:07:43 - openpoke.server - INFO - [EMAIL_SEARCH] Found 18 emails
+2026-10-26 12:07:43 - openpoke.server - INFO - [Marco Rossi Billing Check] Tool task_email_search completed successfully
+2026-10-26 12:07:43 - openpoke.server - INFO - [Marco Rossi Billing Check] Requesting plan (iteration 2)
+2026-10-26 12:07:43 - openpoke.server - INFO - [Marco Rossi Billing Check] Calling LLM with model: anthropic/claude-haiku-5.5, tools: 13
+2026-10-26 12:07:43 - openpoke.server - INFO - [Priya Sharma Auto Policy] Executing tool: task_email_search
+2026-10-26 12:07:43 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'insurance policy premium autocoverage declarations, emails from insurer, Geico, State Farm, Progressive, Allstate, Liberty Mutual, Nationwide,USAA'
+2026-10-26 12:07:43 - openpoke.server - INFO - Processing execution agent results
+2026-10-26 12:07:45 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 2 emails
+2026-10-26 12:07:45 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 2 emails
+2026-10-26 12:07:45 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 3 queries executed, 2 emails selected
+2026-10-26 12:07:45 - openpoke.server - INFO - [EMAIL_SEARCH] Found 2 emails
+2026-10-26 12:07:45 - openpoke.server - INFO - [Priya Sharma Auto Policy] Tool task_email_search completed successfully
+2026-10-26 12:07:45 - openpoke.server - INFO - [Priya Sharma Auto Policy] Requesting plan (iteration 2)
+2026-10-26 12:07:45 - openpoke.server - INFO - [Priya Sharma Auto Policy] Calling LLM with model: anthropic/claude-haiku-5.5, tools: 13
+2026-10-26 12:07:45 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'Gauthier'
+2026-10-26 12:07:46 - openpoke.server - INFO - [SEARCH_RESULT] Query 'Gauthier' → 2 emails found
+2026-10-26 12:07:46 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(homeowners OR "home insurance" OR "declarations page" OR "policy number" OR "water damage" OR deductible) Linda'
+2026-10-26 12:07:47 - openpoke.server - INFO - [SEARCH_RESULT] Query '(homeowners OR "home insurance" OR "declarations page" OR "policy number" OR "water damage" OR deductible) Linda' → 0 emails found
+2026-10-26 12:07:47 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(homeowners OR "home insurance" OR "declarations page" OR "sudden discharge") policy'
+2026-10-26 12:07:48 - openpoke.server - INFO - [SEARCH_RESULT] Query '(homeowners OR "home insurance" OR "declarations page" OR "sudden discharge") policy' → 0 emails found
+2026-10-26 12:07:48 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(from:"Linda Gauthier" OR to:"Linda Gauthier" OR from:sender@example.com OR to:sender@example.com) (water OR basement OR pipe OR burst OR damage OR claim)'
+2026-10-26 12:07:49 - openpoke.server - INFO - [SEARCH_RESULT] Query '(from:"Linda Gauthier" OR to:"Linda Gauthier" OR from:sender@example.com OR to:sender@example.com) (water OR basement OR pipe OR burst OR damage OR claim)' → 2 emails found
+2026-10-26 12:07:49 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'from:sender@example.com OR to:sender@example.com'
+2026-10-26 12:07:50 - openpoke.server - INFO - [SEARCH_RESULT] Query 'from:sender@example.com OR to:sender@example.com' → 18 emails found
+2026-10-26 12:07:50 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'from:"Linda Gauthier" OR to:"Linda Gauthier"'
+2026-10-26 12:07:51 - openpoke.server - INFO - [SEARCH_RESULT] Query 'from:"Linda Gauthier" OR to:"Linda Gauthier"' → 2 emails found
+2026-10-26 12:07:51 - openpoke.server - INFO - [Priya Sharma Auto Policy] Executing tool: task_email_search
+2026-10-26 12:07:51 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'auto insurance carrier emails: policy declarations, premium billing statement, monthly payment amount, renewal notice, vehicle added or endorsement, from insurance company to samrivera.openpoke.test@gmail.com'
+2026-10-26 12:07:51 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(insurance OR policy OR premium OR declarations) (auto OR car OR vehicle) (from:geico OR from:statefarm OR from:progressive OR from:allstate ORfrom:libertymutual OR from:nationwide OR from:usaa)'
+2026-10-26 12:07:52 - openpoke.server - INFO - [SEARCH_RESULT] Query '(insurance OR policy OR premium OR declarations) (auto OR car OR vehicle) (from:geico OR from:statefarm OR from:progressive OR from:allstate OR from:libertymutual OR from:nationwide OR from:usaa)' → 0 emails found
+2026-10-26 12:07:52 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(from:geico OR from:statefarmOR from:progressive OR from:allstate OR from:libertymutual OR from:nationwide OR from:usaa) (premium OR declarations OR policy OR coverage OR billing)'
+2026-10-26 12:07:53 - openpoke.server - INFO - [SEARCH_RESULT] Query '(from:geico OR from:statefarm OR from:progressive OR from:allstate OR from:libertymutual OR from:nationwide OR from:usaa) (premium OR declarations OR policy OR coverage OR billing)' → 0 emails found
+2026-10-26 12:07:53 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'subject:("auto insurance" OR "declarations page" OR "insurance premium" OR "policy premium" OR "auto coverage") '
+2026-10-26 12:07:53 - openpoke.server - INFO - [SEARCH_RESULT] Query 'subject:("auto insurance" OR "declarations page" OR "insurance premium" OR "policy premium" OR "auto coverage") ' → 0 emails found
+2026-10-26 12:07:53 - openpoke.server - INFO - [Marco Rossi Billing Check] Execution finished: SUCCESS
+2026-10-26 12:07:53 - openpoke.server - INFO - Agent 'Marco Rossi Billing Check' completed: SUCCESS
+2026-10-26 12:07:55 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'to:samrivera.openpoke.test@gmail.com (auto insurance OR "policy declarations" OR declarations OR "premium" OR billing OR "monthly payment" OR renewal OR endorsement OR "vehicle added" OR "added vehicle")'
+2026-10-26 12:07:57 - openpoke.server - INFO - [SEARCH_RESULT] Query 'to:samrivera.openpoke.test@gmail.com (auto insurance OR "policy declarations" OR declarations OR "premium" OR billing OR "monthly payment" OR renewal OR endorsement OR "vehicle added" OR "added vehicle")' → 1 emails found
+2026-10-26 12:07:57 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'to:samrivera.openpoke.test@gmail.com (subject:policy OR subject:declarations OR subject:premium OR subject:renewal OR subject:endorsement OR subject:billing OR subject:statement) (insurance OR insurer OR auto)'
+2026-10-26 12:07:58 - openpoke.server - INFO - [SEARCH_RESULT] Query 'to:samrivera.openpoke.test@gmail.com (subject:policy OR subject:declarations OR subject:premium OR subject:renewal OR subject:endorsement OR subject:billing OR subject:statement) (insurance OR insurer OR auto)' → 1 emails found
+2026-10-26 12:07:58 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 2 emails
+2026-10-26 12:07:58 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 2 emails
+2026-10-26 12:07:58 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 3 queries executed, 2 emails selected
+2026-10-26 12:07:58 - openpoke.server - INFO - [EMAIL_SEARCH] Found 2 emails
+2026-10-26 12:07:58 - openpoke.server - INFO - [Linda Gauthier Water Claim] Tool task_email_search completed successfully
+2026-10-26 12:07:58 - openpoke.server - INFO - [Linda Gauthier Water Claim] Executing tool: task_email_search
+2026-10-26 12:07:58 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'Home insurance policy for Linda Gauthier: claim reporting steps, water damage or sudden discharge coverage, mitigation requirements, approved restoration vendors, and adjuster visit timing'
+2026-10-26 12:07:58 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'from:sender@example.com OR to:sender@example.com'
+2026-10-26 12:08:00 - openpoke.server - INFO - [SEARCH_RESULT] Query 'from:sender@example.com OR to:sender@example.com' → 18 emails found
+2026-10-26 12:08:00 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'geico OR "state farm" OR progressive OR allstate OR "liberty mutual" OR nationwide OR usaa'
+2026-10-26 12:08:00 - openpoke.server - INFO - [SEARCH_RESULT] Query 'geico OR "state farm" OR progressive OR allstate OR "liberty mutual" OR nationwide OR usaa' → 0 emails found
+2026-10-26 12:08:00 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'insurance premium OR "declarations page" OR "auto policy" OR "policy renewal" OR "auto insurance"'
+2026-10-26 12:08:01 - openpoke.server - INFO - [SEARCH_RESULT] Query 'insurance premium OR "declarations page" OR"auto policy" OR "policy renewal" OR "auto insurance"' → 1 emails found
+2026-10-26 12:08:01 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'insurance OR insurer OR policy OR premium'
+2026-10-26 12:08:02 - openpoke.server - INFO - [SEARCH_RESULT] Query 'insurance OR insurer OR policy OR premium' → 8 emails found
+2026-10-26 12:08:02 - openpoke.server - ERROR - [Priya Sharma Auto Policy] Execution timed out after 90s
+2026-10-26 12:08:02 - openpoke.server - INFO - Agent 'Priya Sharma Auto Policy' completed: FAILED
+2026-10-26 12:08:04 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"Linda Gauthier" (home OR homeowners OR insurance OR policy)'
+2026-10-26 12:08:04 - openpoke.server - INFO - [SEARCH_RESULT] Query '"Linda Gauthier" (home OR homeowners OR insurance OR policy)' → 0 emails found
+2026-10-26 12:08:04 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'Gauthier (water damage OR "sudden discharge" OR mitigation OR restoration OR adjuster OR claim)'
+2026-10-26 12:08:05 - openpoke.server - INFO - [SEARCH_RESULT] Query 'Gauthier (water damage OR "sudden discharge" OR mitigation OR restoration OR adjuster OR claim)' → 2 emails found
+2026-10-26 12:08:05 - openpoke.server - INFO - Processing execution agent results
+2026-10-26 12:08:05 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(policy OR declarations OR premium OR "monthly payment" OR renewal OR endorsement OR "policy number") (auto OR insurance OR insurer OR coverage) -from:me'
+2026-10-26 12:08:06 - openpoke.server - INFO - [SEARCH_RESULT] Query '(policy OR declarations OR premium OR "monthly payment" OR renewal OR endorsement OR "policy number") (auto OR insurance OR insurer OR coverage) -from:me' → 2 emails found
+2026-10-26 12:08:06 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 2 emails
+2026-10-26 12:08:06 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 2 emails
+2026-10-26 12:08:06 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 7 queries executed, 2 emails selected
+2026-10-26 12:08:06 - openpoke.server - INFO - [EMAIL_SEARCH] Found 2 emails
+2026-10-26 12:08:06 - openpoke.server - INFO - [Linda Gauthier Water Claim] Tool task_email_search completed successfully
+2026-10-26 12:08:06 - openpoke.server - INFO - [Linda Gauthier Water Claim] Requesting plan (iteration 2)
+2026-10-26 12:08:06 - openpoke.server - INFO - [Linda Gauthier Water Claim] Calling LLM with model: anthropic/claude-haiku-5.5, tools: 13
+2026-10-26 12:08:08 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 0 emails
+2026-10-26 12:08:08 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 0 emails
+2026-10-26 12:08:08 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 3 queries executed, 0 emails selected
+2026-10-26 12:08:08 - openpoke.server - INFO - [EMAIL_SEARCH] Found 0 emails
+2026-10-26 12:08:08 - openpoke.server - INFO - [Priya Sharma Auto Policy] Tool task_email_search completed successfully
+2026-10-26 12:08:08 - openpoke.server - INFO - [Priya Sharma Auto Policy] Requesting plan (iteration 3)
+2026-10-26 12:08:08 - openpoke.server - INFO - [Priya Sharma Auto Policy] Calling LLM with model: anthropic/claude-haiku-5.5, tools: 13
+2026-10-26 12:08:08 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(policy OR endorsement OR declarations OR "policy wording") (home OR homeowners) (water OR discharge OR restoration OR adjuster)'
+2026-10-26 12:08:09 - openpoke.server - INFO - [SEARCH_RESULT] Query '(policy OR endorsement OR declarations OR "policy wording") (home OR homeowners) (water OR discharge OR restoration OR adjuster)' → 0 emails found
+2026-10-26 12:08:09 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'from:sender@example.com'
+2026-10-26 12:08:10 - openpoke.server - INFO - [SEARCH_RESULT] Query 'from:sender@example.com' → 10 emails found
+2026-10-26 12:08:10 - openpoke.server - INFO - [Linda Gauthier Water Claim] Executing tool: task_email_search
+2026-10-26 12:08:10 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'homeowners insurance policy renewal declarations page sent to Sam Rivera, includes policy number and water damage deductible'
+2026-10-26 12:08:10 - openpoke.server - INFO - Tool 'send_message_to_user' completed
+2026-10-26 12:08:12 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(homeowners OR "homeowner's" OR renewal OR declarations OR "declarations page") insurance (to:Sam OR "Sam Rivera")'
+2026-10-26 12:08:13 - openpoke.server - INFO - [SEARCH_RESULT] Query '(homeowners OR "homeowner's" OR renewal OR declarations OR "declarations page") insurance (to:Sam OR "Sam Rivera")' → 0 emails found
+2026-10-26 12:08:13 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'subject:(declarations OR "declarations page" OR renewal) "water damage" deductible'
+2026-10-26 12:08:14 - openpoke.server - INFO - [SEARCH_RESULT] Query 'subject:(declarations OR "declarations page" OR renewal) "water damage" deductible' → 0 emails found
+2026-10-26 12:08:14 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"policy number" "water damage" deductible homeowners to:Sam'
+2026-10-26 12:08:15 - openpoke.server - INFO - [SEARCH_RESULT] Query '"policy number" "water damage" deductible homeowners to:Sam' → 0 emails found
+2026-10-26 12:08:15 - openpoke.server - INFO - Important email watcher check complete
+2026-10-26 12:08:15 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 2 emails
+2026-10-26 12:08:15 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 2 emails
+2026-10-26 12:08:15 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 4 queries executed, 2 emails selected
+2026-10-26 12:08:15 - openpoke.server - INFO - [EMAIL_SEARCH] Found 2 emails
+2026-10-26 12:08:15 - openpoke.server - INFO - [Linda Gauthier Water Claim] Tool task_email_search completed successfully
+2026-10-26 12:08:15 - openpoke.server - INFO - [Linda Gauthier Water Claim] Requesting plan (iteration 2)
+2026-10-26 12:08:15 - openpoke.server - INFO - [Linda Gauthier Water Claim] Calling LLM with model: anthropic/claude-haiku-5.5, tools: 13
+2026-10-26 12:08:15 - openpoke.server - INFO - [Priya Sharma Auto Policy] Execution finished: SUCCESS
+2026-10-26 12:08:15 - openpoke.server - INFO - Agent 'Priya Sharma Auto Policy' completed: SUCCESS
+2026-10-26 12:08:16 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"declarations page" OR "policy renewal" OR "renewal declarations"'
+2026-10-26 12:08:17 - openpoke.server - INFO - [SEARCH_RESULT] Query '"declarations page" OR "policy renewal" OR "renewal declarations"' → 0 emails found
+2026-10-26 12:08:17 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'homeowners insurance renewal "water damage" deductible'
+2026-10-26 12:08:18 - openpoke.server - INFO - [SEARCH_RESULT] Query 'homeowners insurance renewal "water damage"deductible' → 0 emails found
+2026-10-26 12:08:18 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"Sam Rivera" insurance'
+2026-10-26 12:08:19 - openpoke.server - INFO - [SEARCH_RESULT] Query '"Sam Rivera" insurance' → 0 emails found
+2026-10-26 12:08:19 - openpoke.server - INFO - [Linda Gauthier Water Claim] Executing tool: task_email_search
+2026-10-26 12:08:19 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'Insurance policy documents, declarations page, policy number, homeowners insurance, insurer or adjuster communications mentioning Gauthier or the basement water claim'
+2026-10-26 12:08:21 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(insurance OR homeowners OR "declarations page" OR "policy number" OR adjuster OR claim) (policy OR declarations OR claim OR adjuster OR Gauthier OR "basement water")'
+2026-10-26 12:08:22 - openpoke.server - INFO - [SEARCH_RESULT] Query '(insurance OR homeowners OR "declarations page" OR "policy number" OR adjuster OR claim) (policy OR declarations OR claim OR adjuster OR Gauthier OR "basement water")' → 2 emails found
+2026-10-26 12:08:22 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'Gauthier "basement" water claim'
+2026-10-26 12:08:23 - openpoke.server - INFO - [SEARCH_RESULT] Query 'Gauthier "basement" water claim' → 1 emailsfound
+2026-10-26 12:08:23 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"declarations page" OR "policy number" OR "homeowners insurance" has:attachment'
+2026-10-26 12:08:24 - openpoke.server - INFO - [SEARCH_RESULT] Query '"declarations page" OR "policy number" OR "homeowners insurance" has:attachment' → 0 emails found
+2026-10-26 12:08:24 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'insurance policy'
+2026-10-26 12:08:24 - openpoke.server - INFO - [SEARCH_RESULT] Query 'insurance policy' → 0 emails found
+2026-10-26 12:08:24 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"Sam Rivera"'
+2026-10-26 12:08:25 - openpoke.server - INFO - [SEARCH_RESULT] Query '"Sam Rivera"' → 0 emails found
+2026-10-26 12:08:26 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 0 emails
+2026-10-26 12:08:26 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 0 emails
+2026-10-26 12:08:26 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 8 queries executed, 0 emails selected
+2026-10-26 12:08:26 - openpoke.server - INFO - [EMAIL_SEARCH] Found 0 emails
+2026-10-26 12:08:26 - openpoke.server - INFO - [Linda Gauthier Water Claim] Tool task_email_search completed successfully
+2026-10-26 12:08:26 - openpoke.server - INFO - [Linda Gauthier Water Claim] Executing tool: task_email_search
+2026-10-26 12:08:26 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'insurance claim water damage sudden discharge, insurer, claims department, Gauthier or Linda, any emails from insurance carriers'
+2026-10-26 12:08:27 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(policy OR insurer OR insurance OR adjuster OR claim number) has:attachment OR subject:policy OR subject:insurance'
+2026-10-26 12:08:28 - openpoke.server - INFO - [SEARCH_RESULT] Query '(policy OR insurer OR insurance OR adjusterOR claim number) has:attachment OR subject:policy OR subject:insurance' → 0 emails found
+2026-10-26 12:08:29 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '("water damage" OR "sudden discharge" OR "water loss") (claim OR claims) '
+2026-10-26 12:08:30 - openpoke.server - INFO - [SEARCH_RESULT] Query '("water damage" OR "sudden discharge" OR "water loss") (claim OR claims) ' → 0 emails found
+2026-10-26 12:08:30 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(Gauthier OR Linda) (claim ORclaims OR insurance OR adjuster)'
+2026-10-26 12:08:31 - openpoke.server - INFO - [SEARCH_RESULT] Query '(Gauthier OR Linda) (claim OR claims OR insurance OR adjuster)' → 2 emails found
+2026-10-26 12:08:31 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(insurance OR insurer OR "claims department" OR adjuster) (claim OR "claim number" OR policy) (water OR discharge OR leak OR flood)'
+2026-10-26 12:08:32 - openpoke.server - INFO - [SEARCH_RESULT] Query '(insurance OR insurer OR "claims department" OR adjuster) (claim OR "claim number" OR policy) (water OR discharge OR leak OR flood)' → 0 emails found
+2026-10-26 12:08:33 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 2 emails
+2026-10-26 12:08:33 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 2 emails
+2026-10-26 12:08:33 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 4 queries executed, 2 emails selected
+2026-10-26 12:08:33 - openpoke.server - INFO - [EMAIL_SEARCH] Found 2 emails
+2026-10-26 12:08:33 - openpoke.server - INFO - [Linda Gauthier Water Claim] Tool task_email_search completed successfully
+2026-10-26 12:08:33 - openpoke.server - INFO - [Linda Gauthier Water Claim] Executing tool: task_email_search
+2026-10-26 12:08:33 - openpoke.server - INFO - [EMAIL_SEARCH] Starting search for: 'Marco Rossi refund email fromsender@example.com'
+2026-10-26 12:08:35 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '("sudden and accidental discharge" OR "accidental discharge" OR "claim number" OR "claims department" OR adjuster) -in:spam'
+2026-10-26 12:08:35 - openpoke.server - INFO - [SEARCH_RESULT] Query '("sudden and accidental discharge" OR "accidental discharge" OR "claim number" OR "claims department" OR adjuster) -in:spam' → 1 emails found
+2026-10-26 12:08:35 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"Water in my basement" OR (basement water claim after:2026/10/01)'
+2026-10-26 12:08:36 - openpoke.server - INFO - [SEARCH_RESULT] Query '"Water in my basement" OR (basement water claim after:2026/10/01)' → 2 emails found
+2026-10-26 12:08:36 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '(from:insurance OR from:insurer OR from:claims OR from:assurance OR from:adjuster) after:2026/10/01'
+2026-10-26 12:08:38 - openpoke.server - INFO - [SEARCH_RESULT] Query '(from:insurance OR from:insurer OR from:claims OR from:assurance OR from:adjuster) after:2026/10/01' → 1 emails found
+2026-10-26 12:08:38 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'from:sender@example.com Marco Rossi refund'
+2026-10-26 12:08:39 - openpoke.server - INFO - [SEARCH_RESULT] Query 'from:sender@example.com Marco Rossirefund' → 2 emails found
+2026-10-26 12:08:39 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: 'from:sender@example.com refund'
+2026-10-26 12:08:40 - openpoke.server - INFO - [SEARCH_RESULT] Query 'from:sender@example.com refund' → 2emails found
+2026-10-26 12:08:40 - openpoke.server - INFO - [SEARCH_QUERY] LLM generated query: '"Marco Rossi" refund from:sender@example.com'
+2026-10-26 12:08:41 - openpoke.server - INFO - [SEARCH_RESULT] Query '"Marco Rossi" refund from:sender@example.com' → 2 emails found
+2026-10-26 12:08:43 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 2 emails
+2026-10-26 12:08:43 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 2 emails
+2026-10-26 12:08:43 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 6 queries executed, 2 emails selected
+2026-10-26 12:08:43 - openpoke.server - INFO - [EMAIL_SEARCH] Found 2 emails
+2026-10-26 12:08:43 - openpoke.server - INFO - [Linda Gauthier Water Claim] Tool task_email_search completed successfully
+2026-10-26 12:08:43 - openpoke.server - INFO - [Linda Gauthier Water Claim] Requesting plan (iteration 3)
+2026-10-26 12:08:43 - openpoke.server - INFO - [Linda Gauthier Water Claim] Calling LLM with model: anthropic/claude-haiku-5.5, tools: 13
+2026-10-26 12:08:43 - openpoke.server - INFO - [EMAIL_SEARCH] LLM selected 2 emails
+2026-10-26 12:08:43 - openpoke.server - INFO - [EMAIL_SEARCH] Search completed - selected 2 emails
+2026-10-26 12:08:43 - openpoke.server - INFO - [EMAIL_SEARCH] Completed - 3 queries executed, 2 emails selected
+2026-10-26 12:08:43 - openpoke.server - INFO - [EMAIL_SEARCH] Found 2 emails
+2026-10-26 12:08:43 - openpoke.server - INFO - [Linda Gauthier Water Claim] Tool task_email_search completed successfully
+2026-10-26 12:08:43 - openpoke.server - INFO - [Linda Gauthier Water Claim] Requesting plan (iteration 3)
+2026-10-26 12:08:43 - openpoke.server - INFO - [Linda Gauthier Water Claim] Calling LLM with model: anthropic/claude-haiku-5.5, tools: 13
+2026-10-26 12:08:49 - openpoke.server - INFO - [Linda Gauthier Water Claim] Execution finished: SUCCESS
+2026-10-26 12:08:49 - openpoke.server - INFO - Agent 'Linda Gauthier Water Claim' completed: SUCCESS
+2026-10-26 12:08:50 - openpoke.server - INFO - [Linda Gauthier Water Claim] Executing tool: gmail_create_draft
+2026-10-26 12:08:51 - openpoke.server - INFO - [Linda Gauthier Water Claim] Tool gmail_create_draft completed successfully
+2026-10-26 12:08:51 - openpoke.server - INFO - [Linda Gauthier Water Claim] Requesting plan (iteration 4)
+2026-10-26 12:08:51 - openpoke.server - INFO - [Linda Gauthier Water Claim] Calling LLM with model: anthropic/claude-haiku-5.5, tools: 13
+2026-10-26 12:08:51 - openpoke.server - ERROR - [Linda Gauthier Water Claim] Execution timed out after 90s
+2026-10-26 12:08:51 - openpoke.server - INFO - Execution batch completed: Marco Rossi Billing Check, Marco Rossi Billing Check, Priya Sharma Auto Policy, Priya Sharma Auto Policy, Linda Gauthier Water Claim, Linda Gauthier Water Claim
+2026-10-26 12:08:51 - openpoke.server - INFO - Agent 'Linda Gauthier Water Claim' completed: FAILED
+2026-10-26 12:08:51 - openpoke.server - INFO - Processing execution agent results
+2026-10-26 12:09:16 - openpoke.server - INFO - Important email watcher check complete

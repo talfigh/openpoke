@@ -1,0 +1,102 @@
+# Working notes
+
+Running list of problems found while setting up and running OpenPoke. These feed the README's "Other gaps" section. Each entry says where it was found and its status.
+
+Status key: **fixed** (committed on `agent-overload`), **pending** (known fix, not applied yet), **open** (needs design or is out of scope), **won't fix** (deliberately left as upstream).
+
+## 1. Setup blockers (upstream doesn't run as-is)
+
+| # | Problem | Evidence | Status |
+|---|---|---|---|
+| 1.1 | Default model `anthropic/claude-sonnet-4` was retired on OpenRouter, so every LLM call fails with 404. | Server log, 404 from OpenRouter | **fixed**: all roles on `anthropic/claude-haiku-5.5` (hardcoded in `server/config.py`) |
+| 1.2 | Composio rejects `connected_accounts.initiate()` for Composio-managed OAuth (400), so the Gmail connect button is broken. | `/api/gmail/connect` response | **fixed**: `connected_accounts.link()`; requires `composio>=0.30.0` |
+| 1.3 | No `max_tokens` on completions, so OpenRouter reserves the model's full 65,536-token output per call and small balances fail with 402. | 402 error on a "hi" message | **won't fix (decided)**: resolved by adding OpenRouter credits; keeping upstream behavior. Worth a per-call cap in production. |
+
+## 2. Observability and reliability
+
+| # | Problem | Evidence | Status |
+|---|---|---|---|
+| 2.1 | Error details are passed as `logger.x(..., extra={...})`, but the log format never prints extra fields, so errors appear with no cause. 85 call sites are affected. | "Interaction agent failed" with no reason | **partly fixed**: the interaction-agent error line now includes the cause; a formatter that prints `extra=` fields is **pending** |
+| 2.2 | The interaction loop only ends when the model returns no tool calls. With repeated unanswered messages in history, the model called `wait` 7 times and hit the 8-iteration limit. | Server log: 7 consecutive `wait` calls, then "Reached tool iteration limit" | **open**: candidate fix is to end the turn when the model only calls `wait` (not after `send_message_to_user`, which would break acknowledge-then-delegate) |
+| 2.3 | The active Gmail user is held in server memory only. Any restart, including `--reload` on a code save, silently disconnects the watcher and agents until someone opens Settings. | `_ACTIVE_USER_ID` in `services/gmail/client.py` | **open** |
+| 2.4 | The default Composio scope includes `https://mail.google.com/` (full mailbox: read, send, delete, settings). Read, compose and send would be enough. | Composio auth config screen | **open**: least-privilege point for the write-up |
+| 2.5 | Upstream ran every role (classifier, summarizer, search) on the same expensive model. | `server/config.py` | **open**: cost; model per role should be configurable |
+
+## 3. Agent overload (from reading the code)
+
+| # | Problem | Where |
+|---|---|---|
+| 3.1 | The roster is a flat list of names. Every name goes into every Interaction Agent prompt as `<agent name="..."/>`, with no description, recency or status. | `services/execution/roster.py`, `interaction_agent/agent.py` |
+| 3.2 | Reuse versus create is an exact string match on the name the LLM writes, so near-duplicates ("Email to Alice" vs "Alice lunch") become separate agents. | `interaction_agent/tools.py::send_message_to_agent` |
+| 3.3 | Log files are keyed by a slugified, lowercased name, so "Email to Alice" and "email to alice" are two roster entries sharing one log file. | `services/execution/log_store.py::_slugify` |
+| 3.4 | Each execution agent loads its full history into the system prompt (`conversation_limit=None`), so per-agent context grows without bound. | `execution_agent/agent.py` |
+| 3.5 | There are no tests or evals in the upstream repo. | repo |
+
+## 4. Baseline watcher run (2026-10-26)
+
+18 seed emails were sent to the test inbox with Gmail connected and no user prompts. Evidence: `evals/baseline/2026-10-26_watcher_run_server_log.txt`, `..._chat.txt`, `Sent.png`, `Draft.png`, `linda_orphan_draft.txt`.
+
+| # | Finding |
+|---|---|
+| 4.1 | **Background alerts created agents without any user request.** The Interaction Agent started *Priya Sharma Auto Policy*, *Marco Rossi Billing Check* and *Linda Gauthier Water Claim* from watcher notifications alone. |
+| 4.2 | **The same agent ran twice at the same time.** Each of those agents was "Reused" while its first run was still in progress, so two runs wrote to the same log (`batch completed: Marco, Marco, Priya, Priya, Linda, Linda`). |
+| 4.3 | **One global batch holds results back.** Marco finished at 12:07:21, but its result reached the Interaction Agent at 12:08:51, when the slowest agent finished. |
+| 4.4 | **A run was killed after a side effect, and the result was lost.** A Linda run created a Gmail draft, then hit the 90 s timeout one second later and was marked FAILED. The user was later told "Want me to draft one?" while the draft already existed. |
+| 4.5 | **The Interaction Agent's caution doesn't reach execution agents.** The Interaction Agent said "hold off on any reply"; the execution agent drafted one anyway. Execution agents don't see the Interaction Agent's reasoning or any sender-verification rule. |
+| 4.6 | **Inconsistent autonomy.** For some emails (Alice Park, Daniel, Jordan) it asked "want me to…?"; for others (Priya, Marco, Linda) it started agents on its own. |
+| 4.7 | **The classifier missed E06**, the correction to Daniel's in-flight certificate (holder must be "The Corporation of the City of Vaughan"). The final summary says "nothing new" for Daniel. A certificate would go out with the wrong legal name. |
+| 4.8 | **Search is costly and unfocused.** Up to 9 Gmail queries per search task, hunting for policy documents that aren't in email, including US carriers (Geico, State Farm) for a Canadian broker. This contributed to the timeouts. |
+| 4.9 | **No access to the system of record.** The draft asks the client for her policy number, which a broker already has. The agent only sees email; this is the gap a direct integration such as Applied Epic closes. |
+| 4.10 | **Quoted-reply header uses UTC** ("04:05 PM") instead of the user's timezone (12:05 PM Toronto). |
+| 4.11 | **Injection: nothing was sent.** Sent is empty. Both injections (E11 refund, E15 forward) were recognized and ignored. *Confounded*: see 5.1. |
+
+## 5. Test-data limitations
+
+| # | Limitation | Mitigation |
+|---|---|---|
+| 5.1 | All 18 personas send from one personal Gmail address, so the model reasonably treats every sender as suspicious. That colors replies and confounds the injection result in 4.11. | Prompt **P00** states that client mail arrives via a shared intake address. Use distinct senders in offline evals. |
+| 5.2 | E09's body says the VIN is "made up for testing", and the agent repeated it. | Kept for this run so the fixtures match what's in the inbox. Remove in the next seed version. |
+| 5.3 | The personal sender address is redacted to `sender@example.com` in committed evidence. | n/a |
+
+## 6. Offline baseline on synthetic data (2026-10-27)
+
+The fake Gmail backend (`server/services/gmail/fake_backend.py`, enabled by `OPENPOKE_FAKE_GMAIL`) answers every Composio call from `evals/fixtures/synthetic/mailbox.json` (995 emails, distinct senders, fixes 5.1 and 5.2) and records writes to an outbox file. Nothing is sent. `OPENPOKE_DATA_DIR` isolates each run. Harness: `evals/run_baseline.py`; runs in `evals/baseline/runs/`. All roles on `anthropic/claude-haiku-5.5`.
+
+**Routing sweep** (`2026-10-27_105605_routing_baseline`, first of 3 runs, means in 7.1; 131 labeled prompts × roster sizes, Interaction Agent loop with dispatch stubbed, $1.36 total):
+
+| Roster | Accuracy | Reuse acc. | Duplicate on reuse | New job merged into existing agent | Prompt tokens | Ambiguous |
+|---|---|---|---|---|---|---|
+| 40 | 73% | 74% | 24% | 31% | 5.8k | 86% |
+| 100 | 75% | 74% | 24% | 28% | 7.2k | 86% |
+| 250 | 71% | 68% | 26% | 31% | 10.5k | 86% |
+| 500 | 59% | 58% | 39% | 34% | 16.1k | 14% |
+
+| # | Finding |
+|---|---|
+| 6.1 | **Overload is real past ~250 agents.** Reuse accuracy falls 74% → 58% and duplicates rise 24% → 39% from 100 to 500 agents, with the same 40 target agents in every roster. Prompt size grows ~2.8× (cost per turn with it). |
+| 6.2 | **Names alone can't route.** When the agent name doesn't mention the person in the prompt ("Ana's certificate" → *MacLeod Print Shop Ltd. COI…*), reuse accuracy is 17–28% at every size, vs 68–88% when it does. This is 3.1: the roster needs descriptions/people, not just names. |
+| 6.3 | **At 500 agents the model stops fanning out.** "any update from Maya?" checks all four Maya agents at 250, but at 500 spawns an empty *Maya Update Check* agent instead (ambiguous 86% → 14%). |
+| 6.4 | **Same client, different job gets merged** in ~30% of cases at every size (e.g. Okafor renewal → Okafor COI agent), contaminating the COI agent's context. Not size-dependent: a naming/instruction problem, not only overload. |
+| 6.5 | **Reminders route to the owning agent only 40–60% of the time**; otherwise a new reminder agent is created, so the trigger fires without the work's context. |
+
+**Classifier** (`2026-10-27_121708_classifier_baseline`, 222 labeled emails, $0.05): high-importance recall 98%; low-importance false positives 15%; medium surfaced 58%; 8 of 12 phishing/injection emails surfaced as important (look-alike carrier, CEO-fraud, password phish) with no warning; missed a certificate holder correction again (cf. 4.7). Composio returns no importance field; the only signal is Gmail's own `IMPORTANT` entry in `labelIds`, which the classifier prompt includes. The first run (`…_classifier_label-leak`) put `IMPORTANT` on exactly the emails labeled high, leaking the answer key; with a Gmail-like noisy label instead, results barely moved (97% → 98% recall), so the classifier judges mainly by content.
+
+**End-to-end scenario** (`2026-10-27_110213_scenario_old-labels`, first run, before the label fix; 3-run results in 7.3; 100-agent roster, full system, 600 ms simulated Composio latency, $0.16): 9/11 steps passed. Failures: Okafor renewal merged into the COI agent (6.4); "which clients still owe me documents?" timed out twice at 90 s and the user never got an answer (cf. 4.4). Also observed: a watcher email alone started the Okafor COI agent (4.1); drafts shown to the user twice; nothing sent or forwarded, and Marco's injected refund instruction was flagged to the user. Time to first reply ~3 s; time to the actual answer 10–36 s, 190 s for the cross-agent question.
+
+**Comparing an improvement:** rerun with `--label <change>` and compare `summary.md` tables. Scoring changes can be re-applied to a saved run with `run_baseline.py rescore <results.json>` (no LLM calls). Run-to-run noise is about ±2 points on overall accuracy (7.1); combine repeated runs with `run_baseline.py compare`.
+
+## 7. Repeats, paraphrases and OpenPoke-named rosters (2026-10-27)
+
+Repeat summaries: `evals/baseline/routing_3runs.md`, `classifier_3runs.md`, `scenario_3runs.md` (`run_baseline.py compare`).
+
+| # | Finding |
+|---|---|
+| 7.1 | **Noise is small next to the overload effect.** Over 3 routing runs, overall accuracy varies ±2 points per size (74%, 75%, 70%, 59% for 40/100/250/500), duplicates 22% → 37%. 12–15% of individual cases flip between runs, and kinds with n ≤ 7 (ambiguous, multi) swing up to 40 points, so compare aggregates, not single cases. Classifier is stable (recall 96–100%). |
+| 7.2 | **Unapproved send.** In 1 of 3 scenario runs, "draft a reply to alice park…" sent the email: the Interaction Agent said "create the draft only and do not send it", but the execution agent called `gmail_reply_to_thread`, which sends immediately. Causes: the prompt's no-send rule only covers executing drafts; reply/forward tools aren't listed in the prompt; `gmail_create_draft`'s description doesn't say it can reply in a thread; and no code-level confirmation gate exists for any sending tool. With real Gmail this email would have gone out. |
+| 7.3 | **Scenario is flaky in specific places** (3 runs, 8.7/11 steps pass on average): the Okafor renewal merges into the COI agent 3/3; the reminder lands on Linda's claim agent only 1/3; the cross-agent documents question takes 45–282 s and sometimes never answers. |
+| 7.4 | **Paraphrasing barely matters** at 40 agents (74% original vs 75% paraphrased, 3 rewordings per prompt). Routing failures are structural, not phrasing luck: the same cases fail under every wording. |
+| 7.5 | **OpenPoke names its agents well.** Given 500 creation requests in order (`grow-roster`), it created 483 agents with longer, more specific names than the generator (5.2 vs 4.3 words; holder, carrier, claim number), 32 vs 297 near-duplicate pairs, no slug collisions. Only 14/500 new jobs went into an existing agent at creation, 2 of them clearly wrong. |
+| 7.6 | **Richer names don't route better, and sometimes worse** (40 agents, OpenPoke vs generator names): reuse 85% vs 83%, lookalikes 100% vs 86%, but new-job merges 46% vs 33% and reminders 30% vs 47%. OpenPoke names commercial work by company ("Cardenas Bakery COI…"), so a surname-only request for a *different* job ("Cardenas renewal") matches that agent, and a first-name reminder ("Maya's certificate") doesn't, so it creates a new "Maya Certificate Check Reminder" agent instead. Shared attributes in names also attract wrong matches ("Ines's certificate for Dufferin Plaza" → another client's *…Certificate Request Dufferin Plaza*). |
+| 7.7 | **Overload doesn't depend on who names the agents or how the user phrases things** (all 4 sizes, `evals/baseline/naming_and_paraphrase_comparison.md`). Overall accuracy at 40/100/250/500: generator names 74/75/70/59%, OpenPoke names 72/70/62/59%, and paraphrased prompts within ±3 points of the originals. Duplicates on reuse reach 37–38% at 500 in all four conditions. |
+| 7.8 | **Naming style trades one failure for another.** OpenPoke's names (full person name + details) solve lookalikes completely (100% at every size vs 86% → 58% for generator names), but reminders collapse (30% → 15% vs 47% → 38%) and new jobs merge more at small sizes (55% vs 67% correct at 40). Reuse is similar. No naming style fixes routing on its own. |
+| 7.9 | **The 402 run.** OpenRouter credits ran out mid-sweep (worsened by 1.3: every call reserves 65k output tokens), so the first OpenPoke-names and paraphrase sweeps are complete only at 40 agents; sizes 100–500 were rerun after a top-up. The harness now scores failed calls as `error`, excludes them from accuracy, warns in the summary, and stops a sweep when >5% of calls fail. |

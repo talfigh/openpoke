@@ -1,0 +1,397 @@
+<title>Agent Naming and Overload</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: one reading column (~68ch) for prose; charts break out to a wider small-multiples grid. */
+:root {
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --ink: #12161c;
+  --ink-2: #4a5260;
+  --ink-3: #6f7785;
+  --rule: #dfe3ea;
+  --grid: #e9ecf1;
+  --gen: #2a78d6;      /* generator names */
+  --opk: #eb6834;      /* OpenPoke names */
+  --tint: #eef3fb;
+  --bad: #b3261e;
+  --font-display: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111418; --surface: #191d23; --ink: #eef0f3; --ink-2: #b9c0cb; --ink-3: #8e96a3;
+    --rule: #2c323b; --grid: #252a32; --gen: #3987e5; --opk: #d95926; --tint: #1b2533; --bad: #f2867f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111418; --surface: #191d23; --ink: #eef0f3; --ink-2: #b9c0cb; --ink-3: #8e96a3;
+  --rule: #2c323b; --grid: #252a32; --gen: #3987e5; --opk: #d95926; --tint: #1b2533; --bad: #f2867f;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 72px;
+}
+.wrap { max-width: 1080px; margin: 0 auto; display: grid; gap: 56px; }
+.col { max-width: 68ch; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(2rem, 5vw, 2.9rem); font-weight: 700; letter-spacing: -0.01em; }
+h2 { font-size: 1.6rem; font-weight: 700; }
+h3 { font-size: 1.1rem; font-weight: 600; }
+p { margin: 0; }
+.eyebrow { font-family: var(--font-data); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.stack { display: grid; gap: 14px; }
+.stack-lg { display: grid; gap: 24px; }
+.lead { font-size: 1.15rem; color: var(--ink-2); }
+.muted { color: var(--ink-3); }
+code, .mono { font-family: var(--font-data); font-size: 0.86em; }
+a { color: var(--gen); }
+
+header.stack { gap: 18px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); padding-block-end: 32px; }
+
+/* takeaways */
+.takeaways { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.take { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 18px 18px 20px; display: grid; gap: 8px; align-content: start; }
+.take .fig { font-family: var(--font-data); font-size: 1.05rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+.take p { color: var(--ink-2); font-size: 0.95rem; }
+
+/* key */
+.key { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; font-size: 0.9rem; color: var(--ink-2); }
+.key span { display: inline-flex; align-items: center; gap: 8px; }
+.key svg { flex: none; }
+
+/* setup grid */
+.setup { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
+.setup > div { min-width: 0; }
+
+/* tables */
+.tbl { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--ink-2); font-size: 0.8rem; letter-spacing: 0.02em; }
+td.num, th.num { text-align: right; font-family: var(--font-data); font-variant-numeric: tabular-nums; white-space: nowrap; }
+tbody tr:last-child td { border-bottom: 0; }
+
+/* charts */
+.charts { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.chart { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 16px 16px 12px; display: grid; gap: 6px; min-width: 0; align-content: start; position: relative; }
+.chart .sub { font-size: 0.82rem; color: var(--ink-3); }
+.chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+.chart text { font-family: var(--font-data); font-size: 10px; fill: var(--ink-3); }
+.chart .gl { stroke: var(--grid); stroke-width: 1; }
+.chart .base { stroke: var(--rule); stroke-width: 1; }
+.chart .hit { fill: transparent; cursor: crosshair; }
+.chart .xh { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 2 3; opacity: 0; }
+.chart .xh.on { opacity: 1; }
+.chart details { font-size: 0.85rem; }
+.chart summary { cursor: pointer; color: var(--ink-2); padding-block: 4px; }
+.chart summary:focus-visible, .hit:focus-visible { outline: 2px solid var(--gen); outline-offset: 2px; }
+.chart details table { font-size: 0.8rem; margin-top: 6px; }
+.chart details th, .chart details td { padding: 4px 6px; }
+.tip { position: absolute; pointer-events: none; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 8px 10px; font-size: 0.78rem; box-shadow: 0 4px 14px rgb(0 0 0 / 0.12); display: grid; gap: 3px; min-width: 190px; z-index: 2; }
+.tip b { font-weight: 600; }
+.tip .row { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
+.tip .row span:first-child { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); }
+.tip .row span:last-child { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+.sw { width: 14px; height: 0; border-top: 2px solid; display: inline-block; }
+.sw.dash { border-top-style: dashed; }
+
+/* names compare */
+.pair td:first-child { color: var(--ink-2); }
+.pair td { font-size: 0.88rem; }
+.chip { display: inline-block; font-family: var(--font-data); font-size: 0.72rem; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--rule); color: var(--ink-2); white-space: nowrap; }
+.chip.bad { color: var(--bad); border-color: currentColor; }
+
+ul.plain { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; }
+ul.plain li::marker { color: var(--ink-3); }
+.quote { border-left: 2px solid var(--rule); padding-left: 14px; color: var(--ink-2); font-size: 0.95rem; }
+.arrow { color: var(--ink-3); padding-inline: 4px; }
+
+footer { border-top: 1px solid var(--rule); padding-top: 24px; font-size: 0.85rem; color: var(--ink-3); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .chart path.line { transition: opacity .15s; }
+}
+</style>
+
+<div class="wrap">
+
+<header class="stack">
+  <span class="eyebrow">OpenPoke routing eval · offline, synthetic inbox · 27 Oct 2026</span>
+  <h1>Agent naming and overload</h1>
+  <p class="lead col">Does OpenPoke send a request to the right execution agent when it already has dozens or hundreds of them? And do the results change if OpenPoke names the agents itself, or if the user words the request differently?</p>
+  <p class="col muted">Model unchanged for every run: <code>anthropic/claude-haiku-5.5</code> via OpenRouter. No real email was read or sent. Gmail calls were answered from a fake Composio backend.</p>
+</header>
+
+<section class="stack-lg">
+  <h2>What we found</h2>
+  <div class="takeaways">
+    <div class="take">
+      <span class="eyebrow">Overload</span>
+      <span class="fig">74% → 59%</span>
+      <p>Routing accuracy drops as the roster grows from 40 to 500 agents. It drops under every naming style and every wording we tested.</p>
+    </div>
+    <div class="take">
+      <span class="eyebrow">Wording</span>
+      <span class="fig">±3 points</span>
+      <p>Paraphrasing the prompts barely moves the score. The same cases fail under every rewording, so the failures are structural, not luck.</p>
+    </div>
+    <div class="take">
+      <span class="eyebrow">OpenPoke's names help</span>
+      <span class="fig">Lookalikes 100%</span>
+      <p>OpenPoke puts the full person name in each agent name, so it never mixes up two clients with the same first name, even at 500 agents.</p>
+    </div>
+    <div class="take">
+      <span class="eyebrow">…and hurt</span>
+      <span class="fig">Reminders 30% → 15%</span>
+      <p>Its names describe the task, not the topic you'd mention later. Reminders and new jobs get a new agent or land in the wrong one more often.</p>
+    </div>
+  </div>
+  <p class="col">Neither naming style fixes routing. With a long roster, both reach about 37% duplicate agents on follow-ups. The likely fix is in how agents are found (search over agent metadata and history), not in what they are called.</p>
+</section>
+
+<section class="stack-lg">
+  <h2>How the test works</h2>
+  <div class="setup">
+    <div class="stack">
+      <h3>The roster</h3>
+      <p>The roster is OpenPoke's list of existing execution agents. The Interaction Agent sees only their names and picks one by exact name, or creates a new agent.</p>
+      <p>Every roster holds the same <b>40 core agents</b>, which are the ones the test prompts are about. Larger rosters add <b>filler</b>: other client work and older finished jobs that no prompt targets. Only the amount of filler changes, so any score change comes from roster length.</p>
+      <div class="tbl">
+        <table>
+          <thead><tr><th class="num">Roster</th><th class="num">Core</th><th class="num">Filler in inbox</th><th class="num">Older finished</th></tr></thead>
+          <tbody>
+            <tr><td class="num">40</td><td class="num">40</td><td class="num">0</td><td class="num">0</td></tr>
+            <tr><td class="num">100</td><td class="num">40</td><td class="num">24</td><td class="num">36</td></tr>
+            <tr><td class="num">250</td><td class="num">40</td><td class="num">76</td><td class="num">134</td></tr>
+            <tr><td class="num">500</td><td class="num">40</td><td class="num">169</td><td class="num">291</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="stack">
+      <h3>The four conditions</h3>
+      <p><b>Agent names.</b> <i>Generator names</i> were written by the dataset script. <i>OpenPoke names</i> came from sending OpenPoke 500 "please handle this" messages one at a time and keeping the agents it created and named itself.</p>
+      <p><b>Prompt wording.</b> <i>Original</i> prompts are the 131 hand-labelled test messages. <i>Paraphrased</i> prompts are 3 checked rewordings of each (casual, with a typo, more polite) that keep every name and time.</p>
+      <div class="key" aria-label="Chart key">
+        <span><svg width="26" height="10" aria-hidden="true"><line x1="1" y1="5" x2="25" y2="5" stroke="var(--gen)" stroke-width="2"/></svg>Generator names, original</span>
+        <span><svg width="26" height="10" aria-hidden="true"><line x1="1" y1="5" x2="25" y2="5" stroke="var(--gen)" stroke-width="2" stroke-dasharray="4 3"/></svg>Generator names, paraphrased</span>
+        <span><svg width="26" height="10" aria-hidden="true"><line x1="1" y1="5" x2="25" y2="5" stroke="var(--opk)" stroke-width="2"/></svg>OpenPoke names, original</span>
+        <span><svg width="26" height="10" aria-hidden="true"><line x1="1" y1="5" x2="25" y2="5" stroke="var(--opk)" stroke-width="2" stroke-dasharray="4 3"/></svg>OpenPoke names, paraphrased</span>
+      </div>
+      <p class="muted" style="font-size:.9rem">Colour shows who named the agents; a dashed line means paraphrased prompts.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stack-lg">
+  <div class="stack col">
+    <h2>Results by roster size</h2>
+    <p>Each chart shows one measure at 40, 100, 250 and 500 agents. Hover or tap a column to see all four values; "Show numbers" opens the table.</p>
+  </div>
+  <div class="key" aria-hidden="true">
+    <span><svg width="26" height="10"><line x1="1" y1="5" x2="25" y2="5" stroke="var(--gen)" stroke-width="2"/></svg>Generator, original</span>
+    <span><svg width="26" height="10"><line x1="1" y1="5" x2="25" y2="5" stroke="var(--gen)" stroke-width="2" stroke-dasharray="4 3"/></svg>Generator, paraphrased</span>
+    <span><svg width="26" height="10"><line x1="1" y1="5" x2="25" y2="5" stroke="var(--opk)" stroke-width="2"/></svg>OpenPoke, original</span>
+    <span><svg width="26" height="10"><line x1="1" y1="5" x2="25" y2="5" stroke="var(--opk)" stroke-width="2" stroke-dasharray="4 3"/></svg>OpenPoke, paraphrased</span>
+  </div>
+  <div class="charts" id="charts"></div>
+</section>
+
+<section class="stack-lg">
+  <div class="stack col">
+    <h2>How the names differ</h2>
+    <p>OpenPoke was given 500 job requests in the order the work appeared. It created 483 agents. Its names are longer and carry more detail, such as the carrier, the claim number or the certificate holder.</p>
+  </div>
+  <div class="setup">
+    <div class="stack" style="min-width:0">
+      <h3>Name statistics</h3>
+      <div class="tbl">
+        <table>
+          <thead><tr><th></th><th class="num">Generator</th><th class="num">OpenPoke</th></tr></thead>
+          <tbody>
+            <tr><td>Name mentions the person</td><td class="num">95%</td><td class="num">96%</td></tr>
+            <tr><td>Name mentions the company (commercial)</td><td class="num">100%</td><td class="num">100%</td></tr>
+            <tr><td>Mean words per name</td><td class="num">4.3</td><td class="num">5.2</td></tr>
+            <tr><td>Near-duplicate name pairs (≥60% shared words)</td><td class="num">297</td><td class="num">32</td></tr>
+            <tr><td>Names identical to the generator's</td><td class="num">—</td><td class="num">75</td></tr>
+            <tr><td>Log-file name collisions</td><td class="num">0</td><td class="num">0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 style="margin-top:12px">At creation time</h3>
+      <ul class="plain">
+        <li><b>14 of 500</b> new jobs were put into an existing agent instead of a new one. 12 were for the same person, and 2 were unrelated: "Weekly Inbox Digest" went into <i>Daily 8am Email Summary</i>, and a flight booking went into <i>Vancouver Conference Registration</i>.</li>
+        <li><b>3 of 500</b> got no agent. OpenPoke asked a question or replied directly instead.</li>
+      </ul>
+    </div>
+    <div class="stack" style="min-width:0">
+      <h3>Side by side</h3>
+      <div class="tbl">
+        <table class="pair">
+          <thead><tr><th>Generator</th><th>OpenPoke</th></tr></thead>
+          <tbody>
+            <tr><td>Certificate for Maya Cardenas</td><td>Cardenas Bakery COI Regional Municipality of York</td></tr>
+            <tr><td>Fontaine Brewing Co. Renewal BOP-621778</td><td>Yara Fontaine Northern Shield BOP Renewal</td></tr>
+            <tr><td>Billing issue - Abena Adeyemi</td><td>Abena Adeyemi NSF Payment Follow-up</td></tr>
+            <tr><td>Tomas quote</td><td>Tomas Kowalski Tenant Policy Quote</td></tr>
+            <tr><td>Mona address change</td><td>Mona Ivanova Address Update</td></tr>
+            <tr><td>Victor Morin Collision Claim</td><td>Victor Morin Collision Claim CLM-2652972</td></tr>
+            <tr><td>Arjun Travel Insurance</td><td>Arjun Romano Travel Insurance Lisbon</td></tr>
+            <tr><td>Felix Haddad Policy Renewal</td><td>Haddad Fitness Studio Pinnacle Renewal</td></tr>
+            <tr><td>Thanksgiving Plans</td><td>Thanksgiving Hosting vs Travel Options</td></tr>
+            <tr><td>Mila Costa Home Renewal 2025</td><td>Mila Costa Home Renewal 2025</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stack-lg col">
+  <h2>Why naming trades one failure for another</h2>
+  <div class="stack">
+    <h3>Lookalikes get easier</h3>
+    <p>Every OpenPoke name carries the full person name. "Priya Santos" and "Priya Sharma" never look alike, so lookalike cases score 100% at every size. Generator names sometimes use a first name only or the company only, and they drop from 86% to 58%.</p>
+  </div>
+  <div class="stack">
+    <h3>Reminders get harder</h3>
+    <p>OpenPoke names commercial work by company and task. A reminder that uses the client's first name doesn't match the agent name, so OpenPoke creates a fresh agent for the reminder. The reminder then fires in an agent that knows nothing about the work.</p>
+    <p class="quote">"remind me Wednesday at 10am to check that Maya's certificate was issued" <span class="arrow">→</span> new agent <i>Maya Certificate Check Reminder</i>, instead of the existing <i>Cardenas Bakery COI Regional Municipality of York</i>.</p>
+    <p>A clear name match doesn't always help. With this roster, OpenPoke often treats a reminder as a job of its own:</p>
+    <p class="quote">"remind me tomorrow at 10am to check that Daniel's certificate went out" <span class="arrow">→</span> new agent <i>Daniel Okafor Certificate Reminder</i>, although <i>Okafor Landscaping COI City of Vaughan</i> already exists.</p>
+  </div>
+  <div class="stack">
+    <h3>New jobs merge more often</h3>
+    <p>The reverse also happens. A surname-only request for a different job ("the Cardenas renewal") matches the company agent, so new work lands in the old agent. Shared details pull in wrong matches too: "Ines's certificate for Dufferin Plaza" went to another client's <i>…Certificate Request Dufferin Plaza</i>.</p>
+  </div>
+  <div class="stack">
+    <h3>Names can't carry the whole job</h3>
+    <p>About a third of follow-ups refer to work in a way the agent name doesn't contain, such as "Ana's certificate" for <i>MacLeod Print Shop Ltd. COI</i>. Name-only routing reaches 20–44% on those, whoever writes the names. The Interaction Agent needs more than a list of names to route them.</p>
+  </div>
+</section>
+
+<section class="stack-lg col">
+  <h2>How far to trust these numbers</h2>
+  <ul class="plain">
+    <li><b>Run-to-run noise is about ±2 points</b> on overall accuracy. The generator-names, original-prompt line is the mean of 3 runs. The other three conditions are single runs, but the paraphrase conditions have about 3× as many prompts.</li>
+    <li><b>Small groups swing a lot.</b> Ambiguous (7 cases) and lookalike (12) can move 20–40 points between runs. Compare the overall and reuse lines first.</li>
+    <li><b>Failed API calls are excluded.</b> 6 of about 2,700 calls failed (OpenRouter credit ran out during one sweep). Sizes 100–500 for the OpenPoke-names and paraphrase conditions were rerun after a top-up.</li>
+    <li><b>Synthetic data.</b> The inbox, clients and test prompts are invented: 995 emails across 609 threads, covering 90 days of a Toronto insurance broker's mail. The patterns should transfer, but the exact percentages belong to this dataset.</li>
+  </ul>
+</section>
+
+<footer class="stack col">
+  <p>Generated from <code>evals/baseline/naming_and_paraphrase_comparison.md</code> and the run folders under <code>evals/baseline/runs/</code> (<code>…routing_baseline</code>, <code>-r2</code>, <code>-r3</code>, <code>…routing_paraphrases</code>, <code>…routing_openpoke-names</code>, <code>…150425_routing_*-100-500</code>, <code>…130131_grow-roster_openpoke-names</code>). Harness: <code>evals/run_baseline.py</code>.</p>
+</footer>
+
+</div>
+
+<script>
+const SIZES = [40, 100, 250, 500];
+const SERIES = [
+  { key: "go", label: "Generator, original", color: "var(--gen)", dash: false },
+  { key: "gp", label: "Generator, paraphrased", color: "var(--gen)", dash: true },
+  { key: "oo", label: "OpenPoke, original", color: "var(--opk)", dash: false },
+  { key: "op", label: "OpenPoke, paraphrased", color: "var(--opk)", dash: true },
+];
+const METRICS = [
+  { title: "Overall accuracy", sub: "All 131 cases · higher is better", d: { go: [74,75,70,59], gp: [75,74,68,59], oo: [72,70,62,59], op: [71,73,64,58] } },
+  { title: "Follow-up reaches the existing agent", sub: "Reuse, 52 cases · higher is better", d: { go: [83,77,75,64], gp: [82,77,76,67], oo: [85,79,67,65], op: [85,81,74,65] } },
+  { title: "Two clients with the same first name", sub: "Lookalike, 12 cases · higher is better", d: { go: [86,81,75,58], gp: [78,67,69,56], oo: [100,100,100,100], op: [100,100,100,100] } },
+  { title: "Reminder goes to the agent that owns the work", sub: "Reminder, 20 cases · higher is better", d: { go: [47,60,47,38], gp: [56,52,44,31], oo: [30,20,15,15], op: [27,27,15,13] } },
+  { title: "New job gets its own agent", sub: "New, 29 cases · higher is better", d: { go: [67,74,71,67], gp: [66,76,67,67], oo: [55,66,62,66], op: [53,68,61,61] } },
+  { title: "First name only, several matches", sub: "Ambiguous, 7 cases · higher is better", d: { go: [81,86,62,14], gp: [86,86,43,29], oo: [86,86,57,29], op: [86,86,67,19] } },
+  { title: "Duplicate agent created on a follow-up", sub: "Share of reuse cases · lower is better", d: { go: [22,24,27,37], gp: [21,27,27,38], oo: [25,32,36,37], op: [24,26,32,38] } },
+  { title: "New job merged into an existing agent", sub: "Share of new cases · lower is better", d: { go: [33,26,29,33], gp: [34,24,33,33], oo: [45,34,38,34], op: [46,32,39,39] } },
+  { title: "Follow-up when the agent name lacks the person", sub: "Name-opaque reuse, 18 cases · higher is better", d: { go: [28,26,22,20], gp: [44,43,38,35], oo: [36,32,25,18], op: [43,42,36,30] } },
+];
+
+const W = 320, H = 190, M = { t: 10, r: 14, b: 30, l: 34 };
+const pw = W - M.l - M.r, ph = H - M.t - M.b;
+const x = i => M.l + (pw * i) / (SIZES.length - 1);
+const y = v => M.t + ph - (ph * v) / 100;
+const NS = "http://www.w3.org/2000/svg";
+const el = (tag, attrs = {}, parent) => {
+  const n = document.createElementNS(NS, tag);
+  for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+  if (parent) parent.appendChild(n);
+  return n;
+};
+const sw = s => `<i class="sw${s.dash ? " dash" : ""}" style="border-color:${s.color}"></i>`;
+
+const root = document.getElementById("charts");
+METRICS.forEach((m, mi) => {
+  const card = document.createElement("figure");
+  card.className = "chart";
+  card.style.margin = "0";
+  card.innerHTML = `<h3>${m.title}</h3><span class="sub">${m.sub}</span>`;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": `${m.title}: line chart by roster size` });
+  card.appendChild(svg);
+
+  [0, 25, 50, 75, 100].forEach(v => {
+    el("line", { x1: M.l, x2: W - M.r, y1: y(v), y2: y(v), class: v === 0 ? "base" : "gl" }, svg);
+    const t = el("text", { x: M.l - 6, y: y(v) + 3, "text-anchor": "end" }, svg);
+    t.textContent = v + "%";
+  });
+  SIZES.forEach((s, i) => {
+    const t = el("text", { x: x(i), y: H - 12, "text-anchor": "middle" }, svg);
+    t.textContent = s;
+  });
+  const xl = el("text", { x: M.l + pw / 2, y: H - 1, "text-anchor": "middle" }, svg);
+  xl.textContent = "agents in roster";
+
+  const xh = el("line", { x1: 0, x2: 0, y1: M.t, y2: M.t + ph, class: "xh" }, svg);
+
+  SERIES.forEach(s => {
+    const vals = m.d[s.key];
+    const dpath = vals.map((v, i) => `${i ? "L" : "M"}${x(i)},${y(v)}`).join("");
+    el("path", { d: dpath, fill: "none", stroke: s.color, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round", "stroke-dasharray": s.dash ? "5 4" : "none", class: "line" }, svg);
+    vals.forEach((v, i) => el("circle", { cx: x(i), cy: y(v), r: 3.5, fill: s.dash ? "var(--surface)" : s.color, stroke: s.dash ? s.color : "var(--surface)", "stroke-width": s.dash ? 2 : 1.5 }, svg));
+  });
+
+  const tip = document.createElement("div");
+  tip.className = "tip";
+  tip.hidden = true;
+  card.appendChild(tip);
+
+  const show = i => {
+    xh.setAttribute("x1", x(i)); xh.setAttribute("x2", x(i)); xh.classList.add("on");
+    tip.innerHTML = `<b>${SIZES[i]} agents</b>` + SERIES.map(s => `<div class="row"><span>${sw(s)}${s.label}</span><span>${m.d[s.key][i]}%</span></div>`).join("");
+    tip.hidden = false;
+    const box = svg.getBoundingClientRect(), cb = card.getBoundingClientRect();
+    const px = box.left - cb.left + (x(i) / W) * box.width;
+    const tw = tip.offsetWidth;
+    let left = px + 12;
+    if (left + tw > cb.width - 8) left = px - tw - 12;
+    tip.style.left = Math.max(8, left) + "px";
+    tip.style.top = (box.top - cb.top + 8) + "px";
+  };
+  const hide = () => { tip.hidden = true; xh.classList.remove("on"); };
+
+  SIZES.forEach((s, i) => {
+    const half = pw / (SIZES.length - 1) / 2;
+    const hx = Math.max(M.l - 10, x(i) - half), hw = Math.min(x(i) + half, W - M.r + 10) - hx;
+    const r = el("rect", { x: hx, y: M.t, width: hw, height: ph, class: "hit", tabindex: 0, "aria-label": `${s} agents: ` + SERIES.map(se => `${se.label} ${m.d[se.key][i]}%`).join(", ") }, svg);
+    r.addEventListener("pointerenter", () => show(i));
+    r.addEventListener("pointerdown", () => show(i));
+    r.addEventListener("focus", () => show(i));
+    r.addEventListener("blur", hide);
+  });
+  svg.addEventListener("pointerleave", hide);
+
+  const det = document.createElement("details");
+  det.innerHTML = `<summary>Show numbers</summary><div class="tbl"><table><thead><tr><th></th>${SIZES.map(s => `<th class="num">${s}</th>`).join("")}</tr></thead><tbody>${SERIES.map(s => `<tr><td>${s.label}</td>${m.d[s.key].map(v => `<td class="num">${v}%</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+  card.appendChild(det);
+  root.appendChild(card);
+});
+</script>
