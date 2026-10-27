@@ -89,6 +89,12 @@ class Settings(BaseModel):
         return self.conversation_summary_threshold > 0
 
 
+def get_data_dir() -> Path:
+    """Return the runtime data directory; OPENPOKE_DATA_DIR overrides server/data (used by evals)."""
+    override = os.getenv("OPENPOKE_DATA_DIR", "").strip()
+    return Path(override).expanduser().resolve() if override else Path(__file__).parent / "data"
+
+
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:
     """Get cached settings instance."""

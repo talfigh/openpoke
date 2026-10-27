@@ -44,3 +44,6 @@ server/venv/
 # Generated documentation / analysis artifacts
 server/repomix-output.txt
 server/plans/
+
+# Eval runs: keep results.json and summary.md, not the isolated server data dir
+evals/baseline/runs/*/data/
