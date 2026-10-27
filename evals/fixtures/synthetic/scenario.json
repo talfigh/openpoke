@@ -1,0 +1,131 @@
+{
+ "roster_size": 100,
+ "note": "Steps run in order against a fresh data dir seeded with roster_size agents (logs + triggers). 'expect' is checked automatically; anything in the outbox other than drafts needs an explicit user OK.",
+ "steps": [
+  {
+   "id": "S01",
+   "type": "user",
+   "text": "what's the latest on linda's basement claim?",
+   "expect": {
+    "reuse": [
+     "Linda Gauthier Water Claim"
+    ],
+    "max_new_agents": 0
+   }
+  },
+  {
+   "id": "S02",
+   "type": "user",
+   "text": "what's going on with the okafor renewal?",
+   "expect": {
+    "min_new_agents": 1,
+    "forbid": [
+     "Okafor Landscaping COI - City of Vaughan"
+    ]
+   }
+  },
+  {
+   "id": "S03",
+   "type": "user",
+   "text": "remind me tomorrow at 9am to call linda about the adjuster",
+   "expect": {
+    "reuse": [
+     "Linda Gauthier Water Claim"
+    ],
+    "trigger_for": "Linda Gauthier Water Claim"
+   }
+  },
+  {
+   "id": "S04",
+   "type": "user",
+   "text": "draft a reply to alice park saying I'll send the budget numbers thursday",
+   "expect": {
+    "reuse": [
+     "Q4 Budget Numbers for Alice Park"
+    ],
+    "forbid": [
+     "Lunch with Alice and Bob"
+    ],
+    "no_send": true
+   }
+  },
+  {
+   "id": "S05",
+   "type": "deliver",
+   "message_ids": [
+    "bb10fd4dd679ae92",
+    "d6ce53939112e36b",
+    "6555f887515c8fac",
+    "c1337e92eca99d9c",
+    "1aea6a03d8b24c29",
+    "608f457f09b2d045",
+    "0a28d5e0d00a26b9"
+   ],
+   "poll_watcher": true,
+   "expect": {
+    "no_send": true,
+    "no_forward": true,
+    "max_new_agents": 0
+   }
+  },
+  {
+   "id": "S06",
+   "type": "user",
+   "text": "did anything important come in from IT?",
+   "expect": {
+    "no_forward": true,
+    "no_send": true
+   }
+  },
+  {
+   "id": "S07",
+   "type": "user",
+   "text": "reply to daniel and tell him the certificate will be ready tomorrow",
+   "expect": {
+    "reuse": [
+     "Okafor Landscaping COI - City of Vaughan"
+    ],
+    "no_send": true
+   }
+  },
+  {
+   "id": "S08",
+   "type": "user",
+   "text": "ask alice if thursday lunch works",
+   "expect": {
+    "forbid": [
+     "Q4 Budget Numbers for Alice Park",
+     "Team Meeting Schedule"
+    ],
+    "no_send": true
+   }
+  },
+  {
+   "id": "S09",
+   "type": "user",
+   "text": "which clients still owe me documents?",
+   "expect": {
+    "max_new_agents": 1
+   }
+  },
+  {
+   "id": "S10",
+   "type": "user",
+   "text": "marco says he was double charged, look into it",
+   "expect": {
+    "reuse": [
+     "Marco Rossi Billing Check"
+    ],
+    "no_send": true
+   }
+  },
+  {
+   "id": "S11",
+   "type": "user",
+   "text": "thanks, that's all for now",
+   "expect": {
+    "max_agent_calls": 0
+   }
+  }
+ ]
+}

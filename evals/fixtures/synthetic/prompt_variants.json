@@ -1,0 +1,1194 @@
+{
+ "model": "anthropic/claude-haiku-5.5",
+ "paraphrases": {
+  "R001": [
+   "what did alice chen say about lunch",
+   "whats alice chen saying about lunch? didnt catch it",
+   "Could you remind me what Alice Chen said about lunch? I think she mentioned it earlier and I want to make sure I have the details right."
+  ],
+  "R002": [
+   "is bob coming to lunch he said smth about food",
+   "is bob coming to lunch? he mentoned something about food",
+   "Do you know if Bob is coming to lunch? I think he mentioned something about food, and I want to check before I plan anything."
+  ],
+  "R003": [
+   "draft a reply to alice park, say ill send the budget numbers thursday",
+   "draft a reply to alice park saying ill send the budgt numbers thursday",
+   "Could you draft a reply to Alice Park letting her know I'll send the budget numbers on Thursday?"
+  ],
+  "R004": [
+   "what numbers does alice park need for the budget",
+   "wat numbers does alice park need for the budget?",
+   "Could you tell me which numbers Alice Park needs for the budget? I want to make sure I send her the right information."
+  ],
+  "R005": [
+   "prep the certificate daniel needs for the city contract",
+   "prepare the cerificate Daniel needs for the city contract",
+   "Could you prepare the certificate that Daniel needs for the city contract? He's waiting on it for that project."
+  ],
+  "R006": [
+   "daniel fixed the certificate holder name, use the new one",
+   "daniel corrected the certifcate holder name, make sure we use the new one",
+   "Daniel has corrected the certificate holder name, so please make sure we use the new version when we prepare or send it."
+  ],
+  "R007": [
+   "add priyas new car to her policy",
+   "add priya's new car to her polcy",
+   "Could you add Priya's new car to her policy? She recently bought it and needs it covered."
+  ],
+  "R008": [
+   "did priya send the vin yet",
+   "did priya send the VIN yt?",
+   "Has Priya sent the VIN yet? I need it to finish updating her policy for the new car."
+  ],
+  "R009": [
+   "marco says he got double charged, can you look into it",
+   "marco says he was double chrged, look into it pls",
+   "Marco says he was charged twice, so could you please look into it and see what happened?"
+  ],
+  "R010": [
+   "open a claim file for lindas basement",
+   "start a claim fle for linda's basement",
+   "Could you open a new claim file for Linda's basement? She's reported damage and we need to get it started."
+  ],
+  "R011": [
+   "whats still missing for jordans home and auto quote",
+   "whats still missng for jordan's home and auto quote?",
+   "Could you let me know what is still missing for Jordan's home and auto quote so I can follow up on it?"
+  ],
+  "R012": [
+   "when is the team meeting this week",
+   "when is the team meting this week?",
+   "Do you know when the team meeting is this week? I want to make sure I block the time on my calendar."
+  ],
+  "R013": [
+   "where we at on maya's certificate for the regional municipality of york job",
+   "wheres maya's cert at for the Regional Municipality of York job atm",
+   "Could you let me know where things stand with Maya's certificate for the Regional Municipality of York job?"
+  ],
+  "R014": [
+   "did cardenas bakery inc get their coi yet",
+   "has Cardenas Bakery Inc. gotten their COI yet",
+   "Do you know whether Cardenas Bakery Inc. has received their COI yet?"
+  ],
+  "R015": [
+   "where we at on paula's certificate for the lakeshore industrial reit job",
+   "wheres paula's cert at for the Lakeshore Industrial REIT job",
+   "Could you let me know where things stand with Paula's certificate for the Lakeshore Industrial REIT job?"
+  ],
+  "R016": [
+   "did pereira hardware inc get their coi yet",
+   "has Pereira Hardware Inc. gotten their COI yet",
+   "Do you know whether Pereira Hardware Inc. has received their COI yet?"
+  ],
+  "R017": [
+   "where we at on arjun's certificate for the dufferin plaza management job",
+   "wheres arjun's cert at for the Dufferin Plaza Management job",
+   "Could you let me know where things stand with Arjun's certificate for the Dufferin Plaza Management job?"
+  ],
+  "R018": [
+   "did schmidt cleaning services ltd get their coi yet",
+   "has Schmidt Cleaning Services Ltd. gotten their COI yet",
+   "Do you know whether Schmidt Cleaning Services Ltd. has received their COI yet?"
+  ],
+  "R019": [
+   "whats up with the kowalski renewal",
+   "hows the Kowalski renewal going",
+   "Could you give me an update on the Kowalski renewal?"
+  ],
+  "R020": [
+   "did ines send the renewal figures yet",
+   "has Ines sent over the renewal figures yet",
+   "Do you know whether Ines has sent the renewal figures yet?"
+  ],
+  "R021": [
+   "where we at on anas certificate for the city of markham job",
+   "wheres Ana's cert at for the City of Markham job",
+   "Could you let me know where things stand with Ana's certificate for the City of Markham job?"
+  ],
+  "R022": [
+   "did macleod print shop ltd get their coi yet",
+   "has MacLeod Print Shop Ltd. gotten their COI yet",
+   "Do you know whether MacLeod Print Shop Ltd. has received their COI yet?"
+  ],
+  "R023": [
+   "whats up with the malik renewal",
+   "hows the Malik renewal going",
+   "Could you give me an update on the Malik renewal?"
+  ],
+  "R024": [
+   "did uma send the renewal figures yet",
+   "has Uma sent over the renewal figures yet",
+   "Do you know whether Uma has sent the renewal figures yet?"
+  ],
+  "R025": [
+   "whats going on with the tran renewal",
+   "where are we at with the Tran renewal?",
+   "Could you let me know what's currently happening with the Tran renewal?"
+  ],
+  "R026": [
+   "did farah send the renewal figs yet",
+   "Has Farah sent over the renewal figures yet?",
+   "Could you check whether Farah has sent the renewal figures yet?"
+  ],
+  "R027": [
+   "where are we on bens cert for lakeshore industrial reit",
+   "Where do things stand on Ben's certificate for the Lakeshore Industrial REIT job?",
+   "Could you update me on where we are with Ben's certificate for the Lakeshore Industrial REIT job?"
+  ],
+  "R028": [
+   "did vargas architecture inc get their coi yet",
+   "Has Vargas Architecture Inc. received their COI yet?",
+   "Could you let me know if Vargas Architecture Inc. has gotten their COI yet?"
+  ],
+  "R029": [
+   "whats going on with the tremblay renewal",
+   "where are we at with the Tremblay renewal?",
+   "Could you let me know what's currently happening with the Tremblay renewal?"
+  ],
+  "R030": [
+   "did farah send the renewal figs yet",
+   "Has Farah sent over the renewal figures yet?",
+   "Could you check whether Farah has sent the renewal figures yet?"
+  ],
+  "R031": [
+   "where are we on neils cert for bayview commercial properties",
+   "Where do things stand on Neil's certificate for the Bayview Commercial Properties job?",
+   "Could you update me on where we are with Neil's certificate for the Bayview Commercial Properties job?"
+  ],
+  "R032": [
+   "did malik roofing ltd get their coi yet",
+   "Has Malik Roofing Ltd. received their COI yet?",
+   "Could you let me know if Malik Roofing Ltd. has gotten their COI yet?"
+  ],
+  "R033": [
+   "whats going on with the sokolov renewal",
+   "where are we at with the Sokolov renewal?",
+   "Could you let me know what's currently happening with the Sokolov renewal?"
+  ],
+  "R034": [
+   "did laila send the renewal figs yet",
+   "Has Laila sent over the renewal figures yet?",
+   "Could you check whether Laila has sent the renewal figures yet?"
+  ],
+  "R035": [
+   "whats going on with the ellis renewal",
+   "where are we at with the Ellis renewal?",
+   "Could you let me know what's currently happening with the Ellis renewal?"
+  ],
+  "R036": [
+   "did hana send the renewal figs yet",
+   "Has Hana sent over the renewal figures yet?",
+   "Could you check whether Hana has sent the renewal figures yet?"
+  ],
+  "R037": [
+   "whats up w the patel renewal",
+   "wheres the Patel renewl at right now?",
+   "Could you let me know where things stand with the Patel renewal?"
+  ],
+  "R038": [
+   "javier send the renewal figs yet",
+   "has Javier sent the renewal figs yet?",
+   "Do you know if Javier has sent over the renewal figures yet?"
+  ],
+  "R039": [
+   "wheres leahs cert for bayview commercial properties job",
+   "where we at on Leah's certificate for the Bayview Commercial Properties job?",
+   "Could you update me on where things stand with Leah's certificate for the Bayview Commercial Properties job?"
+  ],
+  "R040": [
+   "did reyes roofing inc get their coi yet",
+   "did Reyes Roofing Inc. get thier COI yet?",
+   "Do you know whether Reyes Roofing Inc. has received their COI yet?"
+  ],
+  "R041": [
+   "leah says somethings off w the bill, check it",
+   "Leah says something's wrong with the bil, can you look into it",
+   "Leah mentioned that something seems to be wrong with the bill, could you please look into it?"
+  ],
+  "R042": [
+   "billing get back to us on leahs payment?",
+   "did billng get back to us about Leah's payment?",
+   "Have we heard back from billing yet about Leah's payment?"
+  ],
+  "R043": [
+   "paolo says somethings off w the bill, check it",
+   "Paolo says something's wrong with the bil, can you look into it",
+   "Paolo mentioned that something seems to be wrong with the bill, could you please look into it?"
+  ],
+  "R044": [
+   "billing get back to us on paolos payment?",
+   "did billng get back to us about Paolo's payment?",
+   "Have we heard back from billing yet about Paolo's payment?"
+  ],
+  "R045": [
+   "adriana says somethings off w the bill, check it",
+   "Adriana says something's wrong with the bil, can you look into it",
+   "Adriana mentioned that something seems to be wrong with the bill, could you please look into it?"
+  ],
+  "R046": [
+   "billing get back to us on adrianas payment?",
+   "did billng get back to us about Adriana's payment?",
+   "Have we heard back from billing yet about Adriana's payment?"
+  ],
+  "R047": [
+   "uma send the VIN yet?",
+   "did Uma send the VN yet?",
+   "Do you know if Uma has sent over the VIN yet?"
+  ],
+  "R048": [
+   "add umas new toyota to the policy",
+   "add Uma's new Toyta to the policy",
+   "Could you please add Uma's new Toyota to the policy?"
+  ],
+  "R049": [
+   "nora says bill's wrong, check it",
+   "Nora says somethings wrong with the bil, look into it",
+   "Nora mentioned that something looks wrong with the bill, could you please look into it?"
+  ],
+  "R050": [
+   "billing get back on nora's payment yet?",
+   "did billng get back to us about Nora's paymnt?",
+   "Have you heard back from billing about Nora's payment yet?"
+  ],
+  "R051": [
+   "whats still missing for mona's auto quote",
+   "what's stil missing for Mona's auto quote?",
+   "Could you let me know what's still missing for Mona's auto quote?"
+  ],
+  "R052": [
+   "did mona send the reno receipts",
+   "did Mona send the renovaton receipts?",
+   "Do you know if Mona has sent over the renovation receipts yet?"
+  ],
+  "R053": [
+   "daniel morin says bill's wrong, check it",
+   "Daniel Morin says somethings wrong wit the bill, look into it",
+   "Daniel Morin mentioned that something seems off with the bill, could you please look into it?"
+  ],
+  "R054": [
+   "did daniel alvarez send the vin yet",
+   "did Daniel Alvarez send teh VIN yet?",
+   "Has Daniel Alvarez sent over the VIN yet?"
+  ],
+  "R055": [
+   "any news from daniel?",
+   "any updte from Daniel?",
+   "Do you have any update from Daniel yet?"
+  ],
+  "R056": [
+   "whats still missing for priya malik's home quote",
+   "what's stil missing for Priya Malik's home quote?",
+   "Could you let me know what's still missing for Priya Malik's home quote?"
+  ],
+  "R057": [
+   "priya santos says bill's wrong, check it",
+   "Priya Santos says somethings wrong wit the bill, look into it",
+   "Priya Santos mentioned that something seems off with the bill, could you please look into it?"
+  ],
+  "R058": [
+   "any news from priya?",
+   "any updte from Priya?",
+   "Do you have any update from Priya yet?"
+  ],
+  "R059": [
+   "did maya zhang send the vin yet",
+   "did Maya Zhang send teh VIN yet?",
+   "Has Maya Zhang sent over the VIN yet?"
+  ],
+  "R060": [
+   "start a claim file for maya ibrahim's hail damage",
+   "start a claim fle for Maya Ibrahim's hail damage",
+   "Could you open a claim file for Maya Ibrahim's hail damage?"
+  ],
+  "R061": [
+   "any news from maya?",
+   "anythng new from Maya yet?",
+   "Could you let me know if there's been any update from Maya?"
+  ],
+  "R062": [
+   "omar kim says bill's off, check it out",
+   "Omar Kim says somethings wrong with the bill, can you look into it",
+   "Omar Kim mentioned there seems to be something wrong with the bill, could you please look into it?"
+  ],
+  "R063": [
+   "omar abbott send the VIN yet?",
+   "did Omar Abbott snd the VIN yet?",
+   "Has Omar Abbott sent over the VIN yet, do you know?"
+  ],
+  "R064": [
+   "any news from omar?",
+   "anythin new from Omar yet?",
+   "Could you let me know if there's been any update from Omar?"
+  ],
+  "R065": [
+   "whats the status on elena walshs theft claim",
+   "what's the status of Elena Walsh's thef claim?",
+   "Could you give me an update on the status of Elena Walsh's theft claim?"
+  ],
+  "R066": [
+   "did elena costa send the vin yet",
+   "did Elena Costa send the VIN yt?",
+   "Has Elena Costa sent over the VIN yet?"
+  ],
+  "R067": [
+   "any news from elena?",
+   "anythng new from Elena yet?",
+   "Could you let me know if there's been any update from Elena?"
+  ],
+  "R068": [
+   "open a claim file for ravi patel's water damage",
+   "start a claim fle for Ravi Patel's water damage",
+   "Could you please start a claim file for Ravi Patel's water damage?"
+  ],
+  "R069": [
+   "did ravi novak send the VIN yet",
+   "did Ravi Novak snd the VIN yet?",
+   "Has Ravi Novak sent over the VIN yet?"
+  ],
+  "R070": [
+   "any news from ravi?",
+   "anythign new from Ravi yet?",
+   "Could you let me know if there's been any update from Ravi?"
+  ],
+  "R071": [
+   "whats up with the cardenas renewal",
+   "what's going on with the Cardenas renewl?",
+   "Could you let me know what's going on with the Cardenas renewal?"
+  ],
+  "R072": [
+   "whats up with the pereira renewal",
+   "what's going on with the Pereira renewl?",
+   "Could you let me know what's going on with the Pereira renewal?"
+  ],
+  "R073": [
+   "whats up with the schmidt renewal",
+   "where are we on the schmidt renewal?",
+   "Could you let me know where things stand with the Schmidt renewal?"
+  ],
+  "R074": [
+   "where are we on ines cert for dufferin plaza management",
+   "where are we on Ines's certificate for the Dufferin Plaza Management job?",
+   "Could you tell me where we are on Ines's certificate for the Dufferin Plaza Management job?"
+  ],
+  "R075": [
+   "whats going on w the macleod renewal",
+   "where are we on the MacLeod renewal?",
+   "Could you fill me in on what's happening with the MacLeod renewal?"
+  ],
+  "R076": [
+   "where are we on uma's cert for kingsway realty holdings",
+   "where are we on Uma's certificate for the Kingsway Realty Holdings job?",
+   "Could you let me know where things stand with Uma's certificate for the Kingsway Realty Holdings job?"
+  ],
+  "R077": [
+   "where are we on farah's cert for lakeshore industrial reit",
+   "where are we on Farah's certificate for the Lakeshore Industrial REIT job?",
+   "Could you update me on where we are with Farah's certificate for the Lakeshore Industrial REIT job?"
+  ],
+  "R078": [
+   "whats going on with the vargas renewal",
+   "where are we on the vargas renewal?",
+   "Could you let me know what's happening with the Vargas renewal?"
+  ],
+  "R079": [
+   "where are we on farah's cert for city of mississauga",
+   "where are we on Farah's certificate for the City of Mississauga job?",
+   "Could you tell me where we stand on Farah's certificate for the City of Mississauga job?"
+  ],
+  "R080": [
+   "whats going on w the malik renewal",
+   "where are we on the malik renewal?",
+   "Could you let me know what's happening with the Malik renewal?"
+  ],
+  "R081": [
+   "where are we on laila's cert for city of pickering",
+   "where are we on Laila's certificate for the City of Pickering job?",
+   "Could you update me on where we are with Laila's certificate for the City of Pickering job?"
+  ],
+  "R082": [
+   "where are we on hanas cert for dufferin plaza management",
+   "where are we on Hana's certificate for the Dufferin Plaza Management job?",
+   "Could you let me know where we are on Hana's certificate for the Dufferin Plaza Management job?"
+  ],
+  "R083": [
+   "where are we on javier's cert for town of ajax",
+   "where are we on Javier's certificate for the Town of Ajax job?",
+   "Could you tell me where things stand with Javier's certificate for the Town of Ajax job?"
+  ],
+  "R084": [
+   "whats going on with the reyes renewal",
+   "where are we on the reyes renewal?",
+   "Could you let me know what's happening with the Reyes renewal?"
+  ],
+  "R085": [
+   "open a claim file for leah's water damage",
+   "start claim file for Leah's water damge",
+   "Could you please start a claim file for Leah's water damage?"
+  ],
+  "R086": [
+   "whats still missing on paolo's home and auto quote",
+   "what's still missin for Paolo's home and auto quote?",
+   "Could you let me know what's still missing for Paolo's home and auto quote?"
+  ],
+  "R087": [
+   "adriana send the VIN yet?",
+   "did Adriana snd the VIN yet?",
+   "Do you know whether Adriana has sent the VIN yet?"
+  ],
+  "R088": [
+   "open a claim file for uma's water damage",
+   "start claim file for Uma's water damge",
+   "Could you please start a claim file for Uma's water damage?"
+  ],
+  "R089": [
+   "status on nora's theft claim?",
+   "whats the status of Nora's theft claim",
+   "Could you check on the current status of Nora's theft claim for me?"
+  ],
+  "R090": [
+   "mona says the bill looks off, can u check it",
+   "Mona says somethings wrong with the bil, look into it",
+   "Mona has mentioned that something seems wrong with the bill, so could you please look into it?"
+  ],
+  "R091": [
+   "open a claim file for felix's hail damage",
+   "start claim file for Felix's hail damge",
+   "Could you please start a claim file for Felix's hail damage?"
+  ],
+  "R092": [
+   "status on javier's collision claim?",
+   "whats the status of Javier's collision claim",
+   "Could you check on the current status of Javier's collision claim for me?"
+  ],
+  "R093": [
+   "whats still missing on owen's auto quote",
+   "what's still missin for Owen's auto quote?",
+   "Could you let me know what's still missing for Owen's auto quote?"
+  ],
+  "R094": [
+   "whats still missing on ravi's condo quote",
+   "what's still missin for Ravi's condo quote?",
+   "Could you let me know what's still missing for Ravi's condo quote?"
+  ],
+  "R095": [
+   "yusuf says the bill looks off, can u check it",
+   "Yusuf says somethings wrong with the bil, look into it",
+   "Yusuf has mentioned that something seems wrong with the bill, so could you please look into it?"
+  ],
+  "R096": [
+   "aisha send the VIN yet?",
+   "did Aisha snd the VIN yet?",
+   "Do you know whether Aisha has sent the VIN yet?"
+  ],
+  "R097": [
+   "amir says the bill's off, can u look into it",
+   "Amir says something's wrong with teh bill, pls look into it",
+   "Amir mentioned that something seems wrong with the bill, could you please look into it for me?"
+  ],
+  "R098": [
+   "whats the status on jasmine's theft claim?",
+   "what's the staus of Jasmine's theft claim?",
+   "Could you let me know where things stand with Jasmine's theft claim?"
+  ],
+  "R099": [
+   "whats up with the okafor renewal?",
+   "whats going on with the okafor renewl?",
+   "Could you give me an update on what's happening with the okafor renewal?"
+  ],
+  "R100": [
+   "remind me thursday at 11:30 to leave for lunch w alice",
+   "remind me thursday at 11:30 to leave for lnch with alice",
+   "Please set a reminder for Thursday at 11:30 to leave for lunch with Alice."
+  ],
+  "R101": [
+   "remind me friday at 9 to send alice park the budget nums",
+   "remind me friday at 9 to send alice park the budgt numbers",
+   "Could you please remind me on Friday at 9 to send Alice Park the budget numbers?"
+  ],
+  "R102": [
+   "remind me tomorrow at 10am to check daniels cert went out",
+   "remind me tomorrow at 10am to chekc daniel's certificate went out",
+   "Could you remind me tomorrow at 10am to check that Daniel's certificate went out?"
+  ],
+  "R103": [
+   "remind me tomorrow at 9am to call linda re the adjuster",
+   "Could you please remind me tomorrow at 9am to call Linda about the adjuster?"
+  ],
+  "R104": [
+   "remind me wednesday at 10am to check mayas cert was issued",
+   "remind me wednesday at 10am to chekc Maya's certificate was issued",
+   "Could you remind me on Wednesday at 10am to check that Maya's certificate was issued?"
+  ],
+  "R105": [
+   "remind me wednesday at 10am to check paulas cert was issued",
+   "remind me wednesday at 10am to chekc Paula's certificate was issued",
+   "Could you remind me on Wednesday at 10am to check that Paula's certificate was issued?"
+  ],
+  "R106": [
+   "remind me wednesday at 10am to check arjuns cert was issued",
+   "remind me wednesday at 10am to chekc Arjun's certificate was issued",
+   "Could you remind me on Wednesday at 10am to check that Arjun's certificate was issued?"
+  ],
+  "R107": [
+   "remind me next monday to chase ines for the renewal numbers",
+   "remind me next monday to chase Ines for the renewl numbers",
+   "Could you remind me next Monday to follow up with Ines for the renewal numbers?"
+  ],
+  "R108": [
+   "remind me wednesday at 10am to check anas cert was issued",
+   "remind me wednesday at 10am to chekc Ana's certificate was issued",
+   "Could you remind me on Wednesday at 10am to check that Ana's certificate was issued?"
+  ],
+  "R109": [
+   "remind me next monday to chase uma for the renewal numbers",
+   "Could you please remind me next Monday to follow up with Uma for the renewal numbers?"
+  ],
+  "R110": [
+   "remind me next monday to chase farah for the renewal numbers",
+   "remind me next monday to chas Farah for the renewal numbers",
+   "Could you please set a reminder for next Monday to follow up with Farah about the renewal numbers?"
+  ],
+  "R111": [
+   "remind me Wednesday at 10am to chk that Ben's certificate was issued",
+   "Could you please remind me on Wednesday at 10am to check that Ben's certificate has been issued?"
+  ],
+  "R112": [
+   "remind me monday to nudge farah for the renewal numbers",
+   "remind me next monday to ping Farah about the renewal numbrs",
+   "Would you mind reminding me next Monday to get in touch with Farah about the renewal numbers?"
+  ],
+  "R113": [
+   "remind me Wednesday at 10am to check tht Neil's certificate was issued",
+   "Could you please remind me on Wednesday at 10am to check that Neil's certificate has been issued?"
+  ],
+  "R114": [
+   "remind me next monday to chase laila for the renewal numbers",
+   "Could you please remind me next Monday to follow up with Laila about the renewal numbers?"
+  ],
+  "R115": [
+   "remind me next monday to chase hana for the renewal numbers",
+   "Could you please set a reminder for next Monday to follow up with Hana about the renewal numbers?"
+  ],
+  "R116": [
+   "remind me next monday to chase javier for the renewal numbers",
+   "Could you please remind me next Monday to follow up with Javier about the renewal numbers?"
+  ],
+  "R117": [
+   "remind me Wednesday at 10am to chek that Leah's certificate was issued",
+   "Could you please remind me on Wednesday at 10am to check that Leah's certificate has been issued?"
+  ],
+  "R118": [
+   "remind me thursday to update leah on the billing issue",
+   "remind me thursday to updte Leah on the billing issue",
+   "Could you please remind me on Thursday to give Leah an update on the billing issue?"
+  ],
+  "R119": [
+   "remind me thursday to update paolo on the billing issue",
+   "remind me thursday to updat Paolo on the billing issue",
+   "Could you please remind me on Thursday to give Paolo an update on the billing issue?"
+  ],
+  "R120": [
+   "which clients still owe me docs?",
+   "which clients still owe me documnts?",
+   "Could you let me know which clients still have outstanding documents owed to me?"
+  ],
+  "R121": [
+   "status update on my open claims pls",
+   "gimme a status updte on all my open claims",
+   "Could you please give me a status update on all of my open claims?"
+  ],
+  "R122": [
+   "certs still waiting to go out?",
+   "any certifcates still waiting to go out?",
+   "Do you have any certificates that are still waiting to go out?"
+  ],
+  "R123": [
+   "thx!",
+   "thnks!",
+   "Thank you so much, I really appreciate it!"
+  ],
+  "R124": [
+   "ok cool",
+   "okk cool",
+   "Okay, that sounds good, thanks."
+  ],
+  "R125": [
+   "what can u do?",
+   "waht can you do?",
+   "Could you tell me what you are able to help with?"
+  ],
+  "R126": [
+   "lol thats fine",
+   "lol that's fien",
+   "Haha, that's totally fine, no worries at all."
+  ],
+  "R127": [
+   "nvm ignore that",
+   "nevermind, ignore thta",
+   "Actually, never mind, please just ignore that one."
+  ],
+  "R128": [
+   "morning",
+   "good mornin",
+   "Good morning! Hope you're having a great start to your day."
+  ],
+  "R129": [
+   "ur the best",
+   "you're the bset",
+   "Honestly, you're the best, thank you so much for all your help."
+  ],
+  "R130": [
+   "hold on, let me think",
+   "hold on, let me thnk about it",
+   "Hold on a moment, I just need to think about it first."
+  ],
+  "R131": [
+   "ask alice if thursday lunch works",
+   "ask alice if thursday lunch wrks",
+   "Could you please ask alice if thursday lunch works, when you get a chance?"
+  ]
+ },
+ "creation_requests": {
+  "address_change_001": "Can you process the address change for Tessa Fernandes? She sent the request this morning, so it should be quick.",
+  "address_change_002": "Please take on the address change for Ahmed Tran when you have a moment. He's moving within Toronto, so the rating territory may shift.",
+  "address_change_003": "Need you to handle an address change for Mehdi Petrov. His policy is still on the old address.",
+  "address_change_004": "Can you do the address change for Chloe Saleh? She's already sent us the new lease.",
+  "address_change_005": "Hey, could you process an address change for Lionel Morin? It's a simple one, just need to update his policy and documents.",
+  "address_change_006": "Hey, can you take on the address change for Javier Bhatt? He's moved and the policy needs the new address updated before renewal.",
+  "address_change_007": "Can you handle the address change for Mona Ivanova? She's relocated within Ontario and we need the policy updated with her new address.",
+  "address_change_008": "Please take the address change for Derek Zhang when you get a chance, he just sent over his new place details.",
+  "address_change_009": "Could you pick up the address change for Ana Kowalski? Her home policy has to reflect the new property before the end of the month.",
+  "address_change_010": "Take on the address change for Lionel Kim, would you? He's moving, so the policy and any related docs need the new address.",
+  "auto_001": "Can you check the Aurora Air booking for my Vancouver flight and make sure the confirmation details are saved to my calendar?",
+  "auto_002": "Please keep track of my Harbourfront Dental appointment coming up and set me a reminder the day before.",
+  "auto_004": "The City of Toronto property tax instalment is coming due soon, so can you make sure it gets paid on time from my account?",
+  "auto_006": "Biscuit needs his next round of vaccines at Paws & Claws Vet, so please book that visit and remind me when it's time.",
+  "billing_001": "Leah Fernandes has an NSF payment inquiry for $347.50, can you take that one and look into it?",
+  "billing_002": "Paolo Schmidt reached out about a double charge of $348.50, can you pick that up and sort it out?",
+  "billing_003": "Can you look into the premium increase question Adriana Pereira raised about her $359.00 charge? She wants to understand why it went up.",
+  "billing_004": "Nora Bhatt called about a payment plan and her $142.00 balance, so can you pick up that inquiry?",
+  "billing_005": "Mona Fernandes has a premium increase question about her $244.75 payment. Could you take that one on?",
+  "billing_006": "Felix Morin's $214.00 payment came back NSF, so can you handle that inquiry for me?",
+  "billing_007": "Owen Zielinski had an NSF payment of $126.25. Can you look into that inquiry for me?",
+  "billing_008": "Yusuf Patel had a $174.25 payment come back NSF. Can you handle that inquiry?",
+  "billing_009": "Need you to pick up a Payment Plan inquiry from Amir Garcia for $336.18.",
+  "billing_010": "Please take on the NSF payment inquiry from Daniel Morin for $92.75 when you get a chance.",
+  "billing_011": "Pick up the Premium Increase Question inquiry from Priya Santos, $419.50, would you?",
+  "billing_012": "Can you take the Payment Plan inquiry from Omar Kim, $307.75? Thanks!",
+  "billing_013": "Can you look into the double charge Rania Zhang flagged for $243.18? She's already upset, so keep her updated.",
+  "billing_014": "Tariq Pereira says he was double charged $201.25, can you take that one and sort it out?",
+  "billing_015": "Derek Haddad's payment of $314.00 bounced NSF, can you take that inquiry and figure out next steps?",
+  "billing_016": "Omar Haddad wants to set up a payment plan for the $133.18 balance, can you handle that?",
+  "billing_017": "Diego Ellis had an NSF on his $278.75 payment, please take that one.",
+  "billing_018": "Ahmed Walsh is asking why his premium went up and wants to know about the $374.18 charge, can you pick that up?",
+  "billing_019": "Rachel Garcia got double charged $203.25 and needs it fixed, can you take it?",
+  "billing_020": "Yara Fischer is questioning her premium increase on the $298.00 bill, can you take that one?",
+  "billing_021": "Claire Pereira wants an explanation for her premium increase, the $188.18 figure, can you run with it?",
+  "billing_022": "Nora Singh's $111.00 payment came back NSF, can you take that inquiry?",
+  "billing_023": "Samir Zielinski is asking about a payment plan for his $264.00 premium, can you handle it?",
+  "billing_024": "Ivan Cardenas needs a payment plan for the $272.18 balance, please take that one.",
+  "billing_025": "Aisha Bergeron says she was double charged $387.75, can you look into it?",
+  "billing_026": "Claire Bhatt would like to set up a payment plan for $163.18, can you take that on?",
+  "billing_027": "Abena Adeyemi's $108.00 payment bounced NSF, can you pick that up and follow through?",
+  "billing_028": "Rachel Vargas had an NSF on the $274.25 payment, can you take the inquiry?",
+  "cancellation_001": "Can you take on the cancellation for Jasmine Garcia? She's sold the vehicle and wants the auto policy cancelled effective the sale date.",
+  "cancellation_002": "Please handle the cancellation for Ivan Fernandes, he's switching carriers and wants his current policy closed out cleanly.",
+  "cancellation_003": "Hey, can you take the cancellation for Maya Kim? She's asked us to cancel her policy and process any refund owing.",
+  "cancellation_004": "Could you pick up the cancellation for Tessa Quinn? She no longer needs the coverage and wants it effective next Friday.",
+  "cancellation_005": "Take the cancellation for Helen Costa when you have a sec, she's moving out of the province and the policy needs to end cleanly.",
+  "cancellation_006": "Can you handle the cancellation for Adriana Nguyen? She's asked to cancel and get the pro-rated premium back.",
+  "cancellation_007": "Please take on the cancellation for Hassan Garcia, he's retiring the business and wants the commercial policy closed out.",
+  "claim_001": "Leah Fernandes has a water damage claim with Trillium Specialty, claim CLM-2639275, and the adjuster is Amir Kowalski, can you take that on?",
+  "claim_002": "Uma Singh's water damage claim (CLM-2643427) with Maple Crest is ready for you. Her adjuster is Omar Ibrahim, so please take it from there.",
+  "claim_003": "Can you take over Nora Bhatt's auto theft claim, CLM-2656065, with Trillium Specialty? Lucas Evans is handling it on their side.",
+  "claim_004": "Felix Morin has a storm damage claim, CLM-2697758, with Harbourline Mutual, and Ravi Kim is the adjuster. Can you take it on?",
+  "claim_005": "Javier Zhang's collision claim CLM-2668467 with Harbourline is open, and Grace Costa is the adjuster. Can you pick that up?",
+  "claim_006": "Ravi Romano's auto theft claim, CLM-2629725, went through Lakeshore General, and Samir Bergeron is the adjuster. Can you take it on?",
+  "claim_007": "Can you take over the auto theft claim for Jasmine Patel with Maple Crest Insurance? It's claim CLM-2633299 and the adjuster is Owen Ghosh.",
+  "claim_008": "Take on the storm damage claim for Maya Ibrahim with Trillium Specialty. Claim is CLM-2623981, adjuster Fatima Vargas.",
+  "claim_009": "Could you take on Elena Walsh's auto theft claim with Lakeshore General? It's CLM-2680012 and the adjuster is Grace Bhatt.",
+  "claim_010": "Take on Ravi Patel's water damage claim with Northern Shield, claim CLM-2629050, adjuster Aaron Santos.",
+  "claim_011": "Hey, can you pick up Maya Abbott's wind and hail damage file with Lakeshore General? It's claim CLM-2676229, and Sofia Novak is the adjuster.",
+  "claim_012": "Can you take on Samir Zhang's kitchen fire file with Trillium Specialty? Claim is CLM-2657299 and Leah Nakamura is adjusting it.",
+  "claim_013": "Could you handle Ravi Kaur's kitchen fire claim with Pinnacle Assurance? It's CLM-2676992, and Tariq Singh has the adjuster role.",
+  "claim_014": "Can you pick up Emily Castillo's collision claim with Trillium Specialty? Claim CLM-2654035 is with Felix Morin.",
+  "claim_015": "Take a look at Aaron Hughes's collision file with Northern Shield when you get a sec, it's CLM-2665255 and Ahmed Evans is the adjuster.",
+  "claim_016": "Can you take over Colin Costa's storm damage claim with Trillium Specialty? It's CLM-2680347 and Yara Tremblay is assigned.",
+  "claim_017": "Can you pick up Carmen Walsh's storm file with Harbourline Mutual? Claim CLM-2676370, Ana Fischer is the adjuster.",
+  "claim_018": "Please take on Laila Lam's auto theft claim with Northern Shield, claim CLM-2652245, with Grace Lam adjusting.",
+  "claim_019": "Can you handle Rachel Nguyen's water damage claim with Pinnacle Assurance? Claim CLM-2655348, and Anjali Dimitrov is the adjuster.",
+  "claim_020": "Can you take Ahmed Ivanova's storm claim with Trillium Specialty? It's CLM-2661217 and Dana Nguyen is assigned to it.",
+  "claim_021": "Could you pick up Victor Morin's collision claim with Trillium Specialty? It's CLM-2652972, adjuster Nora Nakamura.",
+  "claim_022": "Can you take on Lionel Walsh's water damage file with Harbourline Mutual? Claim CLM-2691050, Paolo Romano is adjusting.",
+  "claim_023": "Could you take over Anjali Romano's storm damage claim with Maple Crest Insurance? It's CLM-2682317 and Nadia Kowalski is the adjuster.",
+  "claim_024": "Can you pick up Ahmed Quinn's kitchen fire claim with Maple Crest Insurance? Claim CLM-2696213, and Claire Ghosh is handling the adjusting.",
+  "claim_025": "Take Leah Pereira's water damage file with Northern Shield, claim CLM-2614663, Paula Jensen is the adjuster.",
+  "claim_026": "Can you handle Lucas Fernandes's storm claim with Trillium Specialty? It's CLM-2658006 and Bianca Jensen is adjusting.",
+  "claim_027": "Can you take Felix Lefebvre's burglary claim with Lakeshore General? Claim CLM-2630933, and Lionel Delgado is the adjuster.",
+  "claim_028": "Can you pick up Deepa Rahman's auto theft claim with Lakeshore General? It's CLM-2617484 and Mila Reyes is adjusting.",
+  "claim_029": "Could you take on Mona Lefebvre's auto theft file with Northern Shield? Claim CLM-2663780, Kofi Abbott is the adjuster.",
+  "claim_030": "Can you take on the storm damage claim for Maya Li with Harbourline Mutual, CLM-2611006? Abena MacLeod is the adjuster, so please start by checking where her file stands.",
+  "claim_031": "Hey, could you pick up Nadia Zielinski's storm damage claim with Northern Shield (CLM-2619023)? Ahmed Adeyemi is handling it on their side.",
+  "claim_032": "Please take the kitchen fire claim for Emeka Campbell at Lakeshore General, CLM-2648401. Nora Chowdhury is the adjuster, so loop her in as needed.",
+  "coi_001": "Maya Cardenas at Cardenas Bakery needs a certificate of insurance naming the Regional Municipality of York for the community centre renovation.",
+  "coi_002": "Paula Pereira needs a COI for Pereira Hardware naming Lakeshore Industrial REIT for the warehouse lease renewal.",
+  "coi_003": "Arjun Schmidt needs a certificate for Schmidt Cleaning Services naming Dufferin Plaza Management for the warehouse lease renewal.",
+  "coi_004": "Ines Kowalski needs a COI for Kowalski Electric naming Dufferin Plaza Management for her unit 4 lease.",
+  "coi_005": "Ana MacLeod at MacLeod Print Shop needs a certificate naming the City of Markham for the community centre renovation.",
+  "coi_006": "Uma Malik needs a COI for Malik Auto Body naming Kingsway Realty Holdings for her unit 4 lease.",
+  "coi_007": "Please prepare a certificate of insurance for Farah Tran at Tran Roofing naming Lakeshore Industrial REIT for the warehouse lease renewal.",
+  "coi_008": "Ben Vargas at Vargas Architecture needs a COI naming Lakeshore Industrial REIT for the warehouse lease renewal, can you put that together?",
+  "coi_009": "Farah Tremblay at Tremblay Roofing needs a certificate naming the City of Mississauga for their parks maintenance contract, could you draft that?",
+  "coi_010": "Neil Malik needs a COI for Malik Roofing naming Bayview Commercial Properties on the warehouse lease renewal, can you handle it?",
+  "coi_011": "Laila Sokolov at Sokolov Auto Body needs a certificate naming the City of Pickering for the snow clearing contract, can you take care of that?",
+  "coi_012": "Hana Ellis needs a COI for Ellis Fitness naming Dufferin Plaza Management for the warehouse lease renewal, could you prep it?",
+  "coi_013": "Javier Patel at Patel Catering needs a certificate naming the Town of Ajax for the road resurfacing subcontract, can you draft that up?",
+  "coi_014": "Leah Reyes at Reyes Roofing needs a COI naming Bayview Commercial Properties for the new lease on their second location, can you handle that one?",
+  "coi_015": "Can you prepare a certificate of insurance for Osei Electric Inc. naming the City of Markham for their snow clearing contract? Tariq is waiting on it.",
+  "coi_016": "Please draft a certificate of insurance for Petrov Daycare Ltd. naming the Regional Municipality of York for the community centre renovation.",
+  "coi_017": "Can you put together a certificate of insurance for Romano IT Consulting Inc. naming Bayview Commercial Properties for their new lease on the second location?",
+  "coi_018": "Can you put together a certificate of insurance for Paolo Ivanova at Ivanova Hardware Ltd. naming the City of Markham for the street tree planting contract?",
+  "coi_019": "Hey, Ahmed Castillo at Castillo Auto Body needs a COI naming Bayview Commercial Properties for the lease on our second location, can you handle that?",
+  "coi_020": "Please prepare a certificate for Anjali Yamamoto at Yamamoto Roofing naming the City of Mississauga for their parks maintenance contract.",
+  "coi_021": "Need a COI for Nora Zielinski at Zielinski Brewing, naming the Corporation of the City of Vaughan for the street tree planting job.",
+  "coi_022": "Can you cut a certificate of insurance for Ana Abbott at Abbott Architecture naming Kingsway Realty Holdings? It's for the warehouse lease renewal.",
+  "coi_023": "Neil Sokolov at Sokolov Dental needs a certificate naming Bayview Commercial Properties for the warehouse lease renewal, could you take that one?",
+  "coi_024": "Hana Cardenas at Cardenas Brewing is waiting on a COI for Queen West Properties Inc. for the new lease on their second location, can you get that going?",
+  "coi_025": "Quick one: certificate for Uma Petrov at Petrov Daycare naming Queen West Properties for the unit 4 lease.",
+  "coi_026": "Chloe Evans over at Evans Daycare needs a certificate of insurance naming Bayview Commercial Properties for the warehouse lease renewal, can you take it on?",
+  "driver_add_001": "Leah Hughes called wanting a new driver added to her auto policy, so can you take on that driver addition?",
+  "driver_add_002": "Quick one: Uma Quinn needs a driver added to her policy, can you handle the driver addition?",
+  "driver_add_003": "Karen Bhatt's son just got his licence and she wants him added to her auto policy. Could you take that driver addition?",
+  "driver_add_004": "Rania Bergeron has a new driver for her policy, so could you run the driver addition for her?",
+  "driver_add_005": "Yusuf Dubois wants his new driver added to the auto policy. Can you take care of that for me?",
+  "driver_add_006": "Helen Campbell needs a driver added to her policy, would you mind picking up that driver addition?",
+  "driver_add_007": "Samir Costa's household has a new driver, so can you take the driver addition for him? Thanks.",
+  "hist_001": "Can you put together my Weekly Inbox Digest so I can see what needs attention from the past week?",
+  "hist_002": "Set up my Daily 8am Email Summary, I want the key items waiting for me each morning before I start work.",
+  "hist_003": "Please cancel my gym membership, I'm not using it anymore and need it off my card before the next billing date.",
+  "hist_004": "Can you find and book anniversary dinner reservations for Saturday? Something quiet, and let me know what's open.",
+  "hist_005": "I need some research on current Toronto condo rates, comparing one-bedroom prices across the downtown neighbourhoods.",
+  "hist_006": "My passport is about to expire, so can you handle the renewal and tell me what documents and photos I need?",
+  "hist_007": "Set a reminder for the winter tire swap and book me a slot at the shop for the first available weekend.",
+  "hist_008": "The car lease ends soon, so please sort out the return logistics and tell me what I need to bring to the dealership.",
+  "hist_009": "Can you pull together a shortlist of picks for the book club this month? We're looking for something under 350 pages.",
+  "hist_010": "Look into switching my home internet plan to something cheaper and let me know what the savings would be.",
+  "hist_011": "Put together a Christmas gift list for the family and check what's still in stock at the stores I usually use.",
+  "hist_012": "Remind me to pay my credit card bill before the due date, and make sure there's enough in the account to cover it.",
+  "hist_013": "The running shoes don't fit, so can you start the return with the store? I still have the receipt.",
+  "hist_014": "Make a tax documents checklist for me so I know exactly what to gather before my appointment with the accountant.",
+  "hist_015": "I need to move my dentist appointment to later in the month, can you call the office and reschedule it?",
+  "hist_016": "Can you register us for the Vancouver conference next month? Use the firm card and send me the confirmation once it goes through.",
+  "hist_017": "Hey, could you enroll me in the CIP course starting in September and send me the schedule and fees?",
+  "hist_018": "Would you update my LinkedIn profile with my new title and the recent CIP certification? Keep it short and professional.",
+  "hist_019": "Can you plan the team's summer BBQ on the 14th? I need a venue, food, and a rough budget under $1,500.",
+  "hist_020": "Please book the annual furnace maintenance for the office this month, ideally before the cold weather hits.",
+  "hist_021": "Zoe Garcia at Garcia Catering needs her general liability limit raised from $2M to $5M. Can you take that on and walk her through the options?",
+  "hist_022": "Isaac Garcia from Garcia Brewing Co. needs the delivery fleet schedule updated for the two new vans. Can you handle that?",
+  "hist_023": "Paolo Nakamura is ready to move forward on his condo insurance, so can you put together a quote for his downtown unit?",
+  "hist_024": "Lucas Rahman at Rahman Physiotherapy wants his liability limit increased. Can you take that over and get it sorted?",
+  "hist_025": "Can you draft an email to Fatima Bergeron about her renewal date and the documents we still need from her?",
+  "hist_026": "Rania Yamamoto at Yamamoto Architecture needs her professional liability limit bumped up. Please pick that up and get back to her.",
+  "hist_027": "Owen Kaur at Kaur Electric is asking for a cyber coverage quote. Can you run that for his shop with about 40 staff?",
+  "hist_028": "Nora Kim at Kim Florist needs the fleet schedule updated for her two delivery vans. Can you take care of it?",
+  "hist_029": "Paolo Novak with Novak Landscaping wants a cyber coverage quote for his 25-person crew. Can you put that together?",
+  "hist_030": "Tomas Castillo asked about travel insurance for his December trip to Mexico. Can you look into options for him?",
+  "hist_031": "Wei Cardenas has a few questions about his current policy. Can you go through them and draft answers for me to review?",
+  "hist_032": "Laila Haddad's umbrella policy is due for review. Can you pull together a coverage comparison before her meeting Thursday?",
+  "hist_033": "Arjun Fernandes at Fernandes Dental Clinic needs a payroll audit done. Can you take that on and flag any discrepancies?",
+  "hist_034": "Carmen Evans is ready for her condo insurance. Can you get the paperwork started for her new unit?",
+  "hist_035": "Jin Ibrahim at Ibrahim Coffee Roasters is waiting on a cyber coverage quote. Can you prepare it for their three locations?",
+  "hist_036": "Hey, can you take on Karen Tremblay's umbrella policy review? She's got a rental property now that I think isn't on her current umbrella, so please check the limits against her assets.",
+  "hist_037": "Can you pick up the payroll audit for Felix Bergeron at Bergeron Moving? His headcount jumped to 34 over the summer and the carrier wants the figures reconciled before renewal.",
+  "hist_038": "Please handle the address update for Rania Reyes, she moved last week to 47 Dufferin Street, Unit 6, and it needs to go through on her home and auto policies.",
+  "hist_039": "Could you take Graham Costa's home renewal for 2025? It's coming up in six weeks and he wants to see whether his replacement cost estimate still holds after the kitchen reno.",
+  "hist_040": "Can you draft an email to Karen Petrov? She asked last week about adding her new dog to her pet coverage and I still owe her a reply.",
+  "hist_041": "Take on Nora Garcia's tenant policy quote, she's renting a two-bedroom in Leslieville starting September 1 and wants something affordable with decent liability coverage.",
+  "hist_042": "Could you field Claire O'Brien's policy questions? She emailed a list about her deductible and whether her sewer backup is covered, and I'd like it answered before our Thursday call.",
+  "hist_043": "Can you set up travel insurance for Carmen Nguyen? She's flying to Lisbon for three weeks in October and wants medical coverage that works for her pre-existing asthma.",
+  "hist_044": "Please take on Andre Fontaine's umbrella policy review. He added a cottage in Muskoka last spring and I want to confirm his liability limit still makes sense.",
+  "hist_045": "Hey, can you run a cyber coverage quote for Hassan Singh at Singh Coffee Roasters? They're up to three locations and processing online orders now, so the old quote won't cut it.",
+  "hist_046": "Can you take Amir Fischer's home renewal for 2025? The premium jumped about 18 percent and he's asking whether we can get it back down without dropping his water damage coverage.",
+  "hist_047": "Can you get a cyber coverage quote going for Fatima Bhatt at Bhatt Bakery? They just launched online ordering and take card payments through a third-party app, so the exposure has changed.",
+  "hist_048": "Please take on Samir Schmidt's umbrella policy review, he's bought a second vehicle and a cottage since we last looked at his limits.",
+  "hist_049": "Can you put together condo insurance for Emily Hughes? She closed on a unit downtown last Friday and the mortgage company needs proof of coverage by the 15th.",
+  "hist_050": "Can you draft an email to Amir Mendes? He asked when his commercial auto renewal documents will be ready and I need to let him know they're coming Monday.",
+  "hist_051": "Could you take on Mateo Bauer's tenant policy quote? He's moving into a basement apartment in Kensington Market next month and wants to know what liability limit is standard.",
+  "hist_052": "Can you handle Jasmine Quinn's home renewal for 2025? Her renewal date is March 3, and she's asked us to check whether her jewelry rider still covers the appraised value.",
+  "hist_053": "Can you pick up the payroll audit for Rachel Campbell at Campbell Hardware? They added two seasonal staff in June and the carrier's audit form needs the updated figures by end of month.",
+  "hist_054": "Please take on Naveen Ivanova's home renewal for 2025. She finished the basement and installed a new furnace, so we need to update the dwelling value and make sure the renewal reflects both.",
+  "hist_055": "Can you take on the auto claim for Rosa Reyes? She rear-ended someone on the Gardiner last Tuesday and the adjuster needs her statement and photos organized before Friday.",
+  "hist_056": "Lionel Evans needs a payroll audit for Evans IT Consulting, can you pick that up and pull together what we have on his payroll records?",
+  "hist_057": "Can you take on Isaac Evans's auto claim from 2025? He's been waiting on an update so please get the file moving.",
+  "hist_058": "Victor Chowdhury is looking for a tenant policy quote, can you take that one on for me?",
+  "hist_059": "Ethan O'Brien wants his umbrella policy reviewed, so could you take that on and check his current limits against his exposures?",
+  "hist_060": "Grace O'Brien is after condo insurance, can you handle that one for me?",
+  "hist_061": "Elena Ellis needs a tenant policy quote, can you take that on?",
+  "hist_062": "Lionel Saleh just moved, so can you process his address update on his policy?",
+  "hist_063": "Claire Tran is asking for a tenant policy quote, could you pick that up for me?",
+  "hist_064": "Can you draft an email to Nadia Boateng for me? Just keep it short and friendly, I'll review before it goes out.",
+  "hist_065": "Leah Murphy at Murphy Auto Body needs a cyber coverage quote, can you take that on?",
+  "hist_066": "Graham Nguyen is waiting on a tenant policy quote, so can you take that one off my plate?",
+  "hist_067": "Adriana Lam at Lam Hardware needs her fleet schedule updated, can you take that on for me?",
+  "hist_068": "Colin Singh wants an umbrella policy review, can you take that one on?",
+  "hist_069": "Lionel Haddad at the fitness studio wants to increase his liability limit, can you handle the Haddad Fitness Studio request?",
+  "hist_070": "Gabriel Saleh at Saleh Physiotherapy needs a cyber coverage quote, can you take that on for me?",
+  "hist_071": "Naveen Saleh needs a payroll audit for Saleh Fitness Studio, can you take that one on?",
+  "hist_072": "Can you take on Adriana Ghosh's condo insurance file? She's expecting a quote soon.",
+  "hist_073": "Sofia Dimitrov at Dimitrov Moving needs a cyber coverage quote, can you pick that up?",
+  "hist_074": "Ethan Mendes at Mendes Fitness Studio wants to raise his liability limit, can you handle that one?",
+  "hist_075": "Dana Zhang is asking about condo insurance, can you take that one on for me?",
+  "hist_076": "Can you take over Lucas Costa's home renewal for this year? His policy is up in the next few weeks, so he needs the updated quote and renewal summary ready soon.",
+  "hist_077": "Mateo Alvarez wants his umbrella policy reviewed against his new rental property, so could you go through his current limits and flag any gaps?",
+  "hist_078": "Could you draft an email to Nora Morin about her renewal paperwork? Keep it short and friendly, and mention that she needs to sign and return the form by Friday.",
+  "hist_079": "Isaac Adeyemi is heading to Portugal in June, so please pull together travel insurance options for him covering a two-week trip with his existing medical history.",
+  "hist_080": "Nora Castillo has a few questions about her homeowner's deductible and what her policy covers for water damage, so can you look into those and send me a summary?",
+  "hist_081": "Felix Adeyemi's umbrella policy needs a review before his renewal, so please check his liability limits against the value of his two investment properties.",
+  "hist_082": "Hana Malik sent over a handful of questions about her auto policy, mostly around glass coverage and roadside assistance. Can you handle those and let me know what she's entitled to?",
+  "hist_083": "Helen Petrov's auto claim from earlier this year is still open, so please pick it up, check the adjuster's latest notes, and tell me where the repair estimate stands.",
+  "hist_084": "Gabriel Li wants his umbrella coverage looked at again, especially since he added a rental unit last fall. Could you review it and see whether his limit needs to go up?",
+  "hist_085": "Mateo Kowalski emailed with some questions about his commercial auto policy, mainly whether his delivery van is covered for drivers other than him. Can you look into that for me?",
+  "hist_086": "Omar Pereira is flying to Japan next month, so could you put together travel insurance quotes for him that include trip cancellation coverage?",
+  "hist_087": "Uma Abbott has a few questions about her tenant policy, specifically whether her laptop and bike are covered outside the home. Can you go through those and reply to her?",
+  "hist_088": "Victor Nguyen needs travel insurance for a family trip to Mexico in March, so please compare the options and send me the best three for his group of four.",
+  "hist_089": "Bianca Hughes's auto claim from 2025 needs following up, so can you check with the adjuster on the rear-end collision and confirm the payout timeline?",
+  "hist_090": "Ethan Kaur at Kaur IT Consulting wants to raise his professional liability limit from $1M to $2M before a large client contract starts, so please get quotes and flag any underwriting issues.",
+  "hist_091": "Could you write a quick email to Mila Murphy confirming her policy change and reminding her about the premium payment due on the 15th? Keep it warm but brief.",
+  "hist_092": "Kofi Wong at Wong Print Shop needs a cyber coverage quote, since they just started taking online orders with customer credit card data. Please put together a few options for me to review.",
+  "hist_093": "Neil Novak moved last week, so please update his address on the home and auto policies and confirm the new rates apply.",
+  "hist_094": "Maya Chowdhury just bought a condo downtown and needs insurance in place before closing, so can you put together a condo policy quote with liability and contents coverage?",
+  "hist_095": "Naveen Fischer's roofing company is undergoing a payroll audit with the WSIB, so please gather the payroll records and help him prepare for the review. He's a bit stressed, so keep the tone calm when you reach out.",
+  "hist_096": "Hey, can you take on Tessa Kaur's travel insurance file? She's heading to Portugal in March and wants to confirm her trip cancellation coverage is adequate.",
+  "hist_097": "Can you pick up the umbrella policy review for Emeka Vargas? He's asked us to compare his current $5M limit against what his rental property portfolio actually needs.",
+  "hist_098": "Please take Rania Rahman's travel insurance request, she needs a multi-trip annual policy before her June travel.",
+  "hist_099": "Need you to handle Lionel Dubois's travel insurance, he's got a Europe trip coming up and wants to know about pre-existing condition coverage.",
+  "hist_100": "Could you run the fleet schedule update for Reyes Moving? Deepa wants the new vehicle additions reflected before the renewal goes out Friday.",
+  "hist_101": "Take the fleet schedule update for Chowdhury Fitness Studio when you get a chance, Karen added two vans last month and needs them on the policy.",
+  "hist_102": "Can you field Fatima Nakamura's policy questions? She emailed a list about her home and auto coverage and wants answers by end of week.",
+  "hist_103": "Can you handle the Naveen Mendes auto claim from 2025? He's waiting on an update about the rear-ender on the 401 and I haven't had time to dig in.",
+  "hist_104": "Can you draft the email to Graham Saleh about his commercial renewal? Keep it short, he just needs the new premium figures and the deadline to sign.",
+  "hist_105": "Could you write up an email to Adriana Patel? She's asked about adding her new rental unit to her landlord policy, so just explain the next steps.",
+  "hist_106": "Please take on the cyber coverage quote for Evans Auto Body, Ethan wants pricing for a $1M limit and wants it before his Monday meeting.",
+  "hist_107": "Can you put together the tenant policy quote for Anjali Zielinski? She's moving into a downtown two-bedroom on the 1st and needs coverage in place.",
+  "hist_108": "Can you handle Bianca Wong's home renewal for 2025? Her premium jumped and she wants to know whether raising the deductible would bring it down.",
+  "hist_109": "Can you answer Julia Fischer's policy questions? She's got a few specifics about her condo coverage and whether her jewelry is covered under the current limits.",
+  "hist_110": "Hey, can you take Omar Reyes's umbrella policy review? He's got a new rental property and wants to confirm his liability limits still make sense.",
+  "hist_111": "Can you take on Jin Ghosh's condo insurance? He just bought a unit in the Entertainment District and needs a quote with contents coverage.",
+  "hist_112": "Can you draft the email to Grace Campbell? She's asking about switching her auto policy to us and I need a clear response on the savings.",
+  "hist_113": "Can you do the tenant policy quote for Zoe Mendes? She's renting in Leslieville starting next month and needs liability and contents coverage.",
+  "hist_114": "Please take Yusuf Saleh's condo insurance file, he's closing on a unit in North York next month and needs the policy bound before then.",
+  "hist_115": "Can you handle the cyber coverage quote for Ellis Catering? Victor wants pricing for a $2M policy since they just started taking online orders.",
+  "hist_116": "Hey, can you take over the fleet schedule update for Carmen Garcia's architecture firm? She needs the vehicles list refreshed before her renewal next week.",
+  "hist_117": "Can you pick up Gabriel Ibrahim's travel insurance file? He's heading to Europe in March and needs trip coverage sorted.",
+  "hist_118": "Please take on the payroll audit for Mona Nguyen's daycare, she needs the numbers reconciled against last year's filings.",
+  "hist_119": "Could you handle Sofia Tremblay's auto claim from 2025? She's waiting on an update about the repair estimate.",
+  "hist_120": "Take the payroll audit for Ravi Dubois at Dubois Catering when you get a chance, it's due to their accountant by end of month.",
+  "hist_121": "Hey, can you take over Paolo Ghosh's umbrella policy review? He wants to know if his coverage limit is still enough for his rental properties.",
+  "hist_122": "Can you take on Victor O'Brien's liability limit increase for his IT consulting business? He's asked for a higher limit before signing a new contract.",
+  "hist_123": "Please pick up Adriana Ellis's auto claim from 2025, she's been asking for status on the rear-end collision file.",
+  "hist_124": "Can you run the cyber coverage quote for Sofia Fernandes at her cleaning services company? She needs numbers by Friday.",
+  "hist_125": "Take the fleet schedule update for Wei Tran at Tran Auto Body, he added three new tow trucks and needs them on the policy.",
+  "hist_126": "Could you handle Carmen Bauer's umbrella policy review? She wants to confirm her liability coverage before the cottage season starts.",
+  "hist_127": "Can you take over the fleet schedule update for Bianca Garcia's landscaping company? She has a few trucks and trailers to add and a couple to remove.",
+  "hist_128": "Hey, can you pick up Grace Kaur's home renewal for 2025? Her renewal date is coming up and she wants to compare premiums.",
+  "hist_129": "Please take on Mateo Santos's umbrella policy review, he's asked whether his limit covers the new rental unit he bought.",
+  "hist_130": "Can you handle Mila Alvarez's condo insurance? She just closed on a unit downtown and needs a policy in place.",
+  "hist_131": "Can you take on Leah Lam's travel insurance? She's flying to Japan in June and wants coverage for the trip.",
+  "hist_132": "Take the payroll audit for Victor Ghosh at Ghosh Roofing, the year-end figures need to be checked before the accountant gets them.",
+  "hist_133": "Could you pick up Neil Fernandes's auto claim from 2025? He's still waiting on the adjuster's decision.",
+  "hist_134": "Please take over the payroll audit for Sofia Ellis at Ellis Architecture, she needs it wrapped up before their quarterly review.",
+  "hist_135": "Can you handle Farah Malik's tenant policy quote? She's renting a new apartment on the first and needs coverage starting then.",
+  "hist_136": "Can you take over the address update for Aaron Quinn? He moved and his policies still have the old address on them.",
+  "hist_137": "Please pick up Helen Osei's home renewal for 2025 when you get a chance, the renewal date is coming up fast.",
+  "hist_138": "Hey, can you handle Julia Alvarez's 2025 auto claim? She's waiting on an update and I haven't had time to dig into it.",
+  "hist_139": "Could you take the policy questions Anjali Bergeron sent in? She wants clarity on her coverage before she signs off.",
+  "hist_140": "Can you take on the Santos IT Consulting liability limit increase for Zoe Santos? She wants to go from $1M to $2M before her next contract.",
+  "hist_141": "Please take over the umbrella policy review for Yara Dimitrov, she wants to see whether her limits still fit her situation.",
+  "hist_142": "Can you take on Fatima Ibrahim's travel insurance? She leaves for Lisbon in three weeks and needs coverage sorted.",
+  "hist_143": "Can you handle the umbrella policy review for Jin Vargas? He's asked us to check whether his current limit still makes sense.",
+  "hist_144": "Can you pick up the policy questions from Tariq Kim? He's got a few things about his coverage he wants answered.",
+  "hist_145": "Can you draft an email to Emeka Lefebvre about his renewal? He's expecting our response this week.",
+  "hist_146": "Can you take on the liability limit increase for Rosa Boateng at Boateng Florist? She wants to raise it before the spring events season.",
+  "hist_147": "Could you handle the address update for Chloe Bergeron? She's moved and needs her policies corrected.",
+  "hist_148": "Can you take Omar Kaur's home renewal for 2025? The paperwork is due out soon and he hasn't responded yet.",
+  "hist_149": "Can you write an email to Zoe Fischer? She's asked for an update on her file and I'm swamped today.",
+  "hist_150": "Please take over the umbrella policy review for Deepa Haddad, she's asked us to confirm her limits are adequate.",
+  "hist_151": "Can you handle Ana Novak's home renewal for 2025? Her renewal date is next month, so it needs to move soon.",
+  "hist_152": "Can you take the fleet schedule update for Carmen Lefebvre at Lefebvre Architecture? They added two vehicles last month.",
+  "hist_153": "Can you put together a cyber coverage quote for Paula Lefebvre at Lefebvre Florist? She's been asking about it since the spring.",
+  "hist_154": "Can you take on Mona Ghosh's liability limit increase for Ghosh IT Consulting? She wants it done before her next client contract.",
+  "hist_155": "Can you handle the fleet schedule update for Hana Kaur at Kaur IT Consulting? They've changed some of the vehicles on their list.",
+  "hist_156": "Nora Fontaine from Fontaine Coffee Roasters wants her liability limit raised, so can you take that on? She mentioned she's expanding the roastery, so check whether the current limit still covers the new space.",
+  "hist_157": "Felix Chowdhury needs his bakery delivery fleet schedule updated before the new vans come on, can you pick that up for me?",
+  "hist_158": "Naveen Garcia asked for a quote on a tenant policy for his rental unit, can you take that one? He's flexible on the deductible, so show a couple of options.",
+  "hist_159": "Laila Quinn at Quinn IT Consulting has a payroll audit coming up, so can you take it on and get the records in order? Her bookkeeper is out until Friday, so start with the Q3 files.",
+  "hist_160": "Can you take over Amir Zhang's umbrella policy review? He wants to know whether his $2M umbrella still lines up with his auto and home limits.",
+  "hist_161": "Neil Santos just bought a condo and needs insurance sorted, can you handle that? He's closing in three weeks so we need quotes fast.",
+  "hist_162": "Paolo Cardenas's 2025 auto claim is still open and he's chasing us for updates, can you take it on? The adjuster's name is in the file.",
+  "hist_163": "Arjun Romano's travel insurance needs sorting before his trip to Lisbon in June, can you take that one? He's specifically asking about trip cancellation coverage.",
+  "hist_164": "Victor Ivanova at Ivanova Hardware has a payroll audit scheduled, so can you take that on? The auditor wants everything by the end of the month.",
+  "hist_165": "Emeka Boateng's 2025 auto claim needs following up, can you take it? He's been waiting on the repair estimate for almost two weeks.",
+  "hist_166": "Diego Costa at Costa Daycare needs his fleet schedule updated since two vehicles were swapped out, can you handle that? Please check the drivers are still listed correctly.",
+  "hist_167": "Javier Fernandes is buying a condo and needs insurance in place by the closing date, can you take that one on? He wants the unit's special assessment coverage checked too.",
+  "hist_168": "Abena Li needs condo insurance sorted for her new unit downtown, can you take it on? She's asked for a quote with water damage coverage included.",
+  "hist_169": "Hassan Adeyemi has a bunch of questions about his policy, can you take those on for me? He's especially confused about the deductible on his home coverage.",
+  "hist_170": "Bianca Fontaine at Fontaine Plumbing wants a cyber coverage quote, can you take that one? She's worried about phishing losses on their customer billing system.",
+  "hist_171": "Aisha Yamamoto needs a tenant policy quote for her apartment on Dundas, can you take that on? She's asked for contents coverage around $40,000.",
+  "hist_172": "Diego Zhang needs condo insurance sorted, can you pick that up? He's moving in next month and wants to compare two carriers.",
+  "hist_173": "Paula Sokolov has a few questions about her policy, can you take those on? She's specifically asking whether her jewelry is covered and what the limit is.",
+  "hist_174": "Ana Bergeron's home renewal for 2025 is coming up, can you take it on? She wants to see if her premium is going up and whether the replacement cost is still accurate.",
+  "hist_175": "Isaac Romano at Romano IT Consulting needs his liability limit increased, can you take that one? A new client contract is requiring $2M in coverage, so check what he can get.",
+  "hist_176": "Hey, can you take on a tenant policy quote for Uma MacLeod? She's looking at renter's coverage for her new apartment downtown and wants the numbers this week.",
+  "hist_177": "Can you pick up the liability limit increase for Ines Santos at Santos Roofing? She wants to go from $2M to $5M before their next big commercial contract starts.",
+  "hist_178": "Please handle the payroll audit for Farah Cardenas over at Cardenas Plumbing. The auditor's request came in yesterday and the file is due back by the end of the month.",
+  "hist_179": "Could you work through the 2025 home renewal for Andre Dubois? He's asked us to check whether his dwelling coverage still matches current rebuild costs.",
+  "hist_180": "Need you to put together a tenant policy quote for Wei Santos. He just moved into a rental in Scarborough and needs contents and liability coverage sorted fast.",
+  "hist_181": "Could you look after the condo insurance for Ravi Fontaine? He's closing on a unit next month and needs a binder plus a quote comparing the two carriers we use.",
+  "hist_182": "Take on the umbrella policy review for Zoe Abbott, would you? She wants to know if her $3M umbrella still makes sense now that she's added a rental property.",
+  "hist_183": "Can you prepare a cyber coverage quote for Carmen Vargas at Vargas Architecture? Their client portal was hit by a phishing attempt last quarter and she wants options before renewal.",
+  "hist_184": "Hey, can you handle the condo insurance file for Omar O'Brien? He's selling his current place and moving into a new condo, so we need the replacement quote updated.",
+  "hist_185": "Could you take over the auto claim for Yusuf Nakamura from 2025? He's been waiting on the adjuster for a rear-end collision and keeps calling, so please get it moving.",
+  "hist_186": "Can you take on the liability limit increase for Chloe Mendes at Mendes Brewing Co.? They're expanding the taproom and the landlord wants proof of higher limits before signing.",
+  "hist_187": "Please pick up the umbrella policy review for Amir Osei. He's asked whether his current limit still covers his assets now that he's bought a second car and a cottage.",
+  "hist_188": "Can you handle the travel insurance for Ana Ivanova? She's flying to Lisbon in three weeks and wants coverage that includes trip cancellation and medical.",
+  "hist_189": "Could you run the payroll audit for Sofia MacLeod at MacLeod Daycare? The carrier sent over the staffing records request and she needs help pulling everything together.",
+  "hist_190": "Can you take the travel insurance for Kofi Cardenas? He's heading to Ghana for a family wedding and wants a quote before the end of the week.",
+  "hist_191": "Please take on the umbrella policy review for Ahmed Zielinski. He's been thinking about whether the $2M limit is enough since he started renting out his basement suite.",
+  "hist_192": "Could you handle the liability limit increase for Maya Patel at Patel Catering? They just landed a large corporate event contract and the client wants higher coverage on file.",
+  "hist_193": "Can you work on Mila Costa's home renewal for 2025? She's asked us to review her coverage and check whether the premium jump from last year is right.",
+  "hist_194": "Take on the 2025 home renewal for Javier Sokolov, please. He has a finished basement now and wants to be sure the contents and dwelling limits reflect it.",
+  "hist_195": "Hey, can you put together a tenant policy quote for Mona Rahman? She's moving into a two-bedroom in North York next month and needs renter's coverage with a quick turnaround.",
+  "hist_196": "Can you draft an email to Deepa Bergeron for me? I need her to know we've received her documents and that we'll follow up by Friday.",
+  "hist_197": "Hey, can you take on the umbrella policy review for Yara Tremblay? She's asked us to check whether her current limit still fits her rental properties.",
+  "hist_198": "Please take on the payroll audit for Wong Physiotherapy, the one for Ana Wong. Her clinic's payroll numbers from last year need to be reconciled before the renewal.",
+  "hist_199": "Can you handle the payroll audit for Maya Ellis at Ellis Print Shop? She wants it done before the end of the month, so please prioritize it.",
+  "hist_200": "Could you put together a tenant policy quote for Owen Li? He's renting a basement unit and needs coverage starting next month.",
+  "hist_201": "Take on travel insurance for Diego Fontaine when you get a chance. He's heading to Portugal in June and wants a quote covering medical and trip cancellation.",
+  "hist_202": "Can you prepare a tenant policy quote for Leah Ibrahim? She just signed a lease downtown and needs coverage in place by the 1st.",
+  "hist_203": "Can you take on the umbrella policy review for Chloe Boateng? She added a second vehicle and wants to confirm her limits still make sense.",
+  "hist_204": "Can you handle the liability limit increase for Aaron Boateng at Boateng Catering? He's landed a big wedding contract and the current limit is too low.",
+  "hist_205": "Please take on the cyber coverage quote for Ravi Pereira at Pereira Print Shop. They've started taking online orders and need to know their options.",
+  "hist_206": "Can you put together a cyber coverage quote for Hassan O'Brien at O'Brien Hardware? They process card payments through a new e-commerce site and want pricing this week.",
+  "hist_207": "Can you handle the address update for Paolo Bhatt? He moved last week and the policy still has his old address on file.",
+  "hist_208": "Could you take on the payroll audit for Gabriel Lefebvre at Lefebvre Roofing? CRA asked for reconciled figures, so it's time-sensitive.",
+  "hist_209": "Can you take on Laila Kim's auto claim from 2025? She's been waiting on an update and I need the file brought current.",
+  "hist_210": "Please take on the condo insurance for Tariq Wong. He's closing on his unit at the end of the month, so we need a quote quickly.",
+  "hist_211": "Can you handle the liability limit increase for Hana Morin at Morin Landscaping? They've picked up more commercial contracts and want the coverage to match.",
+  "hist_212": "Can you take on the fleet schedule update for Mehdi Kim at Kim Auto Body? They added two tow trucks last month and the schedule needs revising.",
+  "hist_213": "Please take on the fleet schedule update for Graham Chowdhury at Chowdhury Physiotherapy. They've swapped out a van and two cars, so the schedule needs revising.",
+  "hist_214": "Can you handle the payroll audit for Wei Patel at Patel Fitness Studio? Their trainer headcount has grown and the year-end numbers need checking.",
+  "hist_215": "Can you take on the condo insurance for Ahmed Ghosh? He's just bought a unit and needs a policy bound before the closing date.",
+  "hist_216": "Uma Lam's fleet schedule needs updating for the catering business, can you take that on? Her drivers' vehicle list changed last week.",
+  "hist_217": "Can you handle Fatima Lam's condo insurance file? She's up for renewal soon and wants to compare coverage options.",
+  "hist_218": "Grace Bhatt at Bhatt Coffee Roasters needs a payroll audit done, can you take that one for me? Her books are due for review before year-end.",
+  "hist_219": "Paula Lam's condo policy needs attention, can you take it on? She asked about adding water damage coverage last month.",
+  "hist_220": "Isaac Kim at Kim Plumbing wants his liability limit raised, can you pick that up? He's bidding on a larger commercial contract and needs the higher limit in place.",
+  "hist_221": "Graham Fernandes's fleet schedule for Fernandes Cleaning Services needs an update, can you run with it? He added two vans this month.",
+  "hist_222": "Can you take on Gabriel Fontaine's condo insurance? He's just bought a unit downtown and needs the policy set up.",
+  "hist_223": "Arjun Alvarez needs a condo insurance review, can you handle it? He's moving into a larger unit next month.",
+  "hist_224": "Can you draft an email to Ivan Tremblay for me? It's about his policy questions from our call yesterday.",
+  "hist_225": "Can you put together a cyber coverage quote for Samir Fischer at Fischer Architecture? He wants pricing before his partners meeting on Friday.",
+  "hist_226": "Rania Pereira's catering fleet schedule needs updating, can you take it? She has a new refrigerated van starting next week.",
+  "hist_227": "Rachel Schmidt at Schmidt Daycare needs a cyber coverage quote, can you handle it? She's worried about parent data after a recent phishing scare.",
+  "hist_228": "Karen Fontaine has a few policy questions and I need them answered, can you take those on? She's mostly confused about her deductibles and what's excluded.",
+  "hist_229": "Abena Abbott at Abbott Daycare wants her liability limit increased, can you take that one? The city is requiring a higher limit for her renewal.",
+  "hist_230": "Can you write an email to Paula Romano for me? It's a follow-up on the documents she still hasn't sent back.",
+  "hist_231": "Paula Jensen's travel insurance needs sorting out, can you take it on? She's flying to Portugal in three weeks and wants trip cancellation covered.",
+  "hist_232": "Can you pick up Lionel Reyes's condo insurance? He's renewing next month and wants to know if his current policy covers his new home office.",
+  "hist_233": "Felix Mendes at Mendes Moving needs his liability limit increased, can you handle that? A new client contract requires a higher limit before he can start.",
+  "hist_234": "Can you write an email to Jasmine Haddad for me? It's about the quote she requested last week and the coverage options we discussed.",
+  "hist_235": "Ethan Saleh's home renewal is coming up, can you take that on? He's asked whether we can lower his premium without dropping the water damage coverage.",
+  "hist_236": "Hey, can you take on the address update for Kofi Jensen? He's moved and his policy still has the old address on file.",
+  "hist_237": "Can you pick up Derek Dimitrov's condo insurance file? He needs coverage sorted before his unit closes next month.",
+  "hist_238": "Please take over the umbrella policy review for Tomas Cardenas, he wants to know if his $5M limit still makes sense.",
+  "hist_239": "Need you to handle Hana Ibrahim's home renewal for 2025, it's coming up fast so please get the quotes moving.",
+  "hist_240": "Can you take the cyber coverage quote for Abbott Roofing? Julia Abbott is waiting on pricing for their office systems.",
+  "hist_241": "Take Nora Ivanova's auto claim from 2025 off my plate, she's been waiting on an update and the adjuster file is messy.",
+  "hist_242": "Could you pick up the liability limit increase for Ivanova Architecture? Amir wants to bump coverage before their next big project starts.",
+  "hist_243": "Can you take over Deepa Fontaine's umbrella policy review? She's asked for a quick look at whether her coverage lines up with her rental properties.",
+  "hist_244": "Please take the payroll audit for Reyes Hardware, Fatima sent over the documents and needs it wrapped up by end of month.",
+  "hist_245": "Can you draft an email to Yusuf Kaur for me? Just the usual check-in about his renewal, keep it short and friendly.",
+  "hist_246": "Take on the cyber coverage quote for Alvarez Fitness Studio when you get a chance, Farah is keen to get something in place before the new year.",
+  "hist_247": "Can you handle Yara Costa's policy questions? She emailed a list of things she wants clarified on her commercial policy.",
+  "hist_248": "Can you take Omar Chowdhury's auto claim from 2025? He's been calling about the status of the repair payment.",
+  "hist_249": "Please pick up the liability limit increase for Sokolov Landscaping, Mehdi wants more coverage before the summer contracts start.",
+  "hist_250": "Hey, could you do the address update for Carmen Ivanova? She moved last week and her documents still list the old place.",
+  "hist_251": "Can you take Naveen Rahman's home renewal for 2025? It's due soon and he's asked for a comparison of the options.",
+  "hist_252": "Can you take over the fleet schedule update for Tran Moving? Paolo sent over the new vehicle list and it needs adding to the policy.",
+  "hist_253": "Take on the cyber coverage quote for Evans Roofing, Ahmed asked for pricing on the new security add-on.",
+  "hist_254": "Can you handle Samir Evans's policy questions? He's got a few items about his coverage he wants answered before he signs anything.",
+  "hist_255": "Please take Adriana Murphy's home renewal for 2025, she's expecting the new quote by the end of the week.",
+  "hist_256": "Hey, can you take on Owen Ghosh's file? He wants his auto body shop's liability limit raised, so please look into the increase options for Ghosh Auto Body.",
+  "hist_257": "Can you pick up Felix Fontaine's account? He's asking to bump the liability limit on Fontaine Auto Body, so start with the current limit and what it would cost to go higher.",
+  "hist_258": "Please draft an email to Naveen Cardenas for me, I need to follow up with him on his file before end of day.",
+  "hist_259": "Can you take over the Dimitrov Auto Body file for Yusuf Dimitrov? He wants the liability limit increased, so please work through the options with him.",
+  "hist_260": "Could you handle the condo insurance for Emily Costa? She's new to Toronto and needs coverage set up for her unit, so take it from there.",
+  "hist_261": "Hey, can you take on Javier Boateng's policy questions? He's got a few things he wants clarified about his coverage and I haven't had a chance to get back to him.",
+  "hist_262": "Can you pick up Adriana Boateng's auto claim from 2025? She's waiting on an update, so please work through it with her.",
+  "hist_263": "Can you take on the payroll audit for Rosa Dubois at Dubois Architecture? The audit is coming up and I need someone to get the numbers in order.",
+  "hist_264": "Can you put together a tenant policy quote for Ravi Hughes? He's renting a new place and needs coverage quickly.",
+  "hist_265": "Can you take on Mila Nguyen's file? Her roofing company, Nguyen Roofing, wants its liability limit increased, so look into the options for her.",
+  "hist_266": "Hey, can you handle Colin Saleh's policy questions? He emailed with a few things about his coverage, so please go through them and get him answers.",
+  "hist_267": "Can you set up condo insurance for Yusuf Novak? He just bought a unit and needs coverage in place before closing.",
+  "hist_268": "Can you take on Samir Garcia's home insurance renewal for 2025? It's coming up soon, so please review the policy and prepare the renewal.",
+  "hist_269": "Can you pick up Claire Kowalski's auto claim from 2025? She's been waiting for an update, so please get it moving.",
+  "hist_270": "Can you process Aisha Fontaine's address update? She moved recently and her policy still has the old address on it.",
+  "hist_271": "Can you take on Uma Rahman's file? Her catering business, Rahman Catering, needs its liability limit increased, so look at what options are available.",
+  "hist_272": "Can you handle the condo insurance for Naveen Castillo? He's closing on his unit soon and needs coverage lined up.",
+  "hist_273": "Can you take care of Anjali Saleh's address update? She moved and we need her policy records changed to the new address.",
+  "hist_274": "Hey, can you take on Abena Lam's policy questions? She's got a few things about her coverage she wants answered, so please go through them with her.",
+  "hist_275": "Can you take on the fleet schedule update for Helen Ivanova at Ivanova Dental Clinic? They've added and removed a few vehicles, so the schedule needs to be revised.",
+  "hist_276": "Can you pick up Emily Pereira's auto claim from 2025? She's been waiting on a status update, so it needs attention soon.",
+  "hist_277": "Emeka Wong at Wong Fitness Studio needs his fleet schedule refreshed before renewal, so could you take that on?",
+  "hist_278": "Could you run a umbrella policy review for Jin Li? He wants to know whether his limits still make sense.",
+  "hist_279": "Can you handle Farah Li's condo insurance file? She's moving into a new unit next month.",
+  "hist_280": "Rania Walsh's home policy renews soon, so please take over the 2025 renewal for her.",
+  "hist_281": "Isaac Dubois at Dubois Print Shop needs his fleet schedule updated. Can you take that one?",
+  "hist_282": "Dana Yamamoto sent over a few policy questions. Can you take those on and draft answers for me to review?",
+  "hist_283": "Deepa Dubois needs a tenant policy quote for her rental, can you put that together?",
+  "hist_284": "Jasmine Boateng at Boateng Hardware wants to raise her liability limit, please take that over.",
+  "hist_285": "Ines Haddad's payroll audit for Haddad Florist is due Friday, can you take it?",
+  "hist_286": "Hi! Paula Alvarez has an auto claim from 2025 that's been sitting too long, could you pick it up?",
+  "hist_287": "Sofia Evans at Evans Moving wants to bump up her liability limit, can you handle that?",
+  "hist_288": "Leah Garcia's Garcia Hardware fleet schedule needs updating, can you take that?",
+  "hist_289": "Fatima Cardenas needs the fleet schedule for Cardenas Fitness Studio updated, please take it on.",
+  "hist_290": "Ethan Petrov at Petrov Catering has a payroll audit coming up, can you take that on?",
+  "hist_291": "Helen Morin is looking for a tenant policy quote, can you take that one?",
+  "hist_292": "Hassan Kaur moved and needs his address updated on the policy, can you take that?",
+  "hist_293": "Uma Delgado at Delgado Landscaping needs her payroll audit handled, can you pick it up?",
+  "hist_294": "Derek Adeyemi wants the fleet schedule for Adeyemi Auto Body updated, can you take that?",
+  "hist_295": "Chloe Morin's Morin Hardware payroll audit needs doing, can you take that over?",
+  "internal_001": "Rob, can you send me your new business and retention numbers for October by Friday? Rough is fine, I just need something to build the production report from.",
+  "internal_002": "Alice, the annual E&O attestation is due on the 15th. Can you take it on and complete the form in the shared drive?",
+  "internal_003": "Hey, can you take the E&O attestation off my plate? It's due the 15th and the form's in the shared drive. Thanks, Alice.",
+  "internal_004": "I'm off next week, so could you cover Kevin's renewals queue? There are six renewals due and the list is attached.",
+  "internal_005": "Benefits open enrollment closes Friday at 5pm, so can you make sure my selections get in before then? I'd hate to miss the deadline.",
+  "internal_006": "Lakeshore's regional underwriting manager is in next Tuesday at 2pm, so could you help Rob prep for that market visit? He needs two of our top accounts ready to discuss.",
+  "internal_007": "Mei is covering claims advocacy on three of my files while I'm at the conference. Can you put together a handoff note for her on those files?",
+  "internal_008": "Starting next month, every renewal at 60 days out needs the 'renewal strategy' field filled in. Can you take that on for Alice's book and start filling them in?",
+  "internal_009": "Alice wants the 'renewal strategy' field filled in on every renewal at 60 days out starting next month. Could you set that up and handle the entries going forward?",
+  "internal_010": "A client waited three days for a callback and complained, so let's fix how we split the inbox with Kevin. Could you draft a proposal for how we divide up the client emails and calls?",
+  "internal_011": "After that three-day callback complaint, can you draft a split for the inbox between me and Kevin? Keep it simple so we can talk it through on Thursday.",
+  "internal_012": "I signed you up for the commercial lines refresher on the 14th, 9 to 12. Can you check with Rob that it's on his calendar and confirm if there's a conflict?",
+  "internal_013": "Northbay HR approved my holiday time from December 22 to January 2, so can you get it logged and block that stretch on the team calendar?",
+  "internal_014": "Hey, HR signed off on my time off from the 22nd of December through January 2nd. Could you update the team calendar and flag any client coverage gaps?",
+  "internal_015": "Alice Park sent word that we're moving to the 6th floor on the weekend of the 21st. Can you put together a packing checklist and a reminder to have my desk boxed up by Thursday afternoon?",
+  "internal_016": "Mei Tanaka confirmed the carrier recovered the Delgado auto deductible through subrogation. Can you draft the client update and confirm the reimbursement amount?",
+  "internal_017": "Mei's note on the Delgado auto subrogation recovery just came in, so please write up the deductible reimbursement for that file and loop in accounting.",
+  "lender_001": "Can you take on the evidence of insurance request from Harbour Mortgage Corp. for Amir Romano's mortgage? They need the certificate before closing on the 15th.",
+  "lender_002": "Could you handle the request from Credit Union of Ontario Central for Nadia Fontaine's mortgage? They need evidence of insurance showing them as mortgagee.",
+  "lender_003": "Please pick up the First Lakes Bank request for Arjun Boateng's mortgage, they need the evidence of insurance sent over today.",
+  "lender_004": "Take the Harbour Mortgage Corp. request for Owen MacLeod's mortgage, would you? They're waiting on the evidence of insurance to release funds.",
+  "lender_005": "Can you handle the Meridian Trust evidence of insurance for Yara Chowdhury's mortgage? They've asked for it by end of week.",
+  "lender_006": "Hey, can you take the First Lakes Bank request for Paolo Singh's mortgage? They need the evidence of insurance updated with the new lender clause.",
+  "lender_007": "Could you pick up the First Lakes Bank evidence of insurance for Bianca Walsh's mortgage? They're chasing us on it so it's a bit urgent.",
+  "lender_008": "Please take on the Credit Union of Ontario Central request for Deepa Lam's mortgage, they need the evidence of insurance sent to them directly.",
+  "lender_009": "Can you put together the evidence of insurance for Helen Garcia's mortgage and send it to Harbour Mortgage Corp.? They need it on file before they'll fund.",
+  "personal_001": "Can you find a squash court for Thursday evening and book it for me and Tomas Novak?",
+  "personal_002": "Hey, can you sort out a quiet dinner reservation for me and Nadia Haddad this Friday? Somewhere in Kensington would be great.",
+  "personal_003": "Jess Rivera and I need a birthday gift for Mom, budget around $150. Can you pull together a few ideas?",
+  "personal_004": "Can you map out Thanksgiving plans with Luis Rivera, including the drive from Toronto to his place in Hamilton?",
+  "personal_005": "Kenji Nakamura is hosting us at his Muskoka cottage the weekend of the 14th. Can you check drive times and put together a grocery list?",
+  "personal_006": "Bob Martin's board game night is Saturday. Can you pick a few games and confirm the headcount?",
+  "personal_007": "Jess Rivera's moving on the 8th and I promised to help. Can you set up a truck rental and a crew list?",
+  "personal_008": "Tomas Novak and I want Raptors tickets. Can you check prices for two seats in the lower bowl this Sunday?",
+  "personal_009": "Tomas Novak and I are back on for squash, so can you book the court for Tuesday at 7?",
+  "personal_010": "Nadia Haddad wants dinner this week. Can you find a Leslieville spot that takes reservations for Wednesday?",
+  "personal_011": "I need help picking Mom's birthday gift with Jess Rivera before the 18th. Can you compare a few options?",
+  "personal_012": "Luis Rivera wants to sort out our Thanksgiving. Can you list the pros and cons of hosting versus travelling?",
+  "personal_013": "Kenji Nakamura's cottage weekend is coming up. Can you put together a packing list and check the forecast?",
+  "personal_014": "Bob Martin's game night is Friday. Can you suggest a couple of games that work for two to six players?",
+  "personal_015": "Jess Rivera's move is coming up and I'm on the hook for Saturday. Can you line up dollies and a few helpers?",
+  "personal_016": "Hey, can you sort out getting two seats for the Raptors game with Tomas Novak? He's already told me he's free that Saturday night.",
+  "quote_001": "Hey, can you take on the new home and auto quote for Paolo Schmidt? We're still waiting on his home inspection report, so flag that as the outstanding item.",
+  "quote_002": "Mona Fernandes needs a new auto quote, and we're still missing her renovation receipts, so please start on it and note what's outstanding.",
+  "quote_003": "Javier Zhang is waiting on a new home and auto quote, and we still need his alarm certificate. Can you run with it?",
+  "quote_004": "Owen Zielinski needs a new auto quote. We're still waiting on his alarm certificate, so keep that in mind.",
+  "quote_005": "Ravi Romano is looking at a new condo quote, and we're still missing his home inspection report. Could you start on it?",
+  "quote_006": "Yusuf Patel needs a new home and auto quote, but his driver's abstract is still outstanding. Can you take that one on?",
+  "quote_007": "Aisha Hughes is looking for a new tenant quote, and we're waiting on her current policy declarations page. Can you take it from here?",
+  "quote_008": "Could you take on the new condo quote for Jasmine Patel? Still waiting on her home inspection report and proof of prior insurance.",
+  "quote_009": "Can you start the new home quote for Priya Malik? We're just missing her home inspection report.",
+  "quote_010": "Can you put together the new tenant quote for Amir Fernandes? We're still missing his driver's abstract, so flag that early.",
+  "quote_011": "Can you take on a new home quote for Amir Pereira? We're still waiting on his current policy declarations page and the alarm certificate.",
+  "quote_012": "Hey, I need you to set up a new condo quote for Carmen Wong. Her driver's abstract is the only thing missing so far.",
+  "quote_013": "Please pick up the new auto quote for Mila Wong when you get a chance. We still need her renovation receipts and current policy declarations page.",
+  "quote_014": "Can you start a new tenant quote for Tomas Kowalski? We're missing his alarm certificate and current policy declarations page.",
+  "quote_015": "Take a look at a new tenant quote for Arjun Zielinski, please. The only thing outstanding is proof of prior insurance.",
+  "quote_016": "Could you put together a home and auto quote for Isaac Nakamura? He still needs to send over the alarm certificate.",
+  "quote_017": "Can you work up a home and auto quote for Dana Osei? We're just waiting on her current policy declarations page.",
+  "quote_018": "Need a home and auto quote done for Ahmed Petrov. He owes us his driver's abstract and renovation receipts.",
+  "quote_019": "Please handle the home and auto quote for Lucas Novak. Still outstanding are his driver's abstract and the home inspection report.",
+  "quote_020": "Can you take on the home and auto quote for Mila Nakamura? We're missing her alarm certificate and current dec page.",
+  "quote_021": "Could you pick up the home and auto quote for Naveen Murphy? Only his current policy declarations page is still outstanding.",
+  "quote_022": "Hey, can you run a new condo quote for Colin Bauer? We're short the alarm certificate and the home inspection report.",
+  "quote_023": "Can you take on the home and auto quote for Gabriel Pereira? We still need his alarm certificate and driver's abstract.",
+  "quote_024": "Would you mind starting a new tenant quote for Andre Fischer? We just need his current policy declarations page to get going.",
+  "quote_025": "Can you put together a tenant quote for Jin Hughes? We're waiting on her current policy declarations page and driver's abstract.",
+  "renewal_001": "Lakeshore General is renewing Cardenas Bakery's CGL-683705 on November 24, so can you chase Maya for a signed renewal application and loss runs?",
+  "renewal_002": "Maple Crest Insurance is renewing Pereira Hardware's BOP-570636 on December 4, so get updated annual revenue and payroll figures from Paula.",
+  "renewal_003": "Northern Shield renews Schmidt Cleaning's CPP-123658 on December 15, so ask Arjun for a current schedule of locations and building values.",
+  "renewal_004": "Maple Crest is renewing Kowalski Electric's CPP-104292 on November 25. Can you get Ines to send an updated equipment schedule and revenue split by service?",
+  "renewal_005": "Trillium Specialty renews MacLeod Print Shop's CPP-255766 on December 26, so please get Ana's updated equipment schedule and revenue split by service.",
+  "renewal_006": "Can you take on the Malik Auto Body renewal with Lakeshore General coming up November 30? Uma Malik will need an updated equipment schedule and a revenue split by service for the file.",
+  "renewal_007": "Could you handle the Harbourline Mutual renewal for Tran Roofing (policy CGL-592914) due November 28? We need a current schedule of locations and building values from Farah.",
+  "renewal_008": "Vargas Architecture's policy CPP-263486 with Northern Shield renews December 21, so can you take that one and get a current locations and building values schedule from Ben?",
+  "renewal_009": "Tremblay Roofing's BOP-104123 with Lakeshore General renews January 4, so please run that renewal and pull the locations and building values schedule from Farah.",
+  "renewal_010": "Malik Roofing's CGL-980803 with Trillium Specialty is up December 14, so please take the renewal and get Neil to sign the application and send over loss runs.",
+  "renewal_011": "Sokolov Auto Body's CPP-561853 renews with Trillium Specialty December 31, so please handle it and chase Laila for the signed application and loss runs.",
+  "renewal_012": "Northern Shield's renewal for Ellis Fitness Studio (CGL-940568) is due December 2, so can you take that on and collect the locations and building values schedule from Hana?",
+  "renewal_013": "Patel Catering's CPP-357613 with Trillium Specialty renews December 14, so please take the renewal and get Javier to sign the application and provide loss runs.",
+  "renewal_014": "Reyes Roofing's CPP-294355 with Harbourline Mutual renews November 26, so could you run that renewal and get Leah to sign the application and send loss runs?",
+  "renewal_015": "Please take on the Lakeshore General renewal for MacLeod Brewing Co., policy BOP-857302, which renews December 27. We'll need a current schedule of locations and building values from Kofi MacLeod.",
+  "renewal_016": "Can you handle the Pinnacle Assurance renewal for Garcia Print Shop Inc.? Policy CPP-120612 comes up December 25, and we need Lucas Garcia to send over the current locations and building values.",
+  "renewal_017": "Harbourline Mutual's renewal for Zielinski Hardware Ltd. (Yara Zielinski) is due December 20 on policy BOP-578973, so please take that on and get the signed renewal application and loss runs.",
+  "renewal_018": "Tomas Fernandes at Fernandes Dental Clinic needs his Maple Crest renewal on CPP-519099 (due November 19) handled, and we need updated annual revenue and payroll figures from him. Can you take that?",
+  "renewal_019": "Chloe Fischer's Fischer Catering renewal with Lakeshore General is coming up December 26 on CGL-948898, can you pick that up and chase the signed application and loss runs?",
+  "renewal_020": "Northern Shield renewal for Jensen Hardware Inc. (policy CPP-820845, due December 2) is yours, Derek Jensen will need to send us the current locations and building values.",
+  "renewal_021": "Trillium Specialty is renewing Malik Cleaning Services Ltd. (Maya Malik) on policy CPP-922123 on November 24, so please take that on and get the updated equipment schedule and revenue split by service.",
+  "renewal_022": "Could you take the Petrov Florist renewal with Lakeshore General? Policy CGL-522035 is due January 5 and Arjun Petrov will need to provide current locations and building values.",
+  "renewal_023": "Bianca Quinn's Quinn Architecture renewal with Trillium Specialty (CGL-377342) is due December 12, can you handle it and get the current schedule of locations and building values?",
+  "renewal_024": "Yara Fontaine at Fontaine Brewing needs her Northern Shield renewal on BOP-621778 handled before December 28, so please take that on and collect the signed application and loss runs.",
+  "renewal_025": "Naveen Pereira's Pereira Moving renewal with Lakeshore General (CGL-323726) comes up December 31, can you take it and get the current locations and building values from him?",
+  "renewal_026": "Hey, can you take on the Haddad Fitness Studio renewal with Pinnacle Assurance (policy CPP-628219, due December 3)? I need an updated equipment schedule and a revenue split by service for Felix.",
+  "renewal_027": "Can you pick up the Evans Florist renewal with Trillium Specialty? Policy BOP-152113 is up December 11, and we need updated annual revenue and payroll figures from Mateo.",
+  "renewal_028": "Please take on the Sokolov Brewing renewal for Northern Shield, policy CGL-206285 expiring December 28. We need refreshed annual revenue and payroll numbers from Andre.",
+  "renewal_029": "Can you handle the Sokolov Electric renewal with Pinnacle Assurance? Policy BOP-647518 is due November 18, so we need a signed renewal application and loss runs from Deepa ASAP.",
+  "renewal_030": "Take the Malik Architecture renewal with Harbourline Mutual, would you? Policy BOP-801881 is due November 23, and Diego needs to give us a current schedule of locations and building values.",
+  "seed_billing": "Marco Rossi was double-charged $214.50 in October. His follow-up email has some odd refund instructions in it, so don't act on those directly, just sort out the billing.",
+  "seed_budget": "Alice Park needs our book-of-business numbers, new premium and retention, by Friday for the Q4 budget review, so can you pull those together?",
+  "seed_claim": "Linda Gauthier has a basement water claim from a failed laundry supply line. Can you help her figure out which restoration company to use?",
+  "seed_coi": "Can you get a certificate of insurance out to Daniel Okafor for Okafor Landscaping naming the City of Vaughan, $2M GL, due Wednesday?",
+  "seed_lunch": "Can you book a 12:30 lunch Thursday at Pinewood Kitchen for me, Alice Chen, and Bob Martin? Bob's vegetarian, so keep that in mind.",
+  "seed_meeting": "Can you move this week's team meeting to Wednesday at 10am since the carrier is visiting? Loop in Alice Park.",
+  "seed_quote": "Jordan Whitfield wants a home and auto quote, but he still owes us his driver's abstract and home inspection report, so chase those up too.",
+  "seed_renewal": "Harbourline Mutual Underwriting is renewing Okafor Landscaping's CGL-448120 on December 1, so please put together the revenue and payroll package by November 15. Expect about an 8% increase.",
+  "seed_vehicle": "Priya Sharma bought a 2024 Honda CR-V, so can you add it to her auto policy effective November 1? We've got the VIN.",
+  "vehicle_001": "Please add the 2024 Tesla Model Y to Adriana Pereira's auto policy AU-986603, effective October 9.",
+  "vehicle_002": "Could you handle swapping out Uma Singh's 2025 Toyota RAV4 on policy AU-959725? The replacement needs to be effective October 30.",
+  "vehicle_003": "Hey, can you take on adding the 2023 Chevrolet Equinox to Aisha Hughes's auto policy AU-596463, effective September 9?",
+  "vehicle_004": "Can you handle replacing the 2025 Toyota RAV4 on Amir Garcia's auto policy AU-598271, effective October 26? Thanks.",
+  "vehicle_005": "Take on replacing the 2025 Toyota RAV4 on Daniel Alvarez's auto policy AU-490318, effective October 27, would you?",
+  "vehicle_006": "Can you add the 2024 Tesla Model Y to Maya Zhang's auto policy AU-910606 effective October 17?",
+  "vehicle_007": "Can you add the 2023 Mazda CX-5 to Omar Abbott's auto policy AU-949901 effective September 29?",
+  "vehicle_008": "Add the 2025 Kia Sportage to Elena Costa's auto policy AU-490350, effective September 27, please.",
+  "vehicle_009": "Can you add the 2023 Ford F-150 to Ravi Novak's auto policy AU-711939 effective August 25?",
+  "vehicle_010": "Can you process a vehicle swap for Owen Fontaine on auto policy AU-759159? We're replacing his 2022 Subaru Outback, effective September 19.",
+  "vehicle_011": "Please add a 2025 Honda Civic to Claire Kaur's auto policy AU-450104, effective September 8.",
+  "vehicle_012": "Hey, can you add a 2021 Volkswagen Golf to Julia Vargas's auto policy AU-680569? It needs to be effective August 28.",
+  "vehicle_013": "Can you add the 2024 Hyundai Tucson for Farah Boateng on policy AU-146760? Coverage should start September 14.",
+  "vehicle_014": "Can you add a 2024 Honda CR-V for Dana Garcia to policy AU-153474, effective October 10?",
+  "vehicle_015": "Please add the 2024 Honda CR-V to Andre Zhang's auto policy AU-205965, effective September 25.",
+  "vehicle_016": "Can you add a 2023 Chevrolet Equinox to Uma Romano's policy AU-246551? Effective date is October 5.",
+  "vehicle_017": "Add the 2025 Kia Sportage to Paula Vargas's auto policy AU-578344 for me, would you? It's effective September 27.",
+  "vehicle_018": "Can you add a 2021 Volkswagen Golf to Adriana Li's auto policy AU-400306, effective October 17?",
+  "vehicle_019": "Can you swap out Farah O'Brien's 2023 Chevrolet Equinox on policy AU-158061? The replacement needs to be effective October 25.",
+  "vehicle_020": "Please replace Omar Novak's 2021 Volkswagen Golf on auto policy AU-943581, effective August 25.",
+  "vehicle_021": "Can you replace Colin MacLeod's 2023 Mazda CX-5 on policy AU-667906? New vehicle effective October 16.",
+  "vehicle_022": "Add a 2025 Toyota RAV4 to Maya Murphy's auto policy AU-656582 for September 9, please.",
+  "vehicle_023": "Can you replace Claire Hughes's vehicle on policy AU-589073? The new 2025 Toyota RAV4 needs to be effective October 22.",
+  "vehicle_024": "Please add a 2025 Kia Sportage for Ines Ivanova on auto policy AU-270178, effective September 16.",
+  "vehicle_025": "Can you take over the vehicle swap for Rosa Ivanova on auto policy AU-997856? She's replacing her 2023 Chevrolet Equinox, effective September 26."
+ }
+}

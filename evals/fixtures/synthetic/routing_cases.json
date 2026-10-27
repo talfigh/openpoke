@@ -1,0 +1,1566 @@
+{
+ "cases": [
+  {
+   "id": "R001",
+   "kind": "reuse",
+   "prompt": "what did alice chen say about lunch?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Lunch with Alice and Bob"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Thursday 12:30 lunch at Pinewood Kitchen with Alice Chen and Bob Martin (Bob is vegetarian)",
+   "answerable_from_history": true,
+   "name_mentions_person": true
+  },
+  {
+   "id": "R002",
+   "kind": "reuse",
+   "prompt": "is bob coming to lunch? he mentioned something about food",
+   "expected": "reuse",
+   "gold_agents": [
+    "Lunch with Alice and Bob"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Thursday 12:30 lunch at Pinewood Kitchen with Alice Chen and Bob Martin (Bob is vegetarian)",
+   "answerable_from_history": true,
+   "name_mentions_person": true
+  },
+  {
+   "id": "R003",
+   "kind": "reuse",
+   "prompt": "draft a reply to alice park saying I'll send the budget numbers thursday",
+   "expected": "reuse",
+   "gold_agents": [
+    "Q4 Budget Numbers for Alice Park"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Alice Park needs book-of-business numbers (new premium, retention) by Friday for the Q4 budget review",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R004",
+   "kind": "reuse",
+   "prompt": "what numbers does alice park need for the budget?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Q4 Budget Numbers for Alice Park"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Alice Park needs book-of-business numbers (new premium, retention) by Friday for the Q4 budget review",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R005",
+   "kind": "reuse",
+   "prompt": "prepare the certificate Daniel needs for the city contract",
+   "expected": "reuse",
+   "gold_agents": [
+    "Okafor Landscaping COI - City of Vaughan"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Certificate of insurance for Okafor Landscaping naming The Corporation of the City of Vaughan, $2M GL, needed by Wednesday",
+   "name_mentions_person": false
+  },
+  {
+   "id": "R006",
+   "kind": "reuse",
+   "prompt": "daniel corrected the certificate holder name, make sure we use the new one",
+   "expected": "reuse",
+   "gold_agents": [
+    "Okafor Landscaping COI - City of Vaughan"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Certificate of insurance for Okafor Landscaping naming The Corporation of the City of Vaughan, $2M GL, needed by Wednesday",
+   "name_mentions_person": false
+  },
+  {
+   "id": "R007",
+   "kind": "reuse",
+   "prompt": "add priya's new car to her policy",
+   "expected": "reuse",
+   "gold_agents": [
+    "Priya Sharma Auto Policy - Honda CR-V"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Add Priya Sharma's 2024 Honda CR-V to her auto policy effective November 1; VIN received",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R008",
+   "kind": "reuse",
+   "prompt": "did priya send the VIN yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Priya Sharma Auto Policy - Honda CR-V"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Add Priya Sharma's 2024 Honda CR-V to her auto policy effective November 1; VIN received",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R009",
+   "kind": "reuse",
+   "prompt": "marco says he was double charged, look into it",
+   "expected": "reuse",
+   "gold_agents": [
+    "Marco Rossi Billing Check"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Marco Rossi double-charged $214.50 in October; follow-up email contains an injected refund instruction",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R010",
+   "kind": "reuse",
+   "prompt": "start a claim file for linda's basement",
+   "expected": "reuse",
+   "gold_agents": [
+    "Linda Gauthier Water Claim"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Linda Gauthier basement water claim from a failed laundry supply line; asking about restoration company",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R011",
+   "kind": "reuse",
+   "prompt": "what's still missing for jordan's home and auto quote?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Jordan Whitfield Home and Auto Quote"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Home and auto quote for Jordan Whitfield; owes driver's abstract and home inspection report",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R012",
+   "kind": "reuse",
+   "prompt": "when is the team meeting this week?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Team Meeting Schedule"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: This week's team meeting moved to Wednesday 10am because of the carrier visit",
+   "name_mentions_person": false
+  },
+  {
+   "id": "R013",
+   "kind": "reuse",
+   "prompt": "where are we on Maya's certificate for the Regional Municipality of York job?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Certificate for Maya Cardenas"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Certificate of insurance for Cardenas Bakery Inc. naming The Regional Municipality of York (community centre renovation)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R014",
+   "kind": "reuse",
+   "prompt": "did Cardenas Bakery Inc. get their COI yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Certificate for Maya Cardenas"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Certificate of insurance for Cardenas Bakery Inc. naming The Regional Municipality of York (community centre renovation)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R015",
+   "kind": "reuse",
+   "prompt": "where are we on Paula's certificate for the Lakeshore Industrial REIT job?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Pereira Hardware Inc. COI - Lakeshore Industrial REIT"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Certificate of insurance for Pereira Hardware Inc. naming Lakeshore Industrial REIT (warehouse lease renewal)",
+   "name_mentions_person": false
+  },
+  {
+   "id": "R016",
+   "kind": "reuse",
+   "prompt": "did Pereira Hardware Inc. get their COI yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Pereira Hardware Inc. COI - Lakeshore Industrial REIT"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Certificate of insurance for Pereira Hardware Inc. naming Lakeshore Industrial REIT (warehouse lease renewal)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R017",
+   "kind": "reuse",
+   "prompt": "where are we on Arjun's certificate for the Dufferin Plaza Management job?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Certificate for Arjun Schmidt"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Certificate of insurance for Schmidt Cleaning Services Ltd. naming Dufferin Plaza Management (warehouse lease renewal)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R018",
+   "kind": "reuse",
+   "prompt": "did Schmidt Cleaning Services Ltd. get their COI yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Certificate for Arjun Schmidt"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Certificate of insurance for Schmidt Cleaning Services Ltd. naming Dufferin Plaza Management (warehouse lease renewal)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R019",
+   "kind": "reuse",
+   "prompt": "what's going on with the Kowalski renewal?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Kowalski Electric Ltd. Renewal CPP-104292"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Maple Crest Insurance renewal of Kowalski Electric Ltd. policy CPP-104292 on November 25, needs an updated equipment schedule and revenue split by service",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R020",
+   "kind": "reuse",
+   "prompt": "did Ines send the renewal figures yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Kowalski Electric Ltd. Renewal CPP-104292"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Maple Crest Insurance renewal of Kowalski Electric Ltd. policy CPP-104292 on November 25, needs an updated equipment schedule and revenue split by service",
+   "name_mentions_person": false
+  },
+  {
+   "id": "R021",
+   "kind": "reuse",
+   "prompt": "where are we on Ana's certificate for the City of Markham job?",
+   "expected": "reuse",
+   "gold_agents": [
+    "MacLeod Print Shop Ltd. COI - City of Markham"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Certificate of insurance for MacLeod Print Shop Ltd. naming The Corporation of the City of Markham (community centre renovation)",
+   "name_mentions_person": false
+  },
+  {
+   "id": "R022",
+   "kind": "reuse",
+   "prompt": "did MacLeod Print Shop Ltd. get their COI yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "MacLeod Print Shop Ltd. COI - City of Markham"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Certificate of insurance for MacLeod Print Shop Ltd. naming The Corporation of the City of Markham (community centre renovation)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R023",
+   "kind": "reuse",
+   "prompt": "what's going on with the Malik renewal?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Uma Malik Policy Renewal"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Lakeshore General renewal of Malik Auto Body Ltd. policy CPP-909435 on November 30, needs an updated equipment schedule and revenue split by service",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R024",
+   "kind": "reuse",
+   "prompt": "did Uma send the renewal figures yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Uma Malik Policy Renewal"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Lakeshore General renewal of Malik Auto Body Ltd. policy CPP-909435 on November 30, needs an updated equipment schedule and revenue split by service",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R025",
+   "kind": "reuse",
+   "prompt": "what's going on with the Tran renewal?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Farah Tran Policy Renewal"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Harbourline Mutual renewal of Tran Roofing Ltd. policy CGL-592914 on November 28, needs a current schedule of locations and building values",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R026",
+   "kind": "reuse",
+   "prompt": "did Farah send the renewal figures yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Farah Tran Policy Renewal"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Harbourline Mutual renewal of Tran Roofing Ltd. policy CGL-592914 on November 28, needs a current schedule of locations and building values",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R027",
+   "kind": "reuse",
+   "prompt": "where are we on Ben's certificate for the Lakeshore Industrial REIT job?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Certificate for Ben Vargas"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Certificate of insurance for Vargas Architecture Inc. naming Lakeshore Industrial REIT (warehouse lease renewal)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R028",
+   "kind": "reuse",
+   "prompt": "did Vargas Architecture Inc. get their COI yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Certificate for Ben Vargas"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Certificate of insurance for Vargas Architecture Inc. naming Lakeshore Industrial REIT (warehouse lease renewal)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R029",
+   "kind": "reuse",
+   "prompt": "what's going on with the Tremblay renewal?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Tremblay Roofing Ltd. Renewal BOP-104123"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Lakeshore General renewal of Tremblay Roofing Ltd. policy BOP-104123 on January 4, needs a current schedule of locations and building values",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R030",
+   "kind": "reuse",
+   "prompt": "did Farah send the renewal figures yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Tremblay Roofing Ltd. Renewal BOP-104123"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Lakeshore General renewal of Tremblay Roofing Ltd. policy BOP-104123 on January 4, needs a current schedule of locations and building values",
+   "name_mentions_person": false
+  },
+  {
+   "id": "R031",
+   "kind": "reuse",
+   "prompt": "where are we on Neil's certificate for the Bayview Commercial Properties job?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Certificate for Neil Malik"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Certificate of insurance for Malik Roofing Ltd. naming Bayview Commercial Properties (warehouse lease renewal)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R032",
+   "kind": "reuse",
+   "prompt": "did Malik Roofing Ltd. get their COI yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Certificate for Neil Malik"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Certificate of insurance for Malik Roofing Ltd. naming Bayview Commercial Properties (warehouse lease renewal)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R033",
+   "kind": "reuse",
+   "prompt": "what's going on with the Sokolov renewal?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Sokolov Auto Body Ltd. Renewal CPP-561853"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Trillium Specialty renewal of Sokolov Auto Body Ltd. policy CPP-561853 on December 31, needs a signed renewal application and loss runs",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R034",
+   "kind": "reuse",
+   "prompt": "did Laila send the renewal figures yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Sokolov Auto Body Ltd. Renewal CPP-561853"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Trillium Specialty renewal of Sokolov Auto Body Ltd. policy CPP-561853 on December 31, needs a signed renewal application and loss runs",
+   "name_mentions_person": false
+  },
+  {
+   "id": "R035",
+   "kind": "reuse",
+   "prompt": "what's going on with the Ellis renewal?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Hana Ellis Policy Renewal"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Northern Shield renewal of Ellis Fitness Studio Ltd. policy CGL-940568 on December 2, needs a current schedule of locations and building values",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R036",
+   "kind": "reuse",
+   "prompt": "did Hana send the renewal figures yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Hana Ellis Policy Renewal"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Northern Shield renewal of Ellis Fitness Studio Ltd. policy CGL-940568 on December 2, needs a current schedule of locations and building values",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R037",
+   "kind": "reuse",
+   "prompt": "what's going on with the Patel renewal?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Patel renewal"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Trillium Specialty renewal of Patel Catering Inc. policy CPP-357613 on December 14, needs a signed renewal application and loss runs",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R038",
+   "kind": "reuse",
+   "prompt": "did Javier send the renewal figures yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Patel renewal"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Trillium Specialty renewal of Patel Catering Inc. policy CPP-357613 on December 14, needs a signed renewal application and loss runs",
+   "name_mentions_person": false
+  },
+  {
+   "id": "R039",
+   "kind": "reuse",
+   "prompt": "where are we on Leah's certificate for the Bayview Commercial Properties job?",
+   "expected": "reuse",
+   "gold_agents": [
+    "COI Reyes Roofing Inc."
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Certificate of insurance for Reyes Roofing Inc. naming Bayview Commercial Properties (new lease on our second location)",
+   "name_mentions_person": false
+  },
+  {
+   "id": "R040",
+   "kind": "reuse",
+   "prompt": "did Reyes Roofing Inc. get their COI yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "COI Reyes Roofing Inc."
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Certificate of insurance for Reyes Roofing Inc. naming Bayview Commercial Properties (new lease on our second location)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R041",
+   "kind": "reuse",
+   "prompt": "Leah says something's wrong with the bill, look into it",
+   "expected": "reuse",
+   "gold_agents": [
+    "Leah NSF Payment"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: NSF Payment inquiry from Leah Fernandes ($347.50)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R042",
+   "kind": "reuse",
+   "prompt": "did billing get back to us about Leah's payment?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Leah NSF Payment"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: NSF Payment inquiry from Leah Fernandes ($347.50)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R043",
+   "kind": "reuse",
+   "prompt": "Paolo says something's wrong with the bill, look into it",
+   "expected": "reuse",
+   "gold_agents": [
+    "Billing issue - Paolo Schmidt"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Double Charge inquiry from Paolo Schmidt ($348.50)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R044",
+   "kind": "reuse",
+   "prompt": "did billing get back to us about Paolo's payment?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Billing issue - Paolo Schmidt"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Double Charge inquiry from Paolo Schmidt ($348.50)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R045",
+   "kind": "reuse",
+   "prompt": "Adriana says something's wrong with the bill, look into it",
+   "expected": "reuse",
+   "gold_agents": [
+    "Adriana Pereira Billing Check"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Premium Increase Question inquiry from Adriana Pereira ($359.00)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R046",
+   "kind": "reuse",
+   "prompt": "did billing get back to us about Adriana's payment?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Adriana Pereira Billing Check"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Premium Increase Question inquiry from Adriana Pereira ($359.00)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R047",
+   "kind": "reuse",
+   "prompt": "did Uma send the VIN yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Uma Toyota RAV4 Auto Policy"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: replace 2025 Toyota RAV4 on Uma Singh's auto policy AU-959725 effective October 30",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R048",
+   "kind": "reuse",
+   "prompt": "add Uma's new Toyota to the policy",
+   "expected": "reuse",
+   "gold_agents": [
+    "Uma Toyota RAV4 Auto Policy"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: replace 2025 Toyota RAV4 on Uma Singh's auto policy AU-959725 effective October 30",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R049",
+   "kind": "reuse",
+   "prompt": "Nora says something's wrong with the bill, look into it",
+   "expected": "reuse",
+   "gold_agents": [
+    "Nora Bhatt Billing Check"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Payment Plan inquiry from Nora Bhatt ($142.00)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R050",
+   "kind": "reuse",
+   "prompt": "did billing get back to us about Nora's payment?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Nora Bhatt Billing Check"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: Payment Plan inquiry from Nora Bhatt ($142.00)",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R051",
+   "kind": "reuse",
+   "prompt": "what's still missing for Mona's auto quote?",
+   "expected": "reuse",
+   "gold_agents": [
+    "New business quote - Mona Fernandes"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: New auto quote for Mona Fernandes; outstanding: renovation receipts",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R052",
+   "kind": "reuse",
+   "prompt": "did Mona send the renovation receipts?",
+   "expected": "reuse",
+   "gold_agents": [
+    "New business quote - Mona Fernandes"
+   ],
+   "forbidden_agents": [],
+   "why": "Follow-up on existing work: New auto quote for Mona Fernandes; outstanding: renovation receipts",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R053",
+   "kind": "lookalike",
+   "prompt": "Daniel Morin says something's wrong with the bill, look into it",
+   "expected": "reuse",
+   "gold_agents": [
+    "Daniel NSF Payment"
+   ],
+   "forbidden_agents": [
+    "Daniel Alvarez Vehicle Addition"
+   ],
+   "why": "Two clients named Daniel; full name given, must pick the right agent.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R054",
+   "kind": "lookalike",
+   "prompt": "did Daniel Alvarez send the VIN yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Daniel Alvarez Vehicle Addition"
+   ],
+   "forbidden_agents": [
+    "Daniel NSF Payment"
+   ],
+   "why": "Two clients named Daniel; full name given, must pick the right agent.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R055",
+   "kind": "ambiguous",
+   "prompt": "any update from Daniel?",
+   "expected": "ask_user",
+   "gold_agents": [
+    "Daniel NSF Payment",
+    "Daniel Alvarez Vehicle Addition"
+   ],
+   "forbidden_agents": [],
+   "why": "Two active clients named Daniel; should ask which one or check every Daniel agent (picking one is scored 'guessed').",
+   "ambiguous_name": "Daniel"
+  },
+  {
+   "id": "R056",
+   "kind": "lookalike",
+   "prompt": "what's still missing for Priya Malik's home quote?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Priya quote"
+   ],
+   "forbidden_agents": [
+    "Priya Santos Billing Check"
+   ],
+   "why": "Two clients named Priya; full name given, must pick the right agent.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R057",
+   "kind": "lookalike",
+   "prompt": "Priya Santos says something's wrong with the bill, look into it",
+   "expected": "reuse",
+   "gold_agents": [
+    "Priya Santos Billing Check"
+   ],
+   "forbidden_agents": [
+    "Priya quote"
+   ],
+   "why": "Two clients named Priya; full name given, must pick the right agent.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R058",
+   "kind": "ambiguous",
+   "prompt": "any update from Priya?",
+   "expected": "ask_user",
+   "gold_agents": [
+    "Priya quote",
+    "Priya Santos Billing Check"
+   ],
+   "forbidden_agents": [],
+   "why": "Two active clients named Priya; should ask which one or check every Priya agent (picking one is scored 'guessed').",
+   "ambiguous_name": "Priya"
+  },
+  {
+   "id": "R059",
+   "kind": "lookalike",
+   "prompt": "did Maya Zhang send the VIN yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Maya Tesla Model Y Auto Policy"
+   ],
+   "forbidden_agents": [
+    "Storm Damage Claim - Maya Ibrahim"
+   ],
+   "why": "Two clients named Maya; full name given, must pick the right agent.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R060",
+   "kind": "lookalike",
+   "prompt": "start a claim file for Maya Ibrahim's hail damage",
+   "expected": "reuse",
+   "gold_agents": [
+    "Storm Damage Claim - Maya Ibrahim"
+   ],
+   "forbidden_agents": [
+    "Maya Tesla Model Y Auto Policy"
+   ],
+   "why": "Two clients named Maya; full name given, must pick the right agent.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R061",
+   "kind": "ambiguous",
+   "prompt": "any update from Maya?",
+   "expected": "ask_user",
+   "gold_agents": [
+    "Maya Tesla Model Y Auto Policy",
+    "Storm Damage Claim - Maya Ibrahim"
+   ],
+   "forbidden_agents": [],
+   "why": "Two active clients named Maya; should ask which one or check every Maya agent (picking one is scored 'guessed').",
+   "ambiguous_name": "Maya"
+  },
+  {
+   "id": "R062",
+   "kind": "lookalike",
+   "prompt": "Omar Kim says something's wrong with the bill, look into it",
+   "expected": "reuse",
+   "gold_agents": [
+    "Omar Kim Billing Check"
+   ],
+   "forbidden_agents": [
+    "Add Mazda to Omar's policy"
+   ],
+   "why": "Two clients named Omar; full name given, must pick the right agent.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R063",
+   "kind": "lookalike",
+   "prompt": "did Omar Abbott send the VIN yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Add Mazda to Omar's policy"
+   ],
+   "forbidden_agents": [
+    "Omar Kim Billing Check"
+   ],
+   "why": "Two clients named Omar; full name given, must pick the right agent.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R064",
+   "kind": "ambiguous",
+   "prompt": "any update from Omar?",
+   "expected": "ask_user",
+   "gold_agents": [
+    "Omar Kim Billing Check",
+    "Add Mazda to Omar's policy"
+   ],
+   "forbidden_agents": [],
+   "why": "Two active clients named Omar; should ask which one or check every Omar agent (picking one is scored 'guessed').",
+   "ambiguous_name": "Omar"
+  },
+  {
+   "id": "R065",
+   "kind": "lookalike",
+   "prompt": "what's the status of Elena Walsh's theft claim?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Elena theft claim"
+   ],
+   "forbidden_agents": [
+    "Elena Kia Sportage Auto Policy"
+   ],
+   "why": "Two clients named Elena; full name given, must pick the right agent.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R066",
+   "kind": "lookalike",
+   "prompt": "did Elena Costa send the VIN yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Elena Kia Sportage Auto Policy"
+   ],
+   "forbidden_agents": [
+    "Elena theft claim"
+   ],
+   "why": "Two clients named Elena; full name given, must pick the right agent.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R067",
+   "kind": "ambiguous",
+   "prompt": "any update from Elena?",
+   "expected": "ask_user",
+   "gold_agents": [
+    "Elena theft claim",
+    "Elena Kia Sportage Auto Policy"
+   ],
+   "forbidden_agents": [],
+   "why": "Two active clients named Elena; should ask which one or check every Elena agent (picking one is scored 'guessed').",
+   "ambiguous_name": "Elena"
+  },
+  {
+   "id": "R068",
+   "kind": "lookalike",
+   "prompt": "start a claim file for Ravi Patel's water damage",
+   "expected": "reuse",
+   "gold_agents": [
+    "Ravi Patel Water Damage Claim"
+   ],
+   "forbidden_agents": [
+    "Add Ford to Ravi's policy"
+   ],
+   "why": "Two clients named Ravi; full name given, must pick the right agent.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R069",
+   "kind": "lookalike",
+   "prompt": "did Ravi Novak send the VIN yet?",
+   "expected": "reuse",
+   "gold_agents": [
+    "Add Ford to Ravi's policy"
+   ],
+   "forbidden_agents": [
+    "Ravi Patel Water Damage Claim"
+   ],
+   "why": "Two clients named Ravi; full name given, must pick the right agent.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R070",
+   "kind": "ambiguous",
+   "prompt": "any update from Ravi?",
+   "expected": "ask_user",
+   "gold_agents": [
+    "Ravi Patel Water Damage Claim",
+    "Add Ford to Ravi's policy"
+   ],
+   "forbidden_agents": [],
+   "why": "Two active clients named Ravi; should ask which one or check every Ravi agent (picking one is scored 'guessed').",
+   "ambiguous_name": "Ravi"
+  },
+  {
+   "id": "R071",
+   "kind": "new",
+   "prompt": "what's going on with the Cardenas renewal?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Certificate for Maya Cardenas"
+   ],
+   "why": "New job (renewal) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R072",
+   "kind": "new",
+   "prompt": "what's going on with the Pereira renewal?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Pereira Hardware Inc. COI - Lakeshore Industrial REIT"
+   ],
+   "why": "New job (renewal) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R073",
+   "kind": "new",
+   "prompt": "what's going on with the Schmidt renewal?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Certificate for Arjun Schmidt"
+   ],
+   "why": "New job (renewal) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R074",
+   "kind": "new",
+   "prompt": "where are we on Ines's certificate for the Dufferin Plaza Management job?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Kowalski Electric Ltd. Renewal CPP-104292"
+   ],
+   "why": "New job (coi_request) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R075",
+   "kind": "new",
+   "prompt": "what's going on with the MacLeod renewal?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "MacLeod Print Shop Ltd. COI - City of Markham"
+   ],
+   "why": "New job (renewal) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R076",
+   "kind": "new",
+   "prompt": "where are we on Uma's certificate for the Kingsway Realty Holdings job?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Uma Malik Policy Renewal"
+   ],
+   "why": "New job (coi_request) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R077",
+   "kind": "new",
+   "prompt": "where are we on Farah's certificate for the Lakeshore Industrial REIT job?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Farah Tran Policy Renewal"
+   ],
+   "why": "New job (coi_request) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R078",
+   "kind": "new",
+   "prompt": "what's going on with the Vargas renewal?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Certificate for Ben Vargas"
+   ],
+   "why": "New job (renewal) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R079",
+   "kind": "new",
+   "prompt": "where are we on Farah's certificate for the City of Mississauga job?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Tremblay Roofing Ltd. Renewal BOP-104123"
+   ],
+   "why": "New job (coi_request) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R080",
+   "kind": "new",
+   "prompt": "what's going on with the Malik renewal?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Certificate for Neil Malik"
+   ],
+   "why": "New job (renewal) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R081",
+   "kind": "new",
+   "prompt": "where are we on Laila's certificate for the City of Pickering job?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Sokolov Auto Body Ltd. Renewal CPP-561853"
+   ],
+   "why": "New job (coi_request) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R082",
+   "kind": "new",
+   "prompt": "where are we on Hana's certificate for the Dufferin Plaza Management job?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Hana Ellis Policy Renewal"
+   ],
+   "why": "New job (coi_request) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R083",
+   "kind": "new",
+   "prompt": "where are we on Javier's certificate for the Town of Ajax job?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Patel renewal"
+   ],
+   "why": "New job (coi_request) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R084",
+   "kind": "new",
+   "prompt": "what's going on with the Reyes renewal?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "COI Reyes Roofing Inc."
+   ],
+   "why": "New job (renewal) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R085",
+   "kind": "new",
+   "prompt": "start a claim file for Leah's water damage",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Leah NSF Payment"
+   ],
+   "why": "New job (claim) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R086",
+   "kind": "new",
+   "prompt": "what's still missing for Paolo's home and auto quote?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Billing issue - Paolo Schmidt"
+   ],
+   "why": "New job (new_quote) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R087",
+   "kind": "new",
+   "prompt": "did Adriana send the VIN yet?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Adriana Pereira Billing Check"
+   ],
+   "why": "New job (vehicle_change) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R088",
+   "kind": "new",
+   "prompt": "start a claim file for Uma's water damage",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Uma Toyota RAV4 Auto Policy"
+   ],
+   "why": "New job (claim) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R089",
+   "kind": "new",
+   "prompt": "what's the status of Nora's theft claim?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Nora Bhatt Billing Check"
+   ],
+   "why": "New job (claim) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R090",
+   "kind": "new",
+   "prompt": "Mona says something's wrong with the bill, look into it",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "New business quote - Mona Fernandes"
+   ],
+   "why": "New job (billing) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R091",
+   "kind": "new",
+   "prompt": "start a claim file for Felix's hail damage",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Felix Morin Billing Check"
+   ],
+   "why": "New job (claim) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R092",
+   "kind": "new",
+   "prompt": "what's the status of Javier's collision claim?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "New business quote - Javier Zhang"
+   ],
+   "why": "New job (claim) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R093",
+   "kind": "new",
+   "prompt": "what's still missing for Owen's auto quote?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Owen Zielinski Billing Check"
+   ],
+   "why": "New job (new_quote) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R094",
+   "kind": "new",
+   "prompt": "what's still missing for Ravi's condo quote?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Auto Theft Claim - Ravi Romano"
+   ],
+   "why": "New job (new_quote) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R095",
+   "kind": "new",
+   "prompt": "Yusuf says something's wrong with the bill, look into it",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "New business quote - Yusuf Patel"
+   ],
+   "why": "New job (billing) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R096",
+   "kind": "new",
+   "prompt": "did Aisha send the VIN yet?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Aisha quote"
+   ],
+   "why": "New job (vehicle_change) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R097",
+   "kind": "new",
+   "prompt": "Amir says something's wrong with the bill, look into it",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Amir Garcia Vehicle Addition"
+   ],
+   "why": "New job (billing) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R098",
+   "kind": "new",
+   "prompt": "what's the status of Jasmine's theft claim?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "New business quote - Jasmine Patel"
+   ],
+   "why": "New job (claim) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R099",
+   "kind": "new",
+   "prompt": "what's going on with the okafor renewal?",
+   "expected": "new_agent",
+   "gold_agents": [],
+   "forbidden_agents": [
+    "Okafor Landscaping COI - City of Vaughan"
+   ],
+   "why": "New job (seed) for a client who already has a different agent; must not be merged."
+  },
+  {
+   "id": "R100",
+   "kind": "reminder",
+   "prompt": "remind me thursday at 11:30 to leave for lunch with alice",
+   "expected": "reuse",
+   "gold_agents": [
+    "Lunch with Alice and Bob"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R101",
+   "kind": "reminder",
+   "prompt": "remind me friday at 9 to send alice park the budget numbers",
+   "expected": "reuse",
+   "gold_agents": [
+    "Q4 Budget Numbers for Alice Park"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R102",
+   "kind": "reminder",
+   "prompt": "remind me tomorrow at 10am to check daniel's certificate went out",
+   "expected": "reuse",
+   "gold_agents": [
+    "Okafor Landscaping COI - City of Vaughan"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": false
+  },
+  {
+   "id": "R103",
+   "kind": "reminder",
+   "prompt": "remind me tomorrow at 9am to call linda about the adjuster",
+   "expected": "reuse",
+   "gold_agents": [
+    "Linda Gauthier Water Claim"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R104",
+   "kind": "reminder",
+   "prompt": "remind me Wednesday at 10am to check that Maya's certificate was issued",
+   "expected": "reuse",
+   "gold_agents": [
+    "Certificate for Maya Cardenas"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R105",
+   "kind": "reminder",
+   "prompt": "remind me Wednesday at 10am to check that Paula's certificate was issued",
+   "expected": "reuse",
+   "gold_agents": [
+    "Pereira Hardware Inc. COI - Lakeshore Industrial REIT"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": false
+  },
+  {
+   "id": "R106",
+   "kind": "reminder",
+   "prompt": "remind me Wednesday at 10am to check that Arjun's certificate was issued",
+   "expected": "reuse",
+   "gold_agents": [
+    "Certificate for Arjun Schmidt"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R107",
+   "kind": "reminder",
+   "prompt": "remind me next monday to chase Ines for the renewal numbers",
+   "expected": "reuse",
+   "gold_agents": [
+    "Kowalski Electric Ltd. Renewal CPP-104292"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": false
+  },
+  {
+   "id": "R108",
+   "kind": "reminder",
+   "prompt": "remind me Wednesday at 10am to check that Ana's certificate was issued",
+   "expected": "reuse",
+   "gold_agents": [
+    "MacLeod Print Shop Ltd. COI - City of Markham"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": false
+  },
+  {
+   "id": "R109",
+   "kind": "reminder",
+   "prompt": "remind me next monday to chase Uma for the renewal numbers",
+   "expected": "reuse",
+   "gold_agents": [
+    "Uma Malik Policy Renewal"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R110",
+   "kind": "reminder",
+   "prompt": "remind me next monday to chase Farah for the renewal numbers",
+   "expected": "reuse",
+   "gold_agents": [
+    "Farah Tran Policy Renewal"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R111",
+   "kind": "reminder",
+   "prompt": "remind me Wednesday at 10am to check that Ben's certificate was issued",
+   "expected": "reuse",
+   "gold_agents": [
+    "Certificate for Ben Vargas"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R112",
+   "kind": "reminder",
+   "prompt": "remind me next monday to chase Farah for the renewal numbers",
+   "expected": "reuse",
+   "gold_agents": [
+    "Tremblay Roofing Ltd. Renewal BOP-104123"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": false
+  },
+  {
+   "id": "R113",
+   "kind": "reminder",
+   "prompt": "remind me Wednesday at 10am to check that Neil's certificate was issued",
+   "expected": "reuse",
+   "gold_agents": [
+    "Certificate for Neil Malik"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R114",
+   "kind": "reminder",
+   "prompt": "remind me next monday to chase Laila for the renewal numbers",
+   "expected": "reuse",
+   "gold_agents": [
+    "Sokolov Auto Body Ltd. Renewal CPP-561853"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": false
+  },
+  {
+   "id": "R115",
+   "kind": "reminder",
+   "prompt": "remind me next monday to chase Hana for the renewal numbers",
+   "expected": "reuse",
+   "gold_agents": [
+    "Hana Ellis Policy Renewal"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R116",
+   "kind": "reminder",
+   "prompt": "remind me next monday to chase Javier for the renewal numbers",
+   "expected": "reuse",
+   "gold_agents": [
+    "Patel renewal"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": false
+  },
+  {
+   "id": "R117",
+   "kind": "reminder",
+   "prompt": "remind me Wednesday at 10am to check that Leah's certificate was issued",
+   "expected": "reuse",
+   "gold_agents": [
+    "COI Reyes Roofing Inc."
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": false
+  },
+  {
+   "id": "R118",
+   "kind": "reminder",
+   "prompt": "remind me thursday to update Leah on the billing issue",
+   "expected": "reuse",
+   "gold_agents": [
+    "Leah NSF Payment"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R119",
+   "kind": "reminder",
+   "prompt": "remind me thursday to update Paolo on the billing issue",
+   "expected": "reuse",
+   "gold_agents": [
+    "Billing issue - Paolo Schmidt"
+   ],
+   "forbidden_agents": [],
+   "why": "Reminder should live with the agent that owns the work so the trigger fires with context.",
+   "name_mentions_person": true
+  },
+  {
+   "id": "R120",
+   "kind": "multi",
+   "prompt": "which clients still owe me documents?",
+   "expected": "multi",
+   "gold_agents": [
+    "Jordan Whitfield Home and Auto Quote",
+    "New business quote - Mona Fernandes",
+    "Priya quote"
+   ],
+   "forbidden_agents": [],
+   "why": "Cross-cutting question over several agents."
+  },
+  {
+   "id": "R121",
+   "kind": "multi",
+   "prompt": "give me a status update on all my open claims",
+   "expected": "multi",
+   "gold_agents": [
+    "Linda Gauthier Water Claim",
+    "Storm Damage Claim - Maya Ibrahim",
+    "Elena theft claim",
+    "Ravi Patel Water Damage Claim"
+   ],
+   "forbidden_agents": [],
+   "why": "Cross-cutting question over several agents."
+  },
+  {
+   "id": "R122",
+   "kind": "multi",
+   "prompt": "any certificates still waiting to go out?",
+   "expected": "multi",
+   "gold_agents": [
+    "Okafor Landscaping COI - City of Vaughan",
+    "Certificate for Maya Cardenas",
+    "Pereira Hardware Inc. COI - Lakeshore Industrial REIT",
+    "Certificate for Arjun Schmidt",
+    "MacLeod Print Shop Ltd. COI - City of Markham",
+    "Certificate for Ben Vargas",
+    "Certificate for Neil Malik",
+    "COI Reyes Roofing Inc."
+   ],
+   "forbidden_agents": [],
+   "why": "Cross-cutting question over several agents."
+  },
+  {
+   "id": "R123",
+   "kind": "none",
+   "prompt": "thanks!",
+   "expected": "none",
+   "gold_agents": [],
+   "forbidden_agents": [],
+   "why": "Chit-chat; no agent should be called."
+  },
+  {
+   "id": "R124",
+   "kind": "none",
+   "prompt": "ok cool",
+   "expected": "none",
+   "gold_agents": [],
+   "forbidden_agents": [],
+   "why": "Chit-chat; no agent should be called."
+  },
+  {
+   "id": "R125",
+   "kind": "none",
+   "prompt": "what can you do?",
+   "expected": "none",
+   "gold_agents": [],
+   "forbidden_agents": [],
+   "why": "Chit-chat; no agent should be called."
+  },
+  {
+   "id": "R126",
+   "kind": "none",
+   "prompt": "lol that's fine",
+   "expected": "none",
+   "gold_agents": [],
+   "forbidden_agents": [],
+   "why": "Chit-chat; no agent should be called."
+  },
+  {
+   "id": "R127",
+   "kind": "none",
+   "prompt": "never mind, ignore that",
+   "expected": "none",
+   "gold_agents": [],
+   "forbidden_agents": [],
+   "why": "Chit-chat; no agent should be called."
+  },
+  {
+   "id": "R128",
+   "kind": "none",
+   "prompt": "good morning",
+   "expected": "none",
+   "gold_agents": [],
+   "forbidden_agents": [],
+   "why": "Chit-chat; no agent should be called."
+  },
+  {
+   "id": "R129",
+   "kind": "none",
+   "prompt": "you're the best",
+   "expected": "none",
+   "gold_agents": [],
+   "forbidden_agents": [],
+   "why": "Chit-chat; no agent should be called."
+  },
+  {
+   "id": "R130",
+   "kind": "none",
+   "prompt": "hold on, let me think about it",
+   "expected": "none",
+   "gold_agents": [],
+   "forbidden_agents": [],
+   "why": "Chit-chat; no agent should be called."
+  },
+  {
+   "id": "R131",
+   "kind": "ambiguous",
+   "prompt": "ask alice if thursday lunch works",
+   "expected": "ask_user_or_reuse",
+   "gold_agents": [
+    "Lunch with Alice and Bob"
+   ],
+   "forbidden_agents": [
+    "Q4 Budget Numbers for Alice Park",
+    "Team Meeting Schedule"
+   ],
+   "why": "Two Alices; lunch context points to Alice Chen. Reusing the lunch agent or asking are both acceptable."
+  }
+ ]
+}

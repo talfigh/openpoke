@@ -1,0 +1,54 @@
+{
+ "entries": [
+  {
+   "tag": "user_message",
+   "timestamp": "2026-10-21 10:00:00",
+   "text": "hey, can you keep an eye on Daniel Okafor's certificate request? the city is picky about names"
+  },
+  {
+   "tag": "poke_reply",
+   "timestamp": "2026-10-21 11:00:00",
+   "text": "On it. I'll watch Daniel's thread and flag anything about the certificate holder."
+  },
+  {
+   "tag": "user_message",
+   "timestamp": "2026-10-22 12:00:00",
+   "text": "also Linda Gauthier's basement claim, she's stressed so prioritize her"
+  },
+  {
+   "tag": "poke_reply",
+   "timestamp": "2026-10-22 13:00:00",
+   "text": "Got it, Linda's claim is top of the pile. I'll tell you as soon as the adjuster replies."
+  },
+  {
+   "tag": "user_message",
+   "timestamp": "2026-10-23 14:00:00",
+   "text": "summarize my inbox every friday at 5"
+  },
+  {
+   "tag": "poke_reply",
+   "timestamp": "2026-10-23 15:00:00",
+   "text": "Done. You'll get a Friday 5pm digest."
+  },
+  {
+   "tag": "user_message",
+   "timestamp": "2026-10-25 10:00:00",
+   "text": "did anyone reply about lunch?"
+  },
+  {
+   "tag": "poke_reply",
+   "timestamp": "2026-10-25 11:00:00",
+   "text": "Alice Chen suggested Thursday 12:30 at Pinewood Kitchen, and Bob wants in (he's vegetarian)."
+  },
+  {
+   "tag": "user_message",
+   "timestamp": "2026-10-26 12:00:00",
+   "text": "nice. remind me to bring Bob's book on thursday"
+  },
+  {
+   "tag": "poke_reply",
+   "timestamp": "2026-10-26 13:00:00",
+   "text": "Will do, I'll ping you Thursday morning."
+  }
+ ]
+}
