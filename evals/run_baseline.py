@@ -24,9 +24,11 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import html
 import json
 import os
 import random
+import re
 import shutil
 import statistics
 import sys
@@ -169,6 +171,17 @@ def seed_roster(data_dir: Path, names: List[str]) -> None:
     get_agent_roster().load()
 
 
+def seed_agent_logs(names: List[str], history_by_name: Dict[str, List[Dict[str, str]]]) -> None:
+    """Replace all execution logs with each roster agent's seeded history (what agent search builds profiles from)."""
+    from server.services.execution import get_execution_agent_logs
+
+    logs = get_execution_agent_logs()
+    logs.clear_all()
+    for name in names:
+        for item in history_by_name.get(name, []):
+            logs._append(name, item["tag"], item["text"])
+
+
 def seed_conversation(entries: List[Dict[str, str]]) -> str:
     """Write the seed chat into the conversation log and return the transcript the agent will see."""
     from server.services.conversation import get_conversation_log
@@ -268,7 +281,8 @@ def score_case(case: Dict[str, Any], dispatched: List[str], asked: bool, roster:
 CORRECT = {"correct", "correct_with_extras", "correct_fanout", "answered_from_history"}
 
 
-_EMPTY_CAPTURE = {"agents": [], "user_messages": [], "waits": [], "drafts": []}
+_EMPTY_CAPTURE = {"agents": [], "user_messages": [], "waits": [], "drafts": [], "searches": []}
+_SHOWN_AGENT_RE = re.compile(r'<agent name="([^"]*)"')
 
 
 class DispatchStubs:
@@ -304,8 +318,16 @@ class DispatchStubs:
             cap()["waits"].append(reason)
             return ToolResult(success=True, payload={"status": "waiting", "reason": reason}, recorded_reply=True)
 
+        real_find = ia_tools.find_relevant_agents
+
+        def find_relevant_agents(query: str):  # read-only, so it runs for real; only the query is recorded
+            result = real_find(query)
+            cap()["searches"].append({"query": query, "found": [a["name"] for a in result.payload["agents"]]})
+            return result
+
         ia_tools.send_message_to_agent, ia_tools.send_message_to_user = send_message_to_agent, send_message_to_user
         ia_tools.send_draft, ia_tools.wait = send_draft, wait
+        ia_tools.find_relevant_agents = find_relevant_agents
 
     async def route(self, runtime, system_prompt: str, transcript: str, prompt: str, tag: str, meter: "LLMMeter") -> Dict[str, Any]:
         """Run one user message through the real interaction loop and return what it tried to do."""
@@ -314,12 +336,14 @@ class DispatchStubs:
         started = time.perf_counter()
         task_key = None
         error = final_text = iterations = None
+        shown: List[str] = []
 
         async def body():
             nonlocal task_key
             task_key = id(asyncio.current_task())
             meter._tag.set(tag)
             messages = prepare_message_with_history(prompt, transcript, message_type="user")
+            shown.extend(html.unescape(n) for n in _SHOWN_AGENT_RE.findall(messages[0]["content"]))
             return await runtime._run_interaction_loop(system_prompt, messages)
 
         try:
@@ -329,7 +353,7 @@ class DispatchStubs:
             error = str(exc)[:300]
         cap = self.captures.pop(task_key, {k: [] for k in _EMPTY_CAPTURE})
         first = next((c for c in meter.calls if c["tag"] == tag), {})
-        return {**cap, "final_text": final_text, "error": error, "tool_calls": iterations,
+        return {**cap, "shown_agents": shown, "final_text": final_text, "error": error, "tool_calls": iterations,
                 "latency_s": round(time.perf_counter() - started, 2), "first_call_prompt_tokens": first.get("prompt_tokens")}
 
 
@@ -403,9 +427,14 @@ async def run_routing(args, run_dir: Path, meter: LLMMeter) -> Dict[str, Any]:
     results: List[Dict[str, Any]] = []
     sem = asyncio.Semaphore(args.concurrency)
 
+    history = {name_map.get(t["agent_name"], t["agent_name"]): t["history"] for t in reversed(_load("topics.json")["topics"])}
     for size in args.sizes:
         names = rosters[str(size)]
         seed_roster(run_dir / "data", names)
+        seed_agent_logs(names, history)
+        if args.agent_roster == "search":
+            from server.services.execution.agent_index import get_agent_index
+            get_agent_index().search("warm up", k=1)  # embed every profile once before cases run concurrently
         roster_set = set(names)
         print(f"\n== roster size {size} ({len(names)} agents, {args.roster} names): {len(cases)} cases")
 
@@ -420,7 +449,8 @@ async def run_routing(args, run_dir: Path, meter: LLMMeter) -> Dict[str, Any]:
                     "forbidden_agents": case["forbidden_agents"], "name_mentions_person": case.get("name_mentions_person"),
                     "dispatched": out["agents"], "user_messages": out["user_messages"], "waits": out["waits"], "final_text": out["final_text"],
                     "error": out["error"], "latency_s": out["latency_s"], "tool_calls": out["tool_calls"],
-                    "first_call_prompt_tokens": out["first_call_prompt_tokens"], **score,
+                    "first_call_prompt_tokens": out["first_call_prompt_tokens"], "shown_agents": out["shown_agents"],
+                    "searches": out["searches"], **score,
                 })
                 mark = "ok " if score["outcome"] in CORRECT else "XX "
                 print(f"  {mark}{case['id']:<8} {case['kind']:<9} {score['outcome']:<22} {out['latency_s']:5.1f}s  {case['prompt'][:55]!r} -> {dispatched[:2]}")
@@ -510,6 +540,9 @@ def aggregate_routing(results: List[Dict[str, Any]], sizes: List[int], meter: "L
             "latency_p50_s": _pct([r["latency_s"] for r in rows], 50),
             "latency_p95_s": _pct([r["latency_s"] for r in rows], 95),
             "llm": meter.summarize([c for c in meter.calls if c["tag"].startswith(f"{size}:")]),
+            "gold_shown_on_reuse": round(sum(1 for r in reuse_rows if r.get("shown_agents") and r["gold_agents"][0] in r["shown_agents"])
+                                         / len(reuse_rows), 3) if reuse_rows and any(r.get("shown_agents") for r in reuse_rows) else None,
+            "search_tool_use": round(sum(1 for r in rows if r.get("searches")) / len(rows), 3) if rows else None,
             "accuracy_original_prompts": _acc([r for r in rows if not r.get("variant")]),
             "accuracy_paraphrased_prompts": _acc([r for r in rows if r.get("variant")]),
             "outcomes": dict(outcomes),
@@ -741,6 +774,11 @@ def routing_markdown(report: Dict[str, Any]) -> str:
         lines.append(f"| {size} | {s['cases']} | {_fmt(s['accuracy'])} | {_fmt(s['reuse_accuracy'])} | {_fmt(s['duplicate_rate_on_reuse'])} | "
                      f"{_fmt(s['misroute_rate_on_reuse'])} | {_fmt(s['new_task_merged_rate'])} | {s['first_call_prompt_tokens_mean']} | "
                      f"{s['latency_p50_s']} | {s['latency_p95_s']} | {s['llm']['cost_usd']} |")
+    if any(s.get("gold_shown_on_reuse") is not None for s in per.values()):
+        lines += ["", "Agent search (`--agent-roster search`): how often the correct agent was among the agents shown, "
+                  "and how often the model called `find_relevant_agents`:", "",
+                  "| Roster size | Correct agent shown (follow-ups) | Used the search tool |", "|---|---|---|"]
+        lines += [f"| {size} | {_fmt(s['gold_shown_on_reuse'])} | {_fmt(s['search_tool_use'])} |" for size, s in per.items()]
     if any(s.get("accuracy_paraphrased_prompts") is not None for s in per.values()):
         lines += ["", "| Roster size | Original prompts | Paraphrased prompts |", "|---|---|---|"]
         lines += [f"| {size} | {_fmt(s['accuracy_original_prompts'])} | {_fmt(s['accuracy_paraphrased_prompts'])} |" for size, s in per.items()]
@@ -1334,6 +1372,8 @@ def main() -> None:
     p_routing.add_argument("--roster", choices=["synthetic", "organic"], default="synthetic",
                            help="agent names: the generator's, or the ones OpenPoke chose itself (run grow-roster first)")
     p_routing.add_argument("--prompts", choices=["original", "paraphrases", "all"], default="original")
+    p_routing.add_argument("--agent-roster", choices=["all", "search"], default="all",
+                           help="all = every agent name in the prompt (upstream); search = relevant agents with descriptions + find_relevant_agents")
     p_grow = sub.add_parser("grow-roster", help="let OpenPoke create and name the 500 roster agents itself")
     p_grow.add_argument("--limit", type=int, default=0)
     p_class = sub.add_parser("classifier")
@@ -1343,6 +1383,7 @@ def main() -> None:
     p_scen.add_argument("--roster-size", type=int, default=0)
     p_scen.add_argument("--gmail-latency-ms", type=int, default=600, help="simulated Composio round trip per Gmail call")
     p_scen.add_argument("--step-timeout", type=float, default=300)
+    p_scen.add_argument("--agent-roster", choices=["all", "search"], default="all")
     p_ret = sub.add_parser("retrieval", help="rank roster agents for each routing case with keyword/embedding search (no LLM calls)")
     p_ret.add_argument("--sizes", type=int, nargs="+", default=[40, 500])
     p_ret.add_argument("--roster", choices=["synthetic", "organic"], default="synthetic")
@@ -1377,6 +1418,7 @@ def main() -> None:
     run_dir = RUNS_DIR / f"{stamp}_{args.mode}{'_' + args.label if args.label else ''}"
     if run_dir.exists():
         shutil.rmtree(run_dir)
+    os.environ["OPENPOKE_AGENT_ROSTER"] = getattr(args, "agent_roster", "all")
     _prepare_env(run_dir, getattr(args, "gmail_latency_ms", 0))
 
     from server.config import get_settings

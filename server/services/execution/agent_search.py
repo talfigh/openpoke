@@ -105,8 +105,12 @@ class AgentSearch:
         if self._embedder is not None:
             self._vectors = vectors if vectors is not None else self._embedder.passages(list(profiles.values()))
 
-    def search(self, query: str, k: int = 10, method: str = "hybrid") -> List[Tuple[str, float]]:
-        """Top-k (name, score). Scores are BM25 points, cosine similarity, or RRF points depending on `method`."""
+    def search(self, query: str, k: int = 10, method: str = "hybrid", bm25_weight: float = 3.0) -> List[Tuple[str, float]]:
+        """Top-k (name, score). Scores are BM25 points, cosine similarity, or RRF points depending on `method`.
+
+        Hybrid weights the keyword ranking `bm25_weight` times the embedding ranking: on name-heavy requests keyword
+        search finds the agent and embeddings mostly reorder the top results (NOTES 8.3).
+        """
         if not self._names:
             return []
         if method == "bm25":
@@ -115,9 +119,10 @@ class AgentSearch:
             ranked = self._rank(self._cosine(query))
         elif method == "hybrid":
             fused: Dict[int, float] = {}
-            for ranking in (self._rank(self._bm25.scores(tokenize(query))), self._rank(self._cosine(query))):
+            rankings = ((bm25_weight, self._rank(self._bm25.scores(tokenize(query)))), (1.0, self._rank(self._cosine(query))))
+            for weight, ranking in rankings:
                 for pos, (idx, _) in enumerate(ranking):
-                    fused[idx] = fused.get(idx, 0.0) + 1.0 / (_RRF_K + pos + 1)
+                    fused[idx] = fused.get(idx, 0.0) + weight / (_RRF_K + pos + 1)
             ranked = sorted(fused.items(), key=lambda item: -item[1])
         else:
             raise ValueError(f"unknown search method: {method}")
