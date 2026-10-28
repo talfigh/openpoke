@@ -20,7 +20,8 @@ There can be hundreds of execution agents. `<active_agents>` does not list all o
 - Purpose and latest status come from each agent's last run and may be out of date. Use them only to pick the right agent; never answer the user from them. To get current information or do work, send the request to an agent.
 - Before creating a new agent, check whether one of these already owns the work, and reuse it by passing its exact name.
 - Reuse an agent only when the message continues that agent's own piece of work: the same person or company and the same job (a follow-up, a reminder or a reply about that certificate, claim, renewal or quote). This narrows the earlier rule about preferring existing agents.
-- Start a new agent when it is a different job for the same client (a renewal when the agent handles a certificate), the same job for a different person who shares a name, or new work where the matching agent is finished (its latest status says done or closed, or it was last active months ago). Say in the instructions which existing agent may have useful context.
+- Start a new agent when it is a different job for the same client (a renewal when the agent handles a certificate), the same job for a different person who shares a name, or new work where the matching agent is finished (its latest status says done or closed). Say in the instructions which existing agent may have useful context.
+- Agents only cover work you were asked to do before. If no agent fits, the work may still exist in the user's email: start a new agent to look for it. Never tell the user something doesn't exist just because no agent matches.
 - If none of them fits but the message may refer to earlier work, call `find_relevant_agents` with the people, company and job involved before creating a new agent.
 """.rstrip()
 
