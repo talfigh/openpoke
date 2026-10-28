@@ -7,7 +7,6 @@ from typing import Dict, List
 from ...config import get_settings
 from ...services.execution import get_agent_roster
 from ...services.execution.agent_index import get_agent_index
-from ...services.execution.agent_search import tokenize
 
 _prompt_path = Path(__file__).parent / "system_prompt.md"
 SYSTEM_PROMPT = _prompt_path.read_text(encoding="utf-8").strip()
@@ -26,6 +25,7 @@ There can be hundreds of execution agents. `<active_agents>` does not list all o
 """.rstrip()
 
 _SEARCH_CANDIDATES = 10
+_CONTEXT_CANDIDATES = 3
 _RECENT_AGENTS = 5
 _HISTORY_QUERY_CHARS = 600
 
@@ -91,10 +91,8 @@ def _render_relevant_agents(latest_text: str, transcript: str) -> str:
     total = index.size()
     if not total:
         return '<active_agents total="0">\nNone\n</active_agents>'
-    query = latest_text
-    if len(tokenize(latest_text)) < 2:  # "okay", "yes send it": search the recent conversation instead
-        query = f"{transcript.strip()[-_HISTORY_QUERY_CHARS:]}\n{latest_text}"
-    cards = index.candidates(query, k=_SEARCH_CANDIDATES, recent=_RECENT_AGENTS)
+    context = transcript.strip()[-_HISTORY_QUERY_CHARS:]  # covers "okay", "yes send it", "go ahead"
+    cards = index.candidates(latest_text, context, k=_SEARCH_CANDIDATES, k_context=_CONTEXT_CANDIDATES, recent=_RECENT_AGENTS)
     rendered = [render_agent_card(card) for card in cards]
     return f'<active_agents total="{total}" shown="{len(cards)}">\n' + "\n".join(rendered) + "\n</active_agents>"
 

@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from typing import Any, Dict, List, Optional, Tuple
 
 from ...logging_config import logger
-from .agent_search import AgentSearch, Embedder, build_profile
+from .agent_search import AgentSearch, Embedder, build_profile, tokenize
 from .log_store import ExecutionAgentLogStore, get_execution_agent_logs
 from .roster import AgentRoster, get_agent_roster
 
@@ -71,12 +71,15 @@ class AgentIndex:
                     logger.warning(f"Agent embeddings unavailable, using keyword search only: {exc}")
                     self._embedder = None
                     return None
-            return [self._vectors[p] for p in profiles]
+            vectors = [self._vectors[p] for p in profiles]
+            if len(self._vectors) > 2 * len(profiles):  # drop embeddings of profiles that have since changed
+                self._vectors = dict(zip(profiles, vectors))
+            return vectors
 
-    def search(self, query: str, k: int = 10) -> List[AgentCard]:
-        """Agents most relevant to `query`, best first."""
-        entries = self._entries()
-        if not entries:
+    def search(self, query: str, k: int = 10, entries: Optional[Dict[str, List[Tuple[str, str, str]]]] = None) -> List[AgentCard]:
+        """Agents most relevant to `query`, best first. `entries` reuses logs already read for this turn."""
+        entries = self._entries() if entries is None else entries
+        if not entries or not query.strip():
             return []
         names = list(entries)
         profiles = [build_profile(n, [(tag, payload) for tag, _, payload in entries[n]]) for n in names]
@@ -91,18 +94,33 @@ class AgentIndex:
         ranked = search.search(query, k=k, method="hybrid" if vectors is not None else "bm25")
         return [self._card(name, entries[name]) for name, _ in ranked]
 
-    def recent(self, n: int = 5) -> List[AgentCard]:
-        """Most recently active agents (ties: most recently added first)."""
-        entries = self._entries()
+    def recent(self, n: int = 5, entries: Optional[Dict[str, List[Tuple[str, str, str]]]] = None) -> List[AgentCard]:
+        """Most recently active agents by their newest log entry (ties: most recently added first)."""
+        entries = self._entries() if entries is None else entries
         order = {name: i for i, name in enumerate(entries)}
         newest = sorted(entries, key=lambda name: (max((ts for _, ts, _ in entries[name] if ts), default=""), order[name]), reverse=True)
         return [self._card(name, entries[name]) for name in newest[:n]]
 
-    def candidates(self, query: str, k: int = 10, recent: int = 5) -> List[AgentCard]:
-        """Search results for `query` followed by recently active agents not already in them."""
-        found = self.search(query, k=k) if query.strip() else []
-        seen = {card.name for card in found}
-        return found + [card for card in self.recent(recent) if card.name not in seen]
+    def candidates(self, message: str, context: str = "", k: int = 10, k_context: int = 3, recent: int = 5) -> List[AgentCard]:
+        """Agents to show for one turn, without repeats: the top `k` for the message, the top `k_context` for the
+        recent conversation, then the `recent` most recently active agents.
+
+        A message with almost nothing to search for ("okay", "do it") gives its slots to the conversation search;
+        the conversation search also covers replies like "yes send it" whose words don't name the work.
+        """
+        entries = self._entries()
+        if len(tokenize(message)) < 2:
+            k, k_context = 0, k + k_context
+        groups = [
+            self.search(message, k=k, entries=entries) if k else [],
+            self.search(f"{context}\n{message}", k=k_context, entries=entries) if context.strip() else [],
+            self.recent(recent, entries=entries),
+        ]
+        shown: Dict[str, AgentCard] = {}
+        for group in groups:
+            for card in group:
+                shown.setdefault(card.name, card)
+        return list(shown.values())
 
     def size(self) -> int:
         self._roster.load()
