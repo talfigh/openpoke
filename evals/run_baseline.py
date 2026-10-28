@@ -929,6 +929,102 @@ def write_failures(path: Path) -> Path:
 
 
 # ----------------------------------------------------------------------
+# Mode: retrieval (agent search quality, no LLM calls)
+# ----------------------------------------------------------------------
+
+_PROFILES = {  # label -> build_profile kwargs
+    "name": {"requests": 0, "responses": 0},
+    "name+first request": {"requests": 1, "responses": 0},
+    "name+requests": {"requests": 10, "responses": 0},
+    "name+requests+result": {"requests": 10, "responses": 1},
+}
+_METHODS = ("bm25", "embedding", "hybrid")
+_HIT_KS = (1, 5, 10, 20)
+
+
+async def run_retrieval(args, run_dir: Path, meter: LLMMeter) -> Dict[str, Any]:
+    import numpy as np
+    from server.services.execution.agent_search import AgentSearch, Embedder, build_profile
+
+    rosters, name_map = build_rosters(args.roster)
+    history = {name_map.get(t["agent_name"], t["agent_name"]): t["history"] for t in reversed(_load("topics.json")["topics"])}
+    cases, skipped = expand_cases(_load("routing_cases.json")["cases"], args.prompts, name_map, args.roster)
+    embedder = Embedder(args.embedding_model)
+    all_names = list(dict.fromkeys(n for size in args.sizes for n in rosters[str(size)]))
+    query_vectors: Dict[str, Any] = {}
+    original_query = embedder.query
+    embedder.query = lambda text: query_vectors.setdefault(text, original_query(text))  # each prompt is embedded once
+
+    rows: List[Dict[str, Any]] = []
+    for label, kwargs in _PROFILES.items():
+        profiles = {n: build_profile(n, [(e["tag"], e["text"]) for e in history.get(n, [])], **kwargs) for n in all_names}
+        vectors = dict(zip(all_names, embedder.passages([profiles[n] for n in all_names])))
+        for size in args.sizes:
+            names = rosters[str(size)]
+            search = AgentSearch(embedder)
+            search.index({n: profiles[n] for n in names}, vectors=np.stack([vectors[n] for n in names]))
+            for method in _METHODS:
+                for case in cases:
+                    ranked = [n for n, _ in search.search(case["prompt"], k=len(names), method=method)]
+                    position = {n: i + 1 for i, n in enumerate(ranked)}
+                    rows.append({
+                        "roster_size": size, "profile": label, "method": method, "case_id": case["id"], "kind": case["kind"],
+                        "expected": case["expected"], "prompt": case["prompt"], "name_mentions_person": case.get("name_mentions_person"),
+                        "gold_ranks": [position.get(g) for g in case["gold_agents"]],
+                        "forbidden_ranks": [position.get(f) for f in case["forbidden_agents"]], "top5": ranked[:5],
+                    })
+        print(f"  profile '{label}': done")
+    return {"aggregate": aggregate_retrieval(rows, args.sizes), "rows": rows, "skipped_cases": skipped,
+            "embedding_model": args.embedding_model}
+
+
+def aggregate_retrieval(rows: List[Dict[str, Any]], sizes: List[int]) -> Dict[str, Any]:
+    def hit(rs, k):  # share of cases whose (first) gold agent is in the top k
+        return round(sum(1 for r in rs if r["gold_ranks"][0] and r["gold_ranks"][0] <= k) / len(rs), 3) if rs else None
+
+    def all_in(rs, k):  # share of cases with every gold agent in the top k
+        return round(sum(1 for r in rs if all(g and g <= k for g in r["gold_ranks"])) / len(rs), 3) if rs else None
+
+    def recall(rs, k):  # mean share of gold agents in the top k
+        return round(sum(sum(1 for g in r["gold_ranks"] if g and g <= k) / len(r["gold_ranks"]) for r in rs) / len(rs), 3) if rs else None
+
+    out: Dict[str, Any] = {}
+    for size in sizes:
+        for label in _PROFILES:
+            for method in _METHODS:
+                rs = [r for r in rows if r["roster_size"] == size and r["profile"] == label and r["method"] == method]
+                follow = [r for r in rs if r["expected"] == "reuse"]
+                out[f"{size}|{label}|{method}"] = {
+                    **{f"hit@{k}": hit(follow, k) for k in _HIT_KS},
+                    "mrr": round(sum(1 / r["gold_ranks"][0] for r in follow if r["gold_ranks"][0]) / len(follow), 3) if follow else None,
+                    "opaque_hit@10": hit([r for r in follow if r["name_mentions_person"] is False], 10),
+                    "lookalike_hit@1": hit([r for r in follow if r["kind"] == "lookalike"], 1),
+                    "reminder_hit@5": hit([r for r in follow if r["kind"] == "reminder"], 5),
+                    "ambiguous_all@10": all_in([r for r in rs if r["kind"] == "ambiguous"], 10),
+                    "multi_recall@20": recall([r for r in rs if r["kind"] == "multi"], 20),
+                    "new_same_client@5": round(sum(1 for r in rs if r["kind"] == "new" and any(f and f <= 5 for f in r["forbidden_ranks"]))
+                                               / max(1, sum(r["kind"] == "new" for r in rs)), 3),
+                }
+    return out
+
+
+def retrieval_markdown(report: Dict[str, Any]) -> str:
+    agg = report["results"]["aggregate"]
+    cols = ["hit@1", "hit@5", "hit@10", "hit@20", "mrr", "opaque_hit@10", "lookalike_hit@1", "reminder_hit@5", "ambiguous_all@10", "multi_recall@20", "new_same_client@5"]
+    lines = [f"Embedding model `{report['results']['embedding_model']}`; prompts: {report['args'].get('prompts', 'original')}. Follow-up cases (reuse, lookalike, reminder) unless the column says otherwise. "
+             "hit@k = correct agent in the top k; ambiguous_all@10 = every matching agent in the top 10; "
+             "new_same_client@5 = for new jobs, the same client's other agent is in the top 5 (expected; the model must still create a new one).", ""]
+    for size in sorted({k.split("|")[0] for k in agg}, key=int):
+        lines += [f"### {size} agents", "", "| Profile | Method | " + " | ".join(cols) + " |", "|---|---|" + "---|" * len(cols)]
+        for label in _PROFILES:
+            for method in _METHODS:
+                s = agg[f"{size}|{label}|{method}"]
+                lines.append(f"| {label} | {method} | " + " | ".join(_fmt(s[c]) if c != "mrr" else f"{s[c]:.2f}" for c in cols) + " |")
+        lines.append("")
+    return "\n".join(lines)
+
+
+# ----------------------------------------------------------------------
 # Mode: classifier (importance watcher)
 # ----------------------------------------------------------------------
 
@@ -1247,7 +1343,13 @@ def main() -> None:
     p_scen.add_argument("--roster-size", type=int, default=0)
     p_scen.add_argument("--gmail-latency-ms", type=int, default=600, help="simulated Composio round trip per Gmail call")
     p_scen.add_argument("--step-timeout", type=float, default=300)
-    for p in (p_routing, p_class, p_scen, p_grow):
+    p_ret = sub.add_parser("retrieval", help="rank roster agents for each routing case with keyword/embedding search (no LLM calls)")
+    p_ret.add_argument("--sizes", type=int, nargs="+", default=[40, 500])
+    p_ret.add_argument("--roster", choices=["synthetic", "organic"], default="synthetic")
+    p_ret.add_argument("--embedding-model", default="BAAI/bge-small-en-v1.5")
+    p_ret.add_argument("--prompts", choices=["original", "paraphrases", "all"], default="original",
+                       help="paraphrases are free here (no LLM calls) and test whether search depends on exact wording")
+    for p in (p_routing, p_class, p_scen, p_grow, p_ret):
         p.add_argument("--label", default="", help="suffix for the run folder, e.g. 'baseline' or 'semantic-roster'")
     p_compare = sub.add_parser("compare", help="mean and min-max of key metrics across repeated runs (no LLM calls)")
     p_compare.add_argument("runs", type=Path, nargs="+", help="run folders of the same mode")
@@ -1289,7 +1391,8 @@ def main() -> None:
 
     async def go():
         await meter.load_prices()
-        runner = {"routing": run_routing, "classifier": run_classifier, "scenario": run_scenario, "grow-roster": run_grow_roster}[args.mode]
+        runner = {"routing": run_routing, "classifier": run_classifier, "scenario": run_scenario, "grow-roster": run_grow_roster,
+                  "retrieval": run_retrieval}[args.mode]
         return await runner(args, run_dir, meter)
 
     started = time.perf_counter()
@@ -1305,7 +1408,8 @@ def main() -> None:
         "results": results,
     }
     (run_dir / "results.json").write_text(json.dumps(report, indent=1, ensure_ascii=False, default=str), encoding="utf-8")
-    body = {"routing": routing_markdown, "classifier": classifier_markdown, "scenario": scenario_markdown, "grow-roster": names_markdown}[args.mode](report)
+    body = {"routing": routing_markdown, "classifier": classifier_markdown, "scenario": scenario_markdown, "grow-roster": names_markdown,
+            "retrieval": retrieval_markdown}[args.mode](report)
     header = (f"# {args.mode} run {stamp}{' (' + args.label + ')' if args.label else ''}\n\n"
               f"git {git_rev}{' + uncommitted server changes' if git_dirty else ''} · models {sorted(set(report['models'].values()))} · {report['duration_s']}s\n\n")
     (run_dir / "summary.md").write_text(header + body + "\n", encoding="utf-8")

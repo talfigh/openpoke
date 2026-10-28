@@ -102,3 +102,22 @@ Repeat summaries: `evals/baseline/routing_3runs.md`, `classifier_3runs.md`, `sce
 | 7.10 | **Three labelling mistakes in the routing cases** (found while listing failures, `runs/*routing*/failures.md`). Two core clients are named Farah and both have a renewal agent, so R026/R030 and R110/R112 are really ambiguous but are labelled with one answer each. R023 and R080 have the same prompt ("what's going on with the Malik renewal?") with opposite labels, so one always fails. R127 "never mind, ignore that" follows the seeded "remind me to bring Bob's book", so cancelling that reminder is a fair reading. These 7 of 131 cases account for about 10% of failures (15–16 of 160 per baseline run). They are flagged ⚠ in the failure lists but still scored as labelled, so the numbers above are unchanged. **pending**: fix the labels in the generator and rescore the saved runs (no LLM calls). |
 | 7.9 | **The 402 run.** OpenRouter credits ran out mid-sweep (worsened by 1.3: every call reserves 65k output tokens), so the first OpenPoke-names and paraphrase sweeps are complete only at 40 agents; sizes 100–500 were rerun after a top-up. The harness now scores failed calls as `error`, excludes them from accuracy, warns in the summary, and stops a sweep when >5% of calls fail.                                                                                                                                                                                                                                                                    |
 
+## 8. R&D: searching agents instead of listing them (2026-10-28)
+
+Offline test (`run_baseline.py retrieval`, no LLM calls, ~15 s): for every routing case, rank the roster with `server/services/execution/agent_search.py` and check where the correct agent lands. Agent profile = name + first request + last requests + last result, built from the execution log. Local embeddings via `fastembed` (no API cost). Runs: `runs/2026-10-28_111319_retrieval_rnd-v1`, `…_retrieval_rnd-v1-all-{bge-small,bge-base,mxbai-embed-large}`.
+
+| 500 agents, follow-up cases | Correct agent in top 10 | Top 1 | Name-opaque in top 10 |
+|---|---|---|---|
+| Names only, keyword (BM25) | 83% | 54% | 33% |
+| Name + first request, keyword | 98% | 69% | 89% |
+| Name + first request, embedding (bge-small / bge-base / mxbai-large) | 86% / 88% / 86% | 68% / 68% / 61% | 61% / 67% / 50% |
+| Full profile, hybrid, keyword weighted 3:1 (bge-base) | 98% | 70% | — |
+
+| # | Finding |
+|---|---|
+| 8.1 | **Profile content matters most.** Adding the agent's first request lifts top-10 recall from 83% to 98% at 500 agents, and name-opaque cases from 33% to 89%. |
+| 8.2 | **Keyword search beats embeddings on this data**, whichever local model (small, base or large). The prompts are full of proper names and IDs, where dense embeddings blur ("Farah Tran" vs "Farah Tremblay"). Results hold for paraphrased prompts (97–98% top 10), so this is not exact-wording overlap with the generator. |
+| 8.3 | **Embeddings help ranking, not recall.** A hybrid weighted 3:1 toward keyword search keeps 98% top-10 recall and raises top-1 from 65% to 70%. Equal weights lose recall (93–94%). |
+| 8.4 | **The profile must include people.** The only top-10 misses at 500 are both the Okafor COI agent: its seeded history says "Okafor Landscaping" but never "Daniel", so "daniel's certificate" can't match. Real logs contain Gmail tool responses with sender names; the seeded histories don't. |
+| 8.5 | **Dataset gaps for this design:** every seeded agent has one request (so "last 10 instructions" can't be tested yet), no tool responses (no sender names), no vague/semantic prompts ("the bakery thing"), and no confirmations or split messages ("okay", "yes send it"). |
+| 8.6 | **Cross-agent questions are a separate problem.** "all my open claims" finds 47–75% of the relevant agents in the top 20; a candidate list of 10 can't answer it. Needs a different mechanism (e.g. search by job type). |
