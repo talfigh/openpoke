@@ -34,7 +34,7 @@ import statistics
 import sys
 import time
 from collections import Counter, defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from contextvars import ContextVar
 from typing import Any, Dict, List, Optional, Tuple
@@ -171,15 +171,32 @@ def seed_roster(data_dir: Path, names: List[str]) -> None:
     get_agent_roster().load()
 
 
-def seed_agent_logs(names: List[str], history_by_name: Dict[str, List[Dict[str, str]]]) -> None:
-    """Replace all execution logs with each roster agent's seeded history (what agent search builds profiles from)."""
+def seed_agent_logs(names: List[str], topics_by_name: Dict[str, Dict[str, Any]]) -> None:
+    """Replace all execution logs with each roster agent's seeded history (what agent search builds profiles from).
+
+    Entries are dated from the topic's start (shifted like the fake mailbox), one day apart, so finished work from
+    months ago looks old instead of every agent appearing active today.
+    """
+    from zoneinfo import ZoneInfo
     from server.services.execution import get_execution_agent_logs
+    from server.services.execution.log_store import _encode_payload
 
     logs = get_execution_agent_logs()
     logs.clear_all()
+    anchor = datetime.fromisoformat(_load("mailbox.json")["dataset_now"].replace("Z", "+00:00"))
+    shift = timedelta(weeks=round((datetime.now(timezone.utc) - anchor) / timedelta(weeks=1)))
+    now, tz = datetime.now(timezone.utc), ZoneInfo(USER_TZ)
     for name in names:
-        for item in history_by_name.get(name, []):
-            logs._append(name, item["tag"], item["text"])
+        topic = topics_by_name.get(name)
+        if not topic:
+            continue
+        start = datetime.fromisoformat(topic["start"].replace("Z", "+00:00")) + shift
+        lines = []
+        for i, item in enumerate(topic["history"]):
+            stamp = min(start + timedelta(days=i), now).astimezone(tz).strftime("%Y-%m-%d %H:%M:%S")
+            lines.append(f'<{item["tag"]} timestamp="{stamp}">{_encode_payload(item["text"])}</{item["tag"]}>\n')
+        with logs._log_path(name).open("a", encoding="utf-8") as handle:
+            handle.writelines(lines)
 
 
 def seed_conversation(entries: List[Dict[str, str]]) -> str:
@@ -427,11 +444,11 @@ async def run_routing(args, run_dir: Path, meter: LLMMeter) -> Dict[str, Any]:
     results: List[Dict[str, Any]] = []
     sem = asyncio.Semaphore(args.concurrency)
 
-    history = {name_map.get(t["agent_name"], t["agent_name"]): t["history"] for t in reversed(_load("topics.json")["topics"])}
+    seeded_topics = {name_map.get(t["agent_name"], t["agent_name"]): t for t in reversed(_load("topics.json")["topics"])}
     for size in args.sizes:
         names = rosters[str(size)]
         seed_roster(run_dir / "data", names)
-        seed_agent_logs(names, history)
+        seed_agent_logs(names, seeded_topics)
         if args.agent_roster == "search":
             from server.services.execution.agent_index import get_agent_index
             get_agent_index().search("warm up", k=1)  # embed every profile once before cases run concurrently
