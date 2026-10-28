@@ -14,7 +14,7 @@ Findings are summarized in `/NOTES.md`, sections 4 and 5.
 
 ## Offline baseline (synthetic inbox, 2026-10-27)
 
-Produced by `evals/run_baseline.py` on `evals/fixtures/synthetic/`. Each run folder in `runs/` holds `results.json` (every case) and `summary.md`.
+Produced by `evals/run_baseline.py` on `evals/fixtures/synthetic/`. Each run folder in `runs/` holds `results.json` (every case) and `summary.md`. Routing runs also have `failures.md`: every misrouted case, grouped by what should have happened and what OpenPoke did instead (regenerate with `run_baseline.py failures <results.json>`).
 
 | File | What it shows |
 |---|---|

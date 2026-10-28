@@ -553,6 +553,7 @@ def rescore_routing(path: Path) -> None:
     summary = path.parent / "summary.md"
     header = summary.read_text(encoding="utf-8").split("\n\n", 2)[:2] if summary.exists() else ["# routing", ""]
     summary.write_text("\n\n".join(header) + "\n\n" + routing_markdown(report) + "\n", encoding="utf-8")
+    write_failures(path)
     print(routing_markdown(report).split("Failures")[0])
 
 
@@ -762,6 +763,169 @@ def routing_markdown(report: Dict[str, Any]) -> str:
 
 def _fmt(value: Optional[float]) -> str:
     return "-" if value is None else f"{value:.0%}" if isinstance(value, float) else str(value)
+
+
+# ----------------------------------------------------------------------
+# Failure lists (no LLM calls): every misrouted case, grouped by what should have happened
+# ----------------------------------------------------------------------
+
+_FAILURE_GROUPS = [  # (title, expected values, what counts as correct)
+    ("Should reuse an existing agent", ("reuse",), "Send the request to the one existing agent that owns the work (reuse, lookalike and reminder cases)."),
+    ("Should create a new agent", ("new_agent",), "Create a new agent. The client already has an agent for a different job, and that agent must not be used."),
+    ("Ambiguous name", ("ask_user", "ask_user_or_reuse"), "Ask which person is meant, or check every agent with that name."),
+    ("Cross-agent question", ("multi",), "Check at least half of the agents that hold the answer."),
+    ("Chit-chat", ("none",), "Reply without calling any agent."),
+]
+_FAILURE_LABELS = {
+    "duplicate": "Created a new agent instead",
+    "wrong_agent": "Used a different existing agent",
+    "merged_into_existing": "Put the work into an existing agent",
+    "guessed": "Picked one of the matches without asking",
+    "partial": "Checked too few of the relevant agents",
+    "missed": "Checked none of the relevant agents",
+    "asked": "Asked the user instead of acting",
+    "no_action": "Did nothing",
+    "answered_without_agent": "Replied without checking any agent",
+    "unneeded_agent": "Called an agent",
+}
+_INCOMPLETE_SIZE = 0.05  # same threshold at which run_routing stops a sweep
+# Cases whose label is wrong in the dataset (found while reviewing failures). Still scored as labelled, so
+# numbers match summary.md, but flagged so their failures aren't read as OpenPoke's.
+_LABEL_ISSUES = {
+    "R026": "Two core clients named Farah (Tran, Tremblay) both have a renewal agent; the prompt is ambiguous.",
+    "R030": "Two core clients named Farah (Tran, Tremblay) both have a renewal agent; the prompt is ambiguous.",
+    "R110": "Two core clients named Farah (Tran, Tremblay) both have a renewal agent; the prompt is ambiguous.",
+    "R112": "Two core clients named Farah (Tran, Tremblay) both have a renewal agent; the prompt is ambiguous.",
+    "R023": "Same prompt as R080 with the opposite label (reuse Uma Malik's renewal vs create one for Neil Malik).",
+    "R080": "Same prompt as R023 with the opposite label (reuse Uma Malik's renewal vs create one for Neil Malik).",
+    "R127": "The seeded chat ends with \"remind me to bring Bob's book on thursday\", so cancelling that reminder is a fair reading.",
+}
+
+
+def _cell(text: Any, limit: int = 160) -> str:
+    text = " ".join(str(text).split()).replace("|", "\\|")
+    return text if len(text) <= limit else text[: limit - 1] + "…"
+
+
+def _expected_cell(r: Dict[str, Any]) -> str:
+    gold, expected = r["gold_agents"], r["expected"]
+    names = lambda xs: ", ".join(f"*{_cell(g, 80)}*" for g in xs[:8]) + (f" +{len(xs) - 8} more" if len(xs) > 8 else "")
+    if expected == "reuse":
+        return names(gold)
+    if expected == "new_agent":
+        return "New agent" + (f" (not {names(r['forbidden_agents'])})" if r["forbidden_agents"] else "")
+    if expected == "multi":
+        return f"At least {-(-len(gold) // 2)} of {len(gold)}: {names(gold)}"
+    if expected == "none":
+        return "No agent"
+    return f"Ask, or check all: {names(gold)}"
+
+
+def _did_cell(r: Dict[str, Any]) -> str:
+    existing = set(r.get("existing_agents") or [])
+    calls = [f"*{_cell(a['agent_name'], 80)}* ({'existing' if a['agent_name'] in existing else 'new'})" for a in r["dispatched"]]
+    parts = [", ".join(dict.fromkeys(calls))] if calls else []
+    if r["expected"] == "multi":
+        checked = len(set(r["gold_agents"]) & {a["agent_name"] for a in r["dispatched"]})
+        parts.append(f"checked {checked} of {len(r['gold_agents'])}")
+    if not calls:
+        reply = (r.get("user_messages") or [None])[0] or r.get("final_text")
+        parts.append(f"replied: \"{_cell(reply, 140)}\"" if reply else "no reply")
+    return "; ".join(parts)
+
+
+def failures_markdown(report: Dict[str, Any]) -> str:
+    cases = {c["id"]: c for c in _load("routing_cases.json")["cases"]}
+    # Older runs (generator names only) didn't store forbidden_agents per row; the case file has the same names.
+    rows = [{"forbidden_agents": cases[r.get("base_id", r["case_id"])]["forbidden_agents"], **r} for r in report["results"]["cases"]]
+    args = report.get("args") or {}
+    sizes = sorted({r["roster_size"] for r in rows})
+    complete, incomplete = [], []
+    for size in sizes:
+        at = [r for r in rows if r["roster_size"] == size]
+        errors = sum(r["outcome"] == "error" for r in at)
+        (incomplete if errors / len(at) > _INCOMPLETE_SIZE else complete).append((size, len(at), errors))
+    ok_sizes = [s for s, _, _ in complete]
+    scored = [r for r in rows if r["roster_size"] in ok_sizes and r["outcome"] != "error"]
+    failed = [r for r in scored if r["outcome"] not in CORRECT]
+
+    lines = [f"# Routing failures: {report.get('label') or report.get('started_at', '')}", "",
+             f"Every case this run scored as wrong, grouped by what should have happened. Generated from `results.json` "
+             f"by `run_baseline.py failures` (no LLM calls). Agent names: {args.get('roster', 'synthetic')}; "
+             f"prompts: {args.get('prompts', 'original')}. Case ids ending in `.pN` are paraphrase N of the same case.", ""]
+    for size, n, errors in complete:
+        if errors:
+            lines.append(f"- {size} agents: {errors} of {n} cases had a failed LLM call and are left out.")
+    for size, n, errors in incomplete:
+        lines.append(f"- **{size} agents: incomplete** ({errors} of {n} LLM calls failed, out of OpenRouter credit), "
+                     "so these cases are not listed. The complete results for this size are in a later rerun.")
+    if complete and any(e for _, _, e in complete) or incomplete:
+        lines.append("")
+
+    flagged = [r for r in failed if r.get("base_id", r["case_id"]) in _LABEL_ISSUES]
+    lines += [f"**{len(failed)} failures out of {len(scored)} scored cases.**"
+              + (f" {len(flagged)} of them come from cases with a known labelling problem (marked ⚠, listed at the end)." if flagged else ""), "",
+              "| What should have happened | What OpenPoke did instead | " + " | ".join(f"{s} agents" for s in ok_sizes) + " |",
+              "|---|---|" + "---|" * len(ok_sizes)]
+    for title, expected, _ in _FAILURE_GROUPS:
+        group = [r for r in scored if r["expected"] in expected]
+        for outcome in _FAILURE_LABELS:
+            if any(r["outcome"] == outcome for r in group):
+                cells = []
+                for s in ok_sizes:
+                    at = [r for r in group if r["roster_size"] == s]
+                    cells.append(f"{sum(r['outcome'] == outcome for r in at)} of {len(at)}")
+                lines.append(f"| {title} | {_FAILURE_LABELS[outcome]} | " + " | ".join(cells) + " |")
+
+    # Cases that fail at every complete size point at structural problems rather than roster size.
+    by_case: Dict[str, set] = defaultdict(set)
+    for r in failed:
+        by_case[r["case_id"]].add(r["roster_size"])
+    always = sorted(c for c, s in by_case.items() if len(ok_sizes) > 1 and s == set(ok_sizes))
+    if always:
+        prompts = {r["case_id"]: r for r in failed}
+        lines += ["", f"## Failed at every roster size ({len(always)})", "",
+                  "| Case | Kind | Prompt | Outcomes |", "|---|---|---|---|"]
+        for c in always:
+            outs = Counter(r["outcome"] for r in failed if r["case_id"] == c)
+            mark = " ⚠" if prompts[c].get("base_id", c) in _LABEL_ISSUES else ""
+            lines.append(f"| {c}{mark} | {prompts[c]['kind']} | {_cell(prompts[c]['prompt'])} | " + ", ".join(_FAILURE_LABELS[o].lower() for o in outs) + " |")
+
+    for title, expected, rule in _FAILURE_GROUPS:
+        group = [r for r in failed if r["expected"] in expected]
+        if not group:
+            continue
+        lines += ["", f"## {title} ({len(group)})", "", f"Correct: {rule}"]
+        for outcome in _FAILURE_LABELS:
+            subset = sorted((r for r in group if r["outcome"] == outcome), key=lambda r: (r["case_id"], r["roster_size"]))
+            if not subset:
+                continue
+            lines += ["", f"### {_FAILURE_LABELS[outcome]} ({len(subset)})", "",
+                      "| Size | Case | Kind | Prompt | Expected | What OpenPoke did |", "|---|---|---|---|---|---|"]
+            lines += [f"| {r['roster_size']} | {r['case_id']}{' ⚠' if r.get('base_id', r['case_id']) in _LABEL_ISSUES else ''} | {r['kind']} | "
+                      f"{_cell(r['prompt'])} | {_expected_cell(r)} | {_did_cell(r)} |" for r in subset]
+
+    extras = sorted((r for r in scored if r["outcome"] == "correct_with_extras"), key=lambda r: (r["case_id"], r["roster_size"]))
+    if extras:
+        lines += ["", f"## Counted as correct, but with extra agents ({len(extras)})", "",
+                  "Reached the right agent and also called others. Not included in the failure counts above.", "",
+                  "| Size | Case | Kind | Prompt | Expected | What OpenPoke did |", "|---|---|---|---|---|---|"]
+        lines += [f"| {r['roster_size']} | {r['case_id']} | {r['kind']} | {_cell(r['prompt'])} | {_expected_cell(r)} | {_did_cell(r)} |" for r in extras]
+    if flagged:
+        counts = Counter(r.get("base_id", r["case_id"]) for r in flagged)
+        lines += ["", "## ⚠ Known labelling problems", "",
+                  "These cases are still scored as labelled, so the counts above match `summary.md`, "
+                  "but their failures are a fault of the test data, not of OpenPoke.", "",
+                  "| Case | Failures in this run | Problem |", "|---|---|---|"]
+        lines += [f"| {c} | {n} | {_cell(_LABEL_ISSUES[c], 200)} |" for c, n in sorted(counts.items())]
+    return "\n".join(lines) + "\n"
+
+
+def write_failures(path: Path) -> Path:
+    report = json.loads(path.read_text(encoding="utf-8"))
+    out = path.parent / "failures.md"
+    out.write_text(failures_markdown(report), encoding="utf-8")
+    return out
 
 
 # ----------------------------------------------------------------------
@@ -1090,7 +1254,13 @@ def main() -> None:
     p_compare.add_argument("--out", type=Path, default=None, help="also write the table to this markdown file")
     p_rescore = sub.add_parser("rescore", help="re-apply current scoring rules to a saved routing results.json (no LLM calls)")
     p_rescore.add_argument("results", type=Path)
+    p_fail = sub.add_parser("failures", help="write failures.md (every misrouted case, grouped) next to saved routing results.json files (no LLM calls)")
+    p_fail.add_argument("results", type=Path, nargs="+")
     args = parser.parse_args()
+    if args.mode == "failures":
+        for path in args.results:
+            print(f"wrote {write_failures(path)}")
+        return
     if args.mode == "compare":
         text = compare_runs(args.runs)
         print(text)
@@ -1139,6 +1309,8 @@ def main() -> None:
     header = (f"# {args.mode} run {stamp}{' (' + args.label + ')' if args.label else ''}\n\n"
               f"git {git_rev}{' + uncommitted server changes' if git_dirty else ''} · models {sorted(set(report['models'].values()))} · {report['duration_s']}s\n\n")
     (run_dir / "summary.md").write_text(header + body + "\n", encoding="utf-8")
+    if args.mode == "routing":
+        write_failures(run_dir / "results.json")
     print("\n" + header + body)
     print(f"\nWrote {run_dir.relative_to(REPO_ROOT)}/results.json and summary.md")
 
