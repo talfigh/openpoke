@@ -17,7 +17,7 @@ No real inbox is needed. A fake Gmail backend (`server/services/gmail/fake_backe
 | `scenario` | The whole app end to end: 11 chat and email steps with checks on routing, reminders and the outbox. |
 | `classifier` | The importance watcher on 222 labelled emails, including scam warnings. |
 
-Baselines were repeated 3 times (overall accuracy varies about ±2 points). Data: `scripts/generate_synthetic_dataset.py` (deterministic) and `scripts/generate_prompt_variants.py`.
+Baselines were repeated 3 times (overall accuracy varies about ±2 points). The new code also has 57 offline unit tests in `tests/` (pytest, about 0.1 s; NOTES 10). Data: `scripts/generate_synthetic_dataset.py` (deterministic) and `scripts/generate_prompt_variants.py`.
 
 ## The fix: search agents, show only the relevant ones
 
@@ -57,7 +57,8 @@ Each change was tested one at a time (v1–v4 and an ablation that removed a sea
 ## Run it
 
 ```bash
-pip install -r server/requirements.txt          # in a Python 3.10+ venv; .env with OPENROUTER_API_KEY
+pip install -r server/requirements-dev.txt      # in a Python 3.10+ venv; .env with OPENROUTER_API_KEY
+python -m pytest                                 # unit tests: offline, no API key needed
 
 # Evals (routing costs about $0.30 per roster size)
 python evals/run_baseline.py retrieval                                   # free

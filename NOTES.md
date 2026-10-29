@@ -148,3 +148,17 @@ Offline test (`run_baseline.py retrieval`, no LLM calls, ~15 s): for every routi
 | 9.2 | **Fix:** one sentence in the classifier prompt (`server/services/gmail/importance_classifier.py`): an email that looks like phishing or fraud aimed at the user is important, and its summary starts with a warning not to act on it; don't mention phishing for ordinary emails. Summaries now open "WARNING: Do not act on this email." followed by the reason. |
 | 9.3 | **Side effects.** "Low-importance false positives" rose to 19% (baseline 15–17%), entirely because the dataset labels scams as low importance and they are now surfaced on purpose; excluding scams it went down. The 2 false warnings are on "Property tax instalment due" from `toronto-services.example`, a domain my generator made up for the City of Toronto; the classifier correctly noticed it isn't the city's real domain, so this is a test-data artifact. A first wording without "don't mention phishing for ordinary emails" added "shows no signs of phishing" to normal summaries; the final wording stopped that. |
 | 9.4 | **End to end** (`…_scenario_scam-warning`, search mode): both scam emails in the live delivery reached the user with a warning, including the mailbox-migration phish the classifier used to drop; asked "anything important from IT?", Poke answered "Not from your real IT team, as far as I can tell". 10/11 steps; nothing sent. Not a fix for 7.2: an execution agent can still send a reply without approval. |
+
+## 10. Unit tests (2026-10-29)
+
+`tests/` (pytest; `pip install -r server/requirements-dev.txt`, then `python -m pytest`): 57 tests plus 1 expected failure, offline, about 0.1 s. A stand-in embedder (hashed bag of words) replaces the local model, so nothing is downloaded and no LLM is called.
+
+| File | Covers |
+|---|---|
+| `test_agent_search.py` | tokenizer, profiles (first + last 9 requests + latest result), BM25, the name-opaque case, the 3:1 hybrid against embeddings that disagree |
+| `test_agent_index.py` | cards, the 10 + 3 + 5 candidates without repeats, "okay" giving its slots to the conversation search, recency, only changed profiles re-embedded, warm-up, searches never waiting for warm-up, keyword fallback when embeddings fail |
+| `test_interaction_agent.py` | search-mode prompt rules, the upstream four tools in both modes, card escaping |
+| `test_scoring.py` | the eval's routing outcomes and the scam-warning metric |
+| `test_fake_gmail.py` | Gmail query matching in the fake backend (whole words: "vin" doesn't match "province") |
+
+The known gap that "Will" is a stopword is kept visible as an expected failure (`xfail`). To check the tests catch real bugs, I broke the "okay" rule and the 3:1 weighting on purpose; the matching tests failed each time.
