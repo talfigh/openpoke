@@ -68,7 +68,7 @@ class Settings(BaseModel):
     docs_url: Optional[str] = Field(default=os.getenv("OPENPOKE_DOCS_URL", "/docs"))
 
     # Agent roster shown to the interaction agent: "all" lists every agent name (upstream);
-    # "search" shows the agents relevant to the message plus recent ones, with descriptions, and a search tool.
+    # "search" shows the agents relevant to the message plus recent ones, with descriptions.
     agent_roster_mode: str = Field(default=os.getenv("OPENPOKE_AGENT_ROSTER", "all"))
 
     # Summarisation controls

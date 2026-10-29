@@ -298,7 +298,7 @@ def score_case(case: Dict[str, Any], dispatched: List[str], asked: bool, roster:
 CORRECT = {"correct", "correct_with_extras", "correct_fanout", "answered_from_history"}
 
 
-_EMPTY_CAPTURE = {"agents": [], "user_messages": [], "waits": [], "drafts": [], "searches": []}
+_EMPTY_CAPTURE = {"agents": [], "user_messages": [], "waits": [], "drafts": []}
 _SHOWN_AGENT_RE = re.compile(r'<agent name="([^"]*)"')
 
 
@@ -335,16 +335,8 @@ class DispatchStubs:
             cap()["waits"].append(reason)
             return ToolResult(success=True, payload={"status": "waiting", "reason": reason}, recorded_reply=True)
 
-        real_find = ia_tools.find_relevant_agents
-
-        def find_relevant_agents(query: str):  # read-only, so it runs for real; only the query is recorded
-            result = real_find(query)
-            cap()["searches"].append({"query": query, "found": [a["name"] for a in result.payload["agents"]]})
-            return result
-
         ia_tools.send_message_to_agent, ia_tools.send_message_to_user = send_message_to_agent, send_message_to_user
         ia_tools.send_draft, ia_tools.wait = send_draft, wait
-        ia_tools.find_relevant_agents = find_relevant_agents
 
     async def route(self, runtime, system_prompt: str, transcript: str, prompt: str, tag: str, meter: "LLMMeter") -> Dict[str, Any]:
         """Run one user message through the real interaction loop and return what it tried to do."""
@@ -466,8 +458,7 @@ async def run_routing(args, run_dir: Path, meter: LLMMeter) -> Dict[str, Any]:
                     "forbidden_agents": case["forbidden_agents"], "name_mentions_person": case.get("name_mentions_person"),
                     "dispatched": out["agents"], "user_messages": out["user_messages"], "waits": out["waits"], "final_text": out["final_text"],
                     "error": out["error"], "latency_s": out["latency_s"], "tool_calls": out["tool_calls"],
-                    "first_call_prompt_tokens": out["first_call_prompt_tokens"], "shown_agents": out["shown_agents"],
-                    "searches": out["searches"], **score,
+                    "first_call_prompt_tokens": out["first_call_prompt_tokens"], "shown_agents": out["shown_agents"], **score,
                 })
                 mark = "ok " if score["outcome"] in CORRECT else "XX "
                 print(f"  {mark}{case['id']:<8} {case['kind']:<9} {score['outcome']:<22} {out['latency_s']:5.1f}s  {case['prompt'][:55]!r} -> {dispatched[:2]}")
@@ -559,7 +550,6 @@ def aggregate_routing(results: List[Dict[str, Any]], sizes: List[int], meter: "L
             "llm": meter.summarize([c for c in meter.calls if c["tag"].startswith(f"{size}:")]),
             "gold_shown_on_reuse": round(sum(1 for r in reuse_rows if r.get("shown_agents") and r["gold_agents"][0] in r["shown_agents"])
                                          / len(reuse_rows), 3) if reuse_rows and any(r.get("shown_agents") for r in reuse_rows) else None,
-            "search_tool_use": round(sum(1 for r in rows if r.get("searches")) / len(rows), 3) if rows else None,
             "accuracy_original_prompts": _acc([r for r in rows if not r.get("variant")]),
             "accuracy_paraphrased_prompts": _acc([r for r in rows if r.get("variant")]),
             "outcomes": dict(outcomes),
@@ -792,10 +782,9 @@ def routing_markdown(report: Dict[str, Any]) -> str:
                      f"{_fmt(s['misroute_rate_on_reuse'])} | {_fmt(s['new_task_merged_rate'])} | {s['first_call_prompt_tokens_mean']} | "
                      f"{s['latency_p50_s']} | {s['latency_p95_s']} | {s['llm']['cost_usd']} |")
     if any(s.get("gold_shown_on_reuse") is not None for s in per.values()):
-        lines += ["", "Agent search (`--agent-roster search`): how often the correct agent was among the agents shown, "
-                  "and how often the model called `find_relevant_agents`:", "",
-                  "| Roster size | Correct agent shown (follow-ups) | Used the search tool |", "|---|---|---|"]
-        lines += [f"| {size} | {_fmt(s['gold_shown_on_reuse'])} | {_fmt(s['search_tool_use'])} |" for size, s in per.items()]
+        lines += ["", "Agent search (`--agent-roster search`): how often the correct agent was among the agents shown:", "",
+                  "| Roster size | Correct agent shown (follow-ups) |", "|---|---|"]
+        lines += [f"| {size} | {_fmt(s['gold_shown_on_reuse'])} |" for size, s in per.items()]
     if any(s.get("accuracy_paraphrased_prompts") is not None for s in per.values()):
         lines += ["", "| Roster size | Original prompts | Paraphrased prompts |", "|---|---|---|"]
         lines += [f"| {size} | {_fmt(s['accuracy_original_prompts'])} | {_fmt(s['accuracy_paraphrased_prompts'])} |" for size, s in per.items()]
@@ -1390,7 +1379,7 @@ def main() -> None:
                            help="agent names: the generator's, or the ones OpenPoke chose itself (run grow-roster first)")
     p_routing.add_argument("--prompts", choices=["original", "paraphrases", "all"], default="original")
     p_routing.add_argument("--agent-roster", choices=["all", "search"], default="all",
-                           help="all = every agent name in the prompt (upstream); search = relevant agents with descriptions + find_relevant_agents")
+                           help="all = every agent name in the prompt (upstream); search = relevant agents with descriptions")
     p_grow = sub.add_parser("grow-roster", help="let OpenPoke create and name the 500 roster agents itself")
     p_grow.add_argument("--limit", type=int, default=0)
     p_class = sub.add_parser("classifier")

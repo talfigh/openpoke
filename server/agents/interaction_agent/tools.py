@@ -5,11 +5,9 @@ import json
 from dataclasses import dataclass
 from typing import Any, Optional
 
-from ...config import get_settings
 from ...logging_config import logger
 from ...services.conversation import get_conversation_log
 from ...services.execution import get_agent_roster, get_execution_agent_logs
-from ...services.execution.agent_index import get_agent_index
 from ..execution_agent.batch_manager import ExecutionBatchManager
 
 
@@ -107,28 +105,6 @@ TOOL_SCHEMAS = [
     },
 ]
 
-# Only offered when the roster is shown as search results (agent_roster_mode == "search")
-FIND_RELEVANT_AGENTS_SCHEMA = {
-    "type": "function",
-    "function": {
-        "name": "find_relevant_agents",
-        "description": "Search all existing execution agents, including ones not shown in <active_agents>. Returns the best matches with their purpose and latest status.",
-        "parameters": {
-            "type": "object",
-            "properties": {
-                "query": {
-                    "type": "string",
-                    "description": "What the work is about: people, company, and the job (e.g. 'Daniel Okafor certificate City of Vaughan').",
-                },
-            },
-            "required": ["query"],
-            "additionalProperties": False,
-        },
-    },
-}
-
-_FIND_RESULTS = 10
-
 _EXECUTION_BATCH_MANAGER = ExecutionBatchManager()
 
 
@@ -172,13 +148,6 @@ def send_message_to_agent(agent_name: str, instructions: str) -> ToolResult:
             "new_agent_created": is_new,
         },
     )
-
-
-# Search the full roster for agents related to a topic
-def find_relevant_agents(query: str) -> ToolResult:
-    """Return the agents most relevant to `query`, with what each one is doing."""
-    cards = get_agent_index().search(query, k=_FIND_RESULTS)
-    return ToolResult(success=True, payload={"agents": [card.to_payload() for card in cards]})
 
 
 # Send immediate message to user and record in conversation history
@@ -242,8 +211,6 @@ def wait(reason: str) -> ToolResult:
 # Return predefined tool schemas for LLM function calling
 def get_tool_schemas():
     """Return OpenAI-compatible tool schemas."""
-    if get_settings().agent_roster_mode == "search":
-        return TOOL_SCHEMAS + [FIND_RELEVANT_AGENTS_SCHEMA]
     return TOOL_SCHEMAS
 
 
@@ -266,8 +233,6 @@ def handle_tool_call(name: str, arguments: Any) -> ToolResult:
             return send_draft(**args)
         if name == "wait":
             return wait(**args)
-        if name == "find_relevant_agents":
-            return find_relevant_agents(**args)
 
         logger.warning("unexpected tool", extra={"tool": name})
         return ToolResult(success=False, payload={"error": f"Unknown tool: {name}"})
