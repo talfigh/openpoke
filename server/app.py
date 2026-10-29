@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import threading
 
 from fastapi import FastAPI, HTTPException, Request, status
 from fastapi.exceptions import RequestValidationError
@@ -11,6 +12,7 @@ from .config import get_settings
 from .logging_config import configure_logging, logger
 from .routes import api_router
 from .services import get_important_email_watcher, get_trigger_scheduler
+from .services.execution.agent_index import get_agent_index
 
 
 # Register global exception handlers for consistent error responses across the API
@@ -72,6 +74,9 @@ async def _start_trigger_scheduler() -> None:
     await scheduler.start()
     watcher = get_important_email_watcher()
     await watcher.start()
+    if get_settings().agent_roster_mode == "search":
+        # Embed existing agents in the background; searches use keyword ranking until this finishes.
+        threading.Thread(target=get_agent_index().warm_up, name="agent-index-warm-up", daemon=True).start()
 
 
 @app.on_event("shutdown")

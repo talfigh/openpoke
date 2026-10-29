@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import threading
+import time
 from dataclasses import dataclass
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -59,10 +60,21 @@ class AgentIndex:
         last_active = max((ts for _, ts, _ in entries if ts), default="")[:10]
         return AgentCard(name, _snippet(requests[0]) if requests else "", _snippet(latest), last_active)
 
-    def _embed_missing(self, profiles: List[str]) -> Optional[List[Any]]:
+    @staticmethod
+    def _profiles(entries: Dict[str, List[Tuple[str, str, str]]]) -> List[str]:
+        return [build_profile(name, [(tag, payload) for tag, _, payload in log]) for name, log in entries.items()]
+
+    def _embed_missing(self, profiles: List[str], wait: bool = False) -> Optional[List[Any]]:
+        """Vectors for `profiles`, embedding the ones not cached yet. None means keyword search only.
+
+        Without `wait`, a search never blocks behind the startup warm-up: if it is still embedding, this one search
+        falls back to keyword ranking.
+        """
         if self._embedder is None:
             return None
-        with self._lock:
+        if not self._lock.acquire(blocking=wait):
+            return None
+        try:
             missing = [p for p in dict.fromkeys(profiles) if p not in self._vectors]
             if missing:
                 try:
@@ -75,6 +87,15 @@ class AgentIndex:
             if len(self._vectors) > 2 * len(profiles):  # drop embeddings of profiles that have since changed
                 self._vectors = dict(zip(profiles, vectors))
             return vectors
+        finally:
+            self._lock.release()
+
+    def warm_up(self) -> None:
+        """Embed every agent's current profile. Run at startup so the first search doesn't have to."""
+        started = time.perf_counter()
+        profiles = self._profiles(self._entries())
+        if profiles and self._embed_missing(profiles, wait=True) is not None:
+            logger.info(f"Agent index ready: {len(profiles)} agents embedded in {time.perf_counter() - started:.1f}s")
 
     def search(self, query: str, k: int = 10, entries: Optional[Dict[str, List[Tuple[str, str, str]]]] = None) -> List[AgentCard]:
         """Agents most relevant to `query`, best first. `entries` reuses logs already read for this turn."""
@@ -82,7 +103,7 @@ class AgentIndex:
         if not entries or not query.strip():
             return []
         names = list(entries)
-        profiles = [build_profile(n, [(tag, payload) for tag, _, payload in entries[n]]) for n in names]
+        profiles = self._profiles(entries)
         vectors = self._embed_missing(profiles)
         search = AgentSearch(self._embedder if vectors is not None else None)
         if vectors is not None:

@@ -90,7 +90,9 @@ def _render_relevant_agents(latest_text: str, transcript: str) -> str:
     total = index.size()
     if not total:
         return '<active_agents total="0">\nNone\n</active_agents>'
-    context = transcript.strip()[-_HISTORY_QUERY_CHARS:]  # covers "okay", "yes send it", "go ahead"
+    # The end of the conversation is searched too, so replies that don't name the work ("okay", "yes send it")
+    # still surface the agent being discussed. The transcript doesn't include the current message yet.
+    context = transcript.strip()[-_HISTORY_QUERY_CHARS:]
     cards = index.candidates(latest_text, context, k=_SEARCH_CANDIDATES, k_context=_CONTEXT_CANDIDATES, recent=_RECENT_AGENTS)
     rendered = [render_agent_card(card) for card in cards]
     return f'<active_agents total="{total}" shown="{len(cards)}">\n' + "\n".join(rendered) + "\n</active_agents>"

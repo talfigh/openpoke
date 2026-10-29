@@ -443,7 +443,7 @@ async def run_routing(args, run_dir: Path, meter: LLMMeter) -> Dict[str, Any]:
         seed_agent_logs(names, seeded_topics)
         if args.agent_roster == "search":
             from server.services.execution.agent_index import get_agent_index
-            get_agent_index().search("warm up", k=1)  # embed every profile once before cases run concurrently
+            get_agent_index().warm_up()  # embed every profile before cases start, like server startup
         roster_set = set(names)
         print(f"\n== roster size {size} ({len(names)} agents, {args.roster} names): {len(cases)} cases")
 
